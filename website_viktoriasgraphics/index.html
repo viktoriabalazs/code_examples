@@ -1,0 +1,155 @@
+<!-- https://viktoriasgraphics.com -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" /> 
+    <title>Viktoria's Graphics - Web and Graphic Design - Responsive Websites</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="description" content="I am Viktoria Balazs, front-end developer, web and graphic designer based in London. I design and build responsive websites and deliver creative solutions." />
+    <meta name="author" content="Viktoria Balazs" />
+    <meta name="robots" content="noodp, index, follow" />
+    <link rel="canonical" href="https://viktoriasgraphics.com" />
+    <link rel="stylesheet" type="text/css" href="viktoriasgraphics.css" />
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" type="text/css" href="style_ie.css"/>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <![endif]-->
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="slider.jquery.js"></script>
+    <script src="viktoriasgraphics.js"></script>
+    <script src="ajax.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-88254067-1', {'anonymizeIp': true,'storage': 'none'});
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="nav_bar">
+        <span><a href="/">Viktoria's Graphics</a></span>
+        <ul id="nav_bar_list">
+          <li><a href="/">HOME</a></li>
+          <li><a href="#about_me" onclick="scrollToThat('#about_me',1000)">About Me</a></li>
+          <li><a href="#portfolio" onclick="scrollToThat('#portfolio',600)">Portfolio</a></li>
+          <li><a href="#contact" onclick="scrollToThat('#contact',1000)">Contact</a></li>
+        </ul>
+      </div>
+      <div id="image_slide">
+        <div id="logo"><h1>Viktoria's Graphics</h1><p>Web and Graphic Design</p></div>
+        <div id="nav">
+          <ul>
+            <li><a href="#portfolio" onclick="scrollToThat('#portfolio',600)"><h5>Websites</h5><img class="main_icon" src="images/websites_icon.png" alt="Websites" width="70" height="70" /><img class="icon_hover" src="images/websites_icon_hover.png" alt="Websites" width="70" height="70" /></a></li>
+            <li><a onclick="updateSlide('ajax/content/html_email_novochem.html')"><h5>HTML E-mail</h5><img class="main_icon" src="images/html_email_icon.png" alt="Html email" width="70" height="70" /><img class="icon_hover" src="images/html_email_icon_hover.png" alt="Html email" width="70" height="70" /></a></li>
+            <li><a onclick="updateSlide('ajax/content/brand.html')"><h5>Brand</h5><img class="main_icon" src="images/brand_icon.png" alt="Brand" width="70" height="70" /><img class="icon_hover" src="images/brand_icon_hover.png" alt="Brand" width="70" height="70" /></a></li>
+            <li><a onclick="updateSlide('ajax/content/calendars.html')"><h5>Calendars</h5><img class="main_icon" src="images/calendars_icon.png" alt="Calendars" width="70" height="70" /><img class="icon_hover" src="images/calendars_icon_hover.png" alt="Calendars" width="70" height="70" /></a></li>
+            <li><a onclick="updateSlide('ajax/content/postcards.html')"><h5>Postcards</h5><img class="main_icon" src="images/postcards_icon.png" alt="Postcards" width="70" height="70" /><img class="icon_hover" src="images/postcards_icon_hover.png" alt="Postcards" width="70" height="70" /></a></li>
+            <li><a onclick="updateSlide('ajax/content/brochures.html')"><h5>Brochures</h5><img class="main_icon" src="images/brochures_icon.png" alt="Brochures" width="70" height="70" /><img class="icon_hover" src="images/brochures_icon_hover.png" alt="Brochures" width="70" height="70" /></a></li>
+          </ul>
+        </div>
+        <div id="text" class="row welcome_text">
+          <div id="welcome" class="col-m-6">
+            <h3>Welcome to my <span onclick="scrollToThat('#portfolio',600)">online portfolio</span></h3>
+            <p>I'm a web and graphic designer based in London.<br />This website shows a selection of my design work.</p>
+          </div>
+          <div id="welcome2" class="col-m-6">
+            <h4>What I do</h4>
+            <ul>
+              <li><b>Web:</b> responsive web design | web development | HTML e-mail</li>
+              <li><b>Graphic design:</b> brochures | calendars | postcards</li>
+              <li><b>Brand identity:</b> logos | business cards | letterheads</li>
+              <li><b>Photoshop:</b> retouching | montages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><!--header-->
+    <div id="portfolio">
+        <div id="portfolio_header">
+          <h3>Portfolio</h3>
+        </div>
+        <h4>Website design</h4>
+        <ul>
+          <li><a onclick="updateSlide('ajax/content/janoskrettinger.html')"><img src="images/portfolio_website_janoskrettinger.jpg" alt="Janos Krettinger's website" width="300" height="230" /><div class="port_info">Website<span>Janos Krettinger</span></div></a></li>
+          <li><a onclick="updateSlide('ajax/content/gazda.html')"><img src="images/portfolio_website_gazda.jpg" alt="gazda website" width="300" height="230" /><div class="port_info">Website<span>Gazda-Chem</span></div></a></li>
+          <li><a onclick="updateSlide('ajax/content/water.html')"><img src="images/portfolio_website_water.jpg" alt="VKI website" width="300" height="230" /><div class="port_info">Website<span>VKI</span></div></a></li>
+          <li><a onclick="updateSlide('ajax/content/vb.html')"><img src="images/portfolio_website_viktoriabalazs.jpg" alt="viktoria balazs website" width="300" height="230" /><div class="port_info">Website<span>Viktoria Balazs</span></div></a></li>
+          <li><a onclick="updateSlide('ajax/content/html_email_novochem.html')"><img src="images/portfolio_html_email_novocherm.jpg" alt="HTML email Novochem" width="300" height="230" /><div class="port_info">HTML E-mail<span>Novochem</span></div></a></li>
+        </ul><br />
+        <h4>Graphic design</h4>
+        <ul>
+          <li><a onclick="updateSlide('ajax/content/brand.html')"><img src="images/portfolio_brand_gazda.jpg" alt="brand gazda" width="300" height="230" /><div class="port_info">Brand<span>Gazda-Chem</span></div></a></li>
+          <li><a onclick="updateSlide('ajax/content/calendars.html')"><img src="images/portfolio_calendars.jpg" alt="calendars" width="300" height="230" /><div class="port_info">Calendars<span>Personalised</span></div></a></li>
+          <li><a onclick="updateSlide('ajax/content/postcards.html')"><img src="images/portfolio_postcards.jpg" alt="postcards" width="300" height="230" /><div class="port_info">Postcards<span>Greeting Cards</span></div></a></li>
+          <li><a onclick="updateSlide('ajax/content/brochures.html')"><img src="images/portfolio_brochures.jpg" alt="brochures" width="300" height="230" /><div class="port_info">Brochures<span>Personal Projects</span></div></a></li>
+        </ul>
+        <a href="#" onclick="scrollToThat('body',800)">&#8920; Back to top &#8921;</a>
+    </div><!--portfolio-->
+    <div id="footer" class="row">
+      <div id="about_me" class="col-5 col-m-6">
+        <h4>About Me</h4>
+        <p><b>Hello, my name is Viktoria Balazs. I have a passion for graphic design and all things creative.</b></p>
+        <p>I specialized in front-end development and responsive web design. I create websites that works properly at different screen sizes using modern web development technologies.<br />I deliver creative solutions by designing business cards, logos, personalized calendars and postcards working with standard print design.</p>
+        <p>Please check out my graphic design portfolio and get in touch.</p>
+        <p><b>Viktoria</b></p>
+      </div>
+      <div id="contact" class="col-7 col-m-6">
+        <h4>Contact</h4>
+        <form id="contact_form" name="contact_form" method="post">
+          <div id="contact_texts" class="row">
+            <div class="col-5">
+              <label for="contact_name" class="span_container">Your Name: <input id="contact_name" name="name" type="text" onblur="VerifyContactName()" onchange="wip()" /><span class="contact_error_text" id="contact_name_error">Please type your name</span></label>
+              <label for="contact_email" class="span_container">Your E-mail Address: <input id="contact_email" name="email" type="text" onblur="VerifyEmail()" onchange="wip()" /><span class="contact_error_text" id="contact_email_error">Please type your e-mail</span></label>
+            </div>
+            <div class="col-7 relative">
+              <label id="contact_textarea" for="contact_message" class="span_container">Your Message:
+                <textarea id="contact_message" name="message" cols="30" rows="9" onblur="VerifyMessage()" onchange="wip()"></textarea>
+              <span class="contact_error_text" id="contact_message_error">Please type your message</span>
+              </label>
+            </div>
+          </div>
+          <div id="contact_code" class="row relative">
+            <div onclick="ReloadCaptcha()" id="captcha_image_container">
+              <img id="captcha_image" onclick="ReloadCaptcha()" src="contact_email.php" alt="captcha" title="click for new image" width="75" height="50" />
+              <img id="reload_symbol" onclick="ReloadCaptcha()" src="reload_icon_img.png" alt="reload symbol" width="13" height="14" />
+            </div>
+            <p>Please enter the code:</p>
+            <div class="col-s-5 col-5" id="captcha_text_container">
+              <label for="captcha_text" class="relative">
+                <input id="captcha_text" name="captcha_text" type="text" maxlength="6" onblur="VerifyCaptcha()" onchange="wip()" />
+              <span class="contact_error_text" id="captcha_text_error">Please type the code</span>
+              </label>
+            </div>
+          </div>
+          <div id="checkbox_container">
+            <label class="checkbox_label"><input type="checkbox" id="dp_checkbox" value="" onclick="VerifyDPCheckbox()" /></label>I have read the <a onclick="DataPrivacy()">data privacy</a> statement<br />
+            <span class="contact_error_text" id="dp_checkbox_text_error">Please tick the checkbox</span>
+          </div>
+          <input id="contact_button" name="submit" type="button" onclick="ContactEmail()" value="Send" />
+          <p id="email_error_message"></p>
+        </form>
+        <div id="sent_message_container" class="row">
+          <div class="relative padding_reset">
+            <p>Thank You</p>
+            <img src="envelope.png" alt="envelope" width="700" height="640" />
+            <p id="email_sent_message">Your message<br />was sent.</p>
+          </div>
+          <div class="padding_reset"><button id="reset_form_button" onclick="resetForm()">New message</button></div>
+        </div>
+      </div>
+      <div id="copyright">
+        <a onclick="cookies()">Cookies</a><br />
+        <p id="cookie_span">I do not bother you with the usual cookie message. My website does not track you nor does it store any information about you.</p><br />
+        <a onclick="DataPrivacy()">Data privacy</a><br />
+        <p id="dp_span">Please note the above contact form is intended to get in touch only. No information you enter will be stored on this website. I use your name and email address only to reply back to you. Alternatively you are welcome to contact me on <a href="https://uk.linkedin.com/in/viktoria-balazs-a4829ba6" target="_blank">LinkedIn</a>.</p>
+        <p>&#169; 2016 Design &amp; build by Viktoria Balazs</p>
+      </div>
+    </div><!--footer-->
+  </body>
+</html>

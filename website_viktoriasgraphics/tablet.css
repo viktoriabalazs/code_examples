@@ -1,0 +1,149 @@
+/* For tablets */
+@media only screen and (min-width: 768px) {
+  .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+  #logo {
+    padding: 20px 0 30px 0;
+    font-size: 20px;
+  }
+  #logo p {
+    font-size: 18px;
+  }
+  #nav_bar {
+    margin-bottom: 40px;
+  }
+  #nav_bar li {
+    width: 25%;
+  }
+  #nav_bar_list li:first-child {
+    display: block;
+  }
+  #home_button_container {
+    display: none;
+  }
+  #nav {
+    display: block;
+  }
+  #nav2 {
+    display: block;
+  }
+  #text {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 10px;
+  }
+  #text .text1 {
+    margin-bottom: 80px;
+  }
+  #text .text1 h4 {
+    font-size: 22px;
+  }
+  #text .text2 {
+    width: 100%;
+    padding-bottom: 0;
+  }
+  #welcome2 {
+    padding-top: 20px;
+    padding-right: 0;
+  }
+  .welcome_slider {
+    display: block;
+  }
+  #welcome span {
+    width: 70%;
+  }
+  .slider {
+    border: 10px solid #fff;
+    margin-bottom: 30px;
+  }
+  .img_large {
+    display: block;
+  }
+  .img_mobile {
+    display: none;
+  }
+  .website_screen {
+    left: 10.55%;
+    width: 68.4%;
+    height: 79.8%;
+  }
+  .website_tablet {
+    left: 11.4%;
+    height: 64%;
+  }
+  .website_mobile {
+    height: 57%;
+  }
+  .button, .index {
+    width: 7%;
+    font-size: 73%;
+    display: block;
+  }
+  .button span {
+    visibility: visible;
+  }
+  .scroll_text {
+    font-size: 80%;
+    top: 10%;
+  }
+  .scroll_text img {
+    width: 35px;
+  }
+  .tablet {
+    top: 4%;
+    padding-left: 20%;
+  }
+  .tablet img {
+    top: 2%;
+    left: 7%;
+  }
+  #links {
+    margin-top: 10px;
+    padding: 12px 7.5%;
+    padding-left: 10px;
+    float: right;
+  }
+  
+  #portfolio h4 {
+    text-align: left;
+  }
+  #portfolio ul {
+    width: 90%;
+  }
+  #portfolio li {
+    width: 40%;
+    margin: 20px 3.5%;
+  }
+  .port_info {
+    padding: 50px 25px 50px 25px;
+    font-size: 20px;
+    text-align: left;
+  }
+  .port_info span {
+    text-align: center;
+    font-size: 16px;
+    margin: 30px 0 5px 0;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  #about_me, #contact {
+    padding: 30px 4% 15px 4%;
+  }
+  #checkbox_container {
+    margin-top: 30px;
+  }
+  #copyright {
+    padding: 10px 4% 5px; 
+  }
+}

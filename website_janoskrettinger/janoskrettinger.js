@@ -180,11 +180,15 @@ function ContactEmail(){
                $("#email_error_message")[0].innerText="Could not send email. Please try again later.";
                $("#email_error_message")[0].style.display = 'block';
                $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
+             } else if (result == 'email_failed_all') {
+               $("#email_error_message")[0].innerText="Could not send email. Please try again later.";
+               $("#email_error_message")[0].style.display = 'block';
+               $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
+             } else if (result == 'email_sent_sf') {
+               $("#email_error_message")[0].innerText="Your message was send, but a confirmation message to your email address has failed. It's likely you have a typo in your email or you entered wrong email address. Please verify and try again, otherwise I might not be able to contact you.";
+               $("#email_error_message")[0].style.display = 'block';
+               $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
              } else if (result == 'email_sent') {
-               
-               //messageSent = $("#sent_message_container");
-               //contactform.css("display", "none");
-               //messageSent.css("display", "block");
                formInput = $(".form_input");
                formInput.prop("disabled", true);
                formInput.css("background-color","transparent");
@@ -199,7 +203,6 @@ function ContactEmail(){
                $("#email_error_message")[0].style.display = 'none';
              } else {
                $("#email_error_message")[0].innerText="Could not contact server. Please try again later.";
-               //$("#email_error_message")[0].style.backgroundColor = '#e60000';
                $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
              }
            }

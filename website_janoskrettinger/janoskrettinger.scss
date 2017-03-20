@@ -1,0 +1,714 @@
+/*----------------------------------------------
+Project:      Janos Krettinger's Website
+URL:          https://krettingerjanos.hu
+Creator:      Viktoria Balazs
+Primary Use:  CV Website
+-----------------------------------------------*/
+
+/*----------------------------------------------
+Color Reference Sheet
+
+$whiteText:   #efefef;
+$lightBlue:   #a1b8c8;
+$darkBlue:    #395e7f;
+$middleBlue:  #5a839e;
+$middleGrey:  #737373;
+$darkGrey:    #4d4d4d;
+$lightGrey:   #bfbfbf;
+$bgColor:     #e4e4e4;
+$orange:      #ff6600;
+-----------------------------------------------*/
+
+/*----------------------------------------------
+Typography Reference Sheet
+
+body:        Arial, Helvetica, sans-serif
+-----------------------------------------------*/
+
+
+$whiteText: #efefef;
+$lightBlue: #a1b8c8;
+$darkBlue: #395e7f;
+$middleBlue: #5a839e;
+$middleGrey: #737373;
+$darkGrey: #4d4d4d;
+$lightGrey: #bfbfbf;
+$bgColor: #e4e4e4;
+$orange: #ff6600;
+
+/*Grid System for Responsive Design*/
+* {box-sizing: border-box}
+@viewport {
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+  width: 100%;
+}
+.row {
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+/* Container Width */
+
+@mixin largeContainer {
+  width: 85%;
+  max-width: 1280px;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+}
+@mixin smallContainer {
+  width: 100%;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+}
+
+/* Resets */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font: {
+    family: Arial, Helvetica, sans-serif;
+    size: 1em;
+  }
+  line-height: 1.4;
+  background-color: $bgColor;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  &:link, a:visited {
+    text-decoration: none;
+    border: none;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    background: transparent;
+    border: none;
+  }
+}
+a[href^=tel] {
+color: inherit;
+  text-decoration: none;
+}
+img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+}
+h2 {
+  font-size: 1.2em;
+}
+h3{
+  font-size: 1.3em;
+}
+h4 {
+  font-size: 1em;
+  color: $darkBlue;
+}
+h5 {
+  font-size: 0.8em;
+  color: $darkGrey;
+}
+
+/* For Mobiles */
+
+@mixin roundedCorner ($radius: 5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin boxShadow ($shadow: 0px 1px 3px 1px rgba(0,0,0,0.4)) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+/* Header */
+
+#header {
+  background-color: #294457;
+  background: linear-gradient(180deg, #416d8b, #182934);
+  @include boxShadow;
+  position: relative;
+  z-index: 1;
+}
+#header_content {
+  position: relative;
+  color: #a1b8c8;
+  font-weight: bold;
+  letter-spacing: 1px;
+  @include largeContainer;
+  padding: 70px 0 50px 0;
+  text-align: center;
+  h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    span {
+      color: $whiteText;
+    }
+  }
+  h2 {
+    font-style: italic;
+    padding-left: 0;
+  }
+}
+#header_contacts {
+  border-top: 1px solid $middleBlue;
+  margin: {
+    top: 50px;
+    bottom: 10px;
+  }
+  text-align: center;
+  li {
+    padding: 5px 2%;
+    font-style: italic;
+  }
+  a {
+    &:link, &:visited {
+      color: $lightBlue;
+    }
+  }
+  span {
+    color: $middleBlue;
+  }
+}
+
+/* Container */
+
+#content {
+  @inculde smallContainer;
+  letter-spacing: 0.5px;
+}
+
+#about_me {
+  position: relative;
+  z-index: 10;
+  font: {
+    weight: bold;
+    style: italic;
+  }
+  color: $whiteText;
+  background-color: $darkBlue;
+  padding: 15px;
+  margin-top: -45px;
+  @include boxShadow (0px 2px 7px 2px rgba(0,0,0,0.4));
+  h2 {
+    margin: 0 15px;
+    color: $lightBlue;
+    border-bottom: 1px solid $lightBlue;
+  }
+  h3 {
+    margin: 0;
+    color: $lightBlue;
+  }
+  h4 {
+    margin: 0 0 15px 0;
+    color: $whiteText;
+  }
+  div {
+    margin: {
+      top: 20px;
+      bottom: 20px;
+    }
+    padding-top: 0;
+  }
+  p {
+    margin: {
+      top: 0;
+      bottom: 0;
+    }
+  }
+  #currently {
+    margin: {
+      top: 0;
+      bottom: 15px;
+    }
+  }
+}
+#cv {
+  width: 90%;
+  margin: 10px auto;
+  h3 {
+    color: $whiteText;
+    background-color: $darkBlue;
+    padding: 3px 15px;
+    margin: 0 0 20px 0;
+    @include roundedCorner;
+    @include boxShadow;
+  }
+  h4 {
+    margin: 0;
+  }
+  h5 {
+    margin: 0;
+  }
+  .content_box {
+    margin-top: 25px;
+    padding: 0;
+  }
+}
+#skills {
+  h4 {
+    font-size: 0.9em;
+  }
+  h5 {
+    margin-bottom: 10px;
+    font: {
+      size: 0.75em;
+      style: italic;
+    }
+    width: 98%;
+  }
+  .skill {
+    padding: 0;
+    margin: 0;
+    padding-left: 3px;
+  }
+  .meter {
+    margin-bottom: 2px;
+  }
+  .skill_scale {
+    display: inline-block;
+    margin-top: 5px;
+    width: 72%;
+    height: 16px;
+    background: #EEE;
+    @include roundedCorner(10px);
+    @include boxShadow(0 2px 3px rgba(0,0,0,0.2) inset);
+  }
+  .skill_value {
+    height: 100%;
+    background: $lightBlue;
+    @include roundedCorner(10px);
+  }
+  #skill1 {
+    width: 90%;
+  }
+  #skill2 {
+    width: 60%;
+  }
+  #skill3 {
+    width: 80%;
+  }
+  #skill4 {
+    width: 70%;
+  }
+  #skill5 {
+    width: 60%;
+  }
+  #skill6 {
+    width: 80%;
+  }
+  #skill7 {
+    width: 70%;
+  }
+  #skill8 {
+    width: 80%;
+  }
+  span {
+    position: relative;
+    bottom: 3px;
+    display: inline-block;
+    text-align: right;
+    margin-left: 3%;
+    width: 25%;
+    font-size: 0.8em;
+    padding-right: 5px;
+  }
+}
+#experiences {
+  p {
+    font: {
+      size: 0.8em;
+      weight: bold;
+    }
+    color: $middleGrey;
+    margin: 10px 0 10px 0;
+    padding-left: 10px;
+  }
+  h3 {
+    margin-bottom: 30px;
+  }
+  .year_scale {
+    color: $darkBlue;
+    margin: 5px 0;
+  }
+  .year_scale2 {
+    display: none;
+    position: relative;
+    padding-top: 5px;
+    h5 {
+      padding-right: 10px;
+      color: $darkGrey;
+      text-align: right;
+    }
+    span {
+      position: absolute;
+      right: 0;
+      top: 8px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: $darkBlue;
+      @include roundedCorner(20px);
+    }
+  }
+  .work_descript {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid $lightBlue;
+  }
+  .work_header {
+    position: relative;
+    padding: 5px 40px 5px 10px;
+    @include roundedCorner;
+    img {
+      position: absolute;
+      right: 0;
+      top: 10px;
+    }
+    .hide_arrow {
+      display: none;
+    }
+  }
+  .current_work {
+    background-color: $lightBlue;
+    @include boxShadow;
+    h4 {
+      color: $whiteText;
+    }
+    h5 {
+      color: $darkBlue;
+    }
+    .hide_arrow {
+      display: block;
+    }
+    .show_arrow {
+      display: none;
+    }
+  }
+}
+#lang_info {
+  margin-top: 15px;
+  padding: 0;
+  h3 {
+    background-color: $lightBlue;
+    font-size: 1em;
+    padding: 5px 15px;
+  }
+  h4, h5 {
+    padding-left: 3px;
+  }
+  h4 {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    border-bottom: 1px solid $lightBlue;
+  }
+  h5 {
+    font: {
+      size: 0.75em;
+      style: italic;
+    }
+    margin-bottom: 10px;
+  }
+}
+#education {
+  h4 {
+    font-size: 0.8em;
+  }
+  h5 {
+    font-size: 0.75em;
+    margin-top: 3px;
+  }
+  .year_scale {
+    position: relative;
+    padding: 0;
+    padding-left: 10px;
+    h5 {
+      padding: {
+        right: 10px;
+        left: 15px;
+      }
+      @media screen and (max-width: 599px) {
+        padding-top: 5px;
+      }
+      color: $darkGrey;
+      margin-top: 0;
+      border-left: 5px solid $lightBlue;
+    }
+    span {
+      position: absolute;
+      margin-left: -5px;
+      top: 5px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: $lightBlue;
+      @include roundedCorner(20px);
+    }
+  }
+  .education_header {
+    padding: 0 0 0 10px;
+    @include roundedCorner;
+    h5 {
+      padding-bottom: 7px;
+      border-bottom: 1px solid $lightGrey;
+    }
+  }
+  .education_descript {
+    margin: 0;
+    margin-left: 10px;
+    padding: 5px 15px 0 25px;
+    border-left: 5px solid $lightBlue;
+  }
+}
+
+/* Footer */
+
+#footer {
+  background-color: $darkBlue;
+  margin-top: 45px;
+}
+#footer_content {
+  @include smallContainer;
+  color: $lightBlue;
+  padding: 15px;
+}
+#icons {
+  text-align: center;
+  font: {
+    size: 0.8em;
+    weight: bold;
+  }
+  margin: 20px 0;
+  .icon {
+    width: 50px;
+    height: 50px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .footer_icons {
+    display: inline-block;
+    margin: 0 2%;
+  }
+  a {
+    display: block;
+    width: 50px;
+    height: 40px;
+  }
+}
+#contact_arrow {
+  text-align: center;
+  img {
+    display: inline-block;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+$contacts: mail linkedin top;
+@each $contact in $contacts {
+  .#{$contact} {
+    background: url(images/#{$contact}.png) no-repeat;
+    background-size: contain;
+  }
+}
+#contact_form {
+  position: relative;
+  display: none;
+  font-size: 0.9em;
+  @include smallContainer;
+  @include roundedCorner(20px);
+  border: 2px solid $lightBlue;
+  padding: 15px;
+  h3 {
+    padding-left: 5px;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  label {
+    display: block;
+    width: 100%;
+    padding: 0 5px 5px 5px;
+    @include roundedCorner(30px);
+  }
+  input, textarea {
+    resize: none;
+    @extend label;
+    @include boxShadow(0 2px 3px rgba(0,0,0,0.2) inset);
+    background-color: $bgColor;
+    border: 3px solid $darkBlue;
+    /*border: 3px solid $orange;*/
+    font: {
+      family: Arial, Helvetica, sans-serif;
+      size: 1.2em;
+    }
+    padding: 10px 15px;
+    margin: 5px 0 0;
+  }
+  input {
+    margin-bottom: 0;
+  }
+  input[type="checkbox"] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: {
+      right: 0;
+      top: 0;
+    }
+    padding-top: 5px;
+  }
+  #captcha_container {
+    position: relative;
+  }
+  #captcha_image_container {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #captcha_image {
+    display: block;
+    width: 75px;
+    height: 50px;
+  }
+  #reload_symbol {
+    display: inline-block;
+  }
+  #captcha_label {
+    margin-left: 90px;
+    padding-right: 95px;
+  }
+  .contact_error_text {
+    visibility: hidden;
+    display: block;
+    font: {
+      size: 0.9em;
+      weight: bold;
+    }
+    color: $orange;
+    padding-left: 3px;
+    clear: both;
+  }
+  #dp_checkbox_text_error {
+    padding-left: 8px;
+  }
+  #checkbox_label {
+    position: relative;
+    display: block;
+    width: auto;
+    float: left;
+    padding-bottom: 0;
+  }
+  #dp_span {
+    display: none;
+    position: relative;
+    left: 7px;
+    margin: 0;
+    margin-top: 5px;
+    font-size: 0.9em;
+  }
+  #contact_texts > div {
+    padding: {
+      right: 0;
+      left: 0;
+    }
+  }
+  .contact_box {
+    position: relative;
+    padding: 0;
+	a {
+	  font-style: italic;
+	  color: $whiteText;
+	  text-decoration: underline;
+    }
+  }
+  #sent_message_container {
+    display: none;
+    font-size: 1em;
+    text-align: center;
+    h4 {
+      color: $whiteText;
+      margin-top: 0;
+    }
+  }
+  #email_error_message {
+    margin: 0;
+    text-align: center;
+    color: $orange;
+    font-weight: bold;
+  }
+  .hidden {
+    display: none;
+  }
+  #contact_button, #new_message_button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: auto;
+    margin: 20px auto;
+    padding: 10px 30px;
+    background-color: $darkBlue;
+    border: 2px solid $lightBlue;
+    color: $whiteText;
+    font: {
+      size: 1em;
+      weight: bold;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #new_message_button {
+    position: relative;
+    top: 20px;
+    margin: {
+      bottom: 45px;
+      top: 0;
+    }
+  }
+}
+#copyright {
+  font-size: 0.9em;
+  text-align: center;
+  p {
+    margin: 40px 0 0;
+  }
+  a {
+    font-style: italic;
+    color: $lightBlue;
+    text-decoration: underline;
+  }
+}
+
+/* Media Queries */
+
+@import "mediaqueries";

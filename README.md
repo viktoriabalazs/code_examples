@@ -2,11 +2,12 @@
 ## Code Examples
 Welcome to my GitHub account where you can see some examples of my HTML, CSS, SASS and JavaScript codes.
 ### Projects
-Gazda-Chem Website
-url: http://gazdachem.viktoriasgraphics.com/
+Viktoria's Graphics Website: https://viktoriasgraphics.com/
 
-Janos Krettinger's Website
-url: https://krettingerjanos.hu/
+Janos Krettinger's Website: https://krettingerjanos.hu/
 
-Viktoria's Graphics Website
-url: https://viktoriasgraphics.com/
+Gazda-Chem Website: http://gazdachem.viktoriasgraphics.com/
+
+CSS3 Transforms: https://viktoriasgraphics.com/content/css3_transforms/css3_transforms.html
+
+CSS3 Animation: https://viktoriasgraphics.com/content/css3_animation/css3_animation.html

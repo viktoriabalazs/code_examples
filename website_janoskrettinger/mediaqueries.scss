@@ -1,7 +1,20 @@
 /* For Mobiles in Landscape Mode */
+@mixin smallContainer {
+  width: 100%;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+}
+@mixin roundedCorner ($radius: 5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
 @media screen and (max-width: 599px) and (orientation: landscape) {
   #content {
-    @inculde smallContainer;
+    @include smallContainer;
     letter-spacing: 0.5px;
   }
 }
@@ -15,12 +28,6 @@ $lightGrey: #bfbfbf;
     right: auto;
     left: auto;
   }
-}
-@mixin roundedCorner ($radius: 5px) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  border-radius: $radius;
 }
 
 /* For Tablets */

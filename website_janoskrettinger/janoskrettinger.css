@@ -163,7 +163,9 @@ h5 {
 
 /* Container */
 #content {
-  @inculde smallContainer;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
   letter-spacing: 0.5px;
 }
 

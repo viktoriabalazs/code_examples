@@ -34,18 +34,19 @@ function VerifyContactName(){
   if (krettingerjanos_wip != "on") {
     return true;
   }
-  contactname = $("#contact_name")[0].value;
-  if ( contactname.length < 2 ) { 
-    $("#contact_name")[0].style.borderColor = '#ff6600';
-    $("#contact_name")[0].style.borderWidth = '3px';
-    $("#contact_name")[0].style.borderStyle = 'solid';
+  contactName = $("#contact_name")[0];
+  contactnameValue = contactName.value;
+  if ( contactnameValue.length < 2 ) { 
+    contactName.style.borderColor = '#ff6600';
+    contactName.style.borderWidth = '3px';
+    contactName.style.borderStyle = 'solid';
     $("#contact_name_error")[0].style.visibility = 'visible';
     return false;
   } else {
-    $("#contact_name")[0].style.borderColor = ''; 
+    contactName.style.borderColor = ''; 
     $("#contact_name_error")[0].style.visibility = 'hidden';
-    $("#contact_name")[0].style.borderWidth = ''; 
-    $("#contact_name")[0].style.borderStyle = '';
+    contactName.style.borderWidth = ''; 
+    contactName.style.borderStyle = '';
     return true;
   }
 }
@@ -54,19 +55,20 @@ function VerifyEmail(){
   if (krettingerjanos_wip != "on") {
     return true;
   }
-  contactemail = $("#contact_email")[0].value;
+  contactEmail = $("#contact_email")[0];
+  contactemailValue = contactEmail.value;
   re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if ( !re.test(contactemail) ) { 
-    $("#contact_email")[0].style.borderColor = '#ff6600';
+  if ( !re.test(contactemailValue) ) { 
+    contactEmail.style.borderColor = '#ff6600';
     $("#contact_email_error")[0].style.visibility = 'visible';
-    $("#contact_email")[0].style.borderWidth = '3px';
-    $("#contact_email")[0].style.borderStyle = 'solid';
+    contactEmail.style.borderWidth = '3px';
+    contactEmail.style.borderStyle = 'solid';
     return false;
   } else {
-    $("#contact_email")[0].style.borderColor = '';
+    contactEmail.style.borderColor = '';
     $("#contact_email_error")[0].style.visibility = 'hidden';
-    $("#contact_email")[0].style.borderWidth = '';
-    $("#contact_email")[0].style.borderStyle = '';
+    contactEmail.style.borderWidth = '';
+    contactEmail.style.borderStyle = '';
     return true;
   }
 }
@@ -75,24 +77,25 @@ function VerifyMessage(){
   if (krettingerjanos_wip != "on") {
     return true;
   }
-  contactmessage = $("#contact_message")[0].value;
-  if ( contactmessage.length < 12 ) {
-    $("#contact_message")[0].style.borderColor = '#ff6600';
+  contactMessage = $("#contact_message")[0];
+  contactmessageValue = contactMessage.value;
+  if ( contactmessageValue.length < 12 ) {
+    contactMessage.style.borderColor = '#ff6600';
     $("#contact_message_error")[0].style.visibility = 'visible';
-    $("#contact_message")[0].style.borderWidth = '3px';
-    $("#contact_message")[0].style.borderStyle = 'solid';
+    contactMessage.style.borderWidth = '3px';
+    contactMessage.style.borderStyle = 'solid';
     return false;
-  } else if ( contactmessage.length > 2000) {
-    $("#contact_message")[0].style.borderColor = '#ff6600';
+  } else if ( contactmessageValue.length > 2000) {
+    contactMessage.style.borderColor = '#ff6600';
     $("#contact_message_error")[0].style.visibility = 'visible';
-    $("#contact_message")[0].style.borderWidth = '3px';
-    $("#contact_message")[0].style.borderStyle = 'solid';
+    contactMessage.style.borderWidth = '3px';
+    contactMessage.style.borderStyle = 'solid';
     return false;
   } else {
-    $("#contact_message")[0].style.borderColor = '';
+    contactMessage.style.borderColor = '';
     $("#contact_message_error")[0].style.visibility = 'hidden';
-    $("#contact_message")[0].style.borderWidth = '';
-    $("#contact_message")[0].style.borderStyle = '';
+    contactMessage.style.borderWidth = '';
+    contactMessage.style.borderStyle = '';
     return true;
   }
 }
@@ -101,18 +104,19 @@ function VerifyCaptcha(){
   if (krettingerjanos_wip != "on") {
     return true;
   }
-  captchatext = $("#captcha_text")[0].value;
-  if ( captchatext.length != 6 ) {
-    $("#captcha_text")[0].style.borderColor = '#ff6600';
+  captchaText = $("#captcha_text")[0];
+  captchatextValue = captchaText.value;
+  if ( captchatextValue.length != 6 ) {
+    captchaText.style.borderColor = '#ff6600';
     $("#captcha_text_error")[0].style.visibility = 'visible';
-    $("#captcha_text")[0].style.borderWidth = '3px';
-    $("#captcha_text")[0].style.borderStyle = 'solid';
+    captchaText.style.borderWidth = '3px';
+    captchaText.style.borderStyle = 'solid';
     return false;
   } else {
-    $("#captcha_text")[0].style.borderColor = '';
+    captchaText.style.borderColor = '';
     $("#captcha_text_error")[0].style.visibility = 'hidden';
-    $("#captcha_text")[0].style.borderWidth = '';
-    $("#captcha_text")[0].style.borderStyle = '';
+    captchaText.style.borderWidth = '';
+    captchaText.style.borderStyle = '';
     return true;
   }
 }
@@ -121,17 +125,18 @@ function VerifyDPCheckbox(){
   if (krettingerjanos_wip != "on") {
     return true;
   }
-  if ( $("#dp_checkbox")[0].checked ) {
-    $("#dp_checkbox")[0].style.borderColor = '';
+  checkBox = $("#dp_checkbox")[0];
+  if ( checkBox.checked ) {
+    checkBox.style.borderColor = '';
     $("#dp_checkbox_text_error")[0].style.visibility = 'hidden';
-    $("#dp_checkbox")[0].style.borderWidth = '';
-    $("#dp_checkbox")[0].style.borderStyle = '';
+    checkBox.style.borderWidth = '';
+    checkBox.style.borderStyle = '';
     return true;
   } else {
-    $("#dp_checkbox")[0].style.borderColor = '#ff6600';
+    checkBox.style.borderColor = '#ff6600';
     $("#dp_checkbox_text_error")[0].style.visibility = 'visible';
-    $("#dp_checkbox")[0].style.borderWidth = '3px';
-    $("#dp_checkbox")[0].style.borderStyle = 'solid';
+    checkBox.style.borderWidth = '3px';
+    checkBox.style.borderStyle = 'solid';
     return false;
   }
 }
@@ -139,16 +144,16 @@ function VerifyDPCheckbox(){
 // send email
 function ContactEmail(){
   // get the values
-  contactname = $("#contact_name")[0].value;
-  contactemail = $("#contact_email")[0].value;
-  contactmessage = $("#contact_message")[0].value;
-  captchatext = $("#captcha_text")[0].value;
+  contactnameValue = $("#contact_name")[0].value;
+  contactemailValue = $("#contact_email")[0].value;
+  contactmessageValue = $("#contact_message")[0].value;
+  captchatextValue = $("#captcha_text")[0].value;
   
   // force verify content of fields
   krettingerjanos_wip = "on";
 
   // name
-  name_ok = VerifyContactName(contactname);
+  name_ok = VerifyContactName(contactnameValue);
   
   // email
   email_ok = VerifyEmail();
@@ -165,29 +170,31 @@ function ContactEmail(){
     // send request
     $.post("contact_email.php",
            {
-           contact_name: contactname,
-           contact_email: contactemail,
-           contact_message: contactmessage,
-           captcha_text: captchatext
+           contact_name: contactnameValue,
+           contact_email: contactemailValue,
+           contact_message: contactmessageValue,
+           captcha_text: captchatextValue
            },
            function(result) {
+             captchaText = $("#captcha_text")[0];
+             textError = $("#email_error_message")[0];
              if (result == 'captcha_failed') {
-               $("#captcha_text")[0].style.borderColor = '#ff6600';
+               captchaText.style.borderColor = '#ff6600';
                $("#captcha_text_error")[0].style.visibility = 'visible';
-               $("#captcha_text")[0].style.borderWidth = '3px';
-               $("#captcha_text")[0].style.borderStyle = 'solid';
+               captchaText.style.borderWidth = '3px';
+               captchaText.style.borderStyle = 'solid';
              } else if (result == 'email_failed') {
-               $("#email_error_message")[0].innerText="Could not send email. Please try again later.";
-               $("#email_error_message")[0].style.display = 'block';
-               $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
+               textError.innerText="Could not send email. Please try again later.";
+               textError.style.display = 'block';
+               $("html, body").animate({ scrollTop: (textError.offset().top) },800);
              } else if (result == 'email_failed_all') {
-               $("#email_error_message")[0].innerText="Could not send email. Please try again later.";
-               $("#email_error_message")[0].style.display = 'block';
-               $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
+               textError.innerText="Could not send email. Please try again later.";
+               textError.style.display = 'block';
+               $("html, body").animate({ scrollTop: (textError.offset().top) },800);
              } else if (result == 'email_sent_sf') {
-               $("#email_error_message")[0].innerText="Your message was send, but a confirmation message to your email address has failed. It's likely you have a typo in your email or you entered wrong email address. Please verify and try again, otherwise I might not be able to contact you.";
-               $("#email_error_message")[0].style.display = 'block';
-               $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
+               textError.innerText="Your message was send, but a confirmation message to your email address has failed. It's likely you have a typo in your email or you entered wrong email address. Please verify and try again, otherwise I might not be able to contact you.";
+               textError.style.display = 'block';
+               $("html, body").animate({ scrollTop: (textError.offset().top) },800);
              } else if (result == 'email_sent') {
                formInput = $(".form_input");
                formInput.prop("disabled", true);
@@ -199,10 +206,10 @@ function ContactEmail(){
                $("#contact_button").slideUp(400);
                $("#sent_message_container").slideDown(300);
                $("#new_message_button").slideDown(500);
-               $("#email_error_message")[0].innerText="";
-               $("#email_error_message")[0].style.display = 'none';
+               textError.innerText="";
+               textError.style.display = 'none';
              } else {
-               $("#email_error_message")[0].innerText="Could not contact server. Please try again later.";
+               textError.innerText="Could not contact server. Please try again later.";
                $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
              }
            }

@@ -186,15 +186,15 @@ function ContactEmail(){
              } else if (result == 'email_failed') {
                textError.innerText="Could not send email. Please try again later.";
                textError.style.display = 'block';
-               $("html, body").animate({ scrollTop: (textError.offset().top) },800);
+               $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
              } else if (result == 'email_failed_all') {
                textError.innerText="Could not send email. Please try again later.";
                textError.style.display = 'block';
-               $("html, body").animate({ scrollTop: (textError.offset().top) },800);
+               $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
              } else if (result == 'email_sent_sf') {
                textError.innerText="Your message was send, but a confirmation message to your email address has failed. It's likely you have a typo in your email or you entered wrong email address. Please verify and try again, otherwise I might not be able to contact you.";
                textError.style.display = 'block';
-               $("html, body").animate({ scrollTop: (textError.offset().top) },800);
+               $("html, body").animate({ scrollTop: ($("#email_error_message").offset().top) },800);
              } else if (result == 'email_sent') {
                formInput = $(".form_input");
                formInput.prop("disabled", true);

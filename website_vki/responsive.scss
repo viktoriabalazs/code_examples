@@ -1,0 +1,154 @@
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+  .header_img_text {
+    top: 25%;
+  }
+  .large_img {
+    display: block;
+  }
+  .small_img, .medium_img {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .navbar-nav {
+    background: transparent;
+  }
+  .navbar-nav > li {
+    float: none;
+    display: inline-block;
+    width: 19%;
+  }
+  .navbar-default .navbar-nav > li > a {
+    padding: 25px 0;
+  }
+  #myNavbar {
+    top: 0;
+    margin: 0;
+    margin-top: -80px;
+  }
+  #second_link {
+    margin-right: 10%;
+  }
+  #third_link {
+    margin-left: 10%;
+  }
+  .nav > li > a {
+    padding: 25px 10px;
+  }
+  .small_img {
+    display: none;
+  }
+  .medium_img {
+    display: block;
+  }
+  .content_box {
+    padding: 15px 40px 30px;
+  }
+  #content_header {
+    padding: 15px 40px 0 40px;
+  }
+  #header_img_container {
+    height: 700px;
+  }
+  #wildlife > p {
+    margin-bottom: 20px;
+  }
+  #carousel_animals {
+     padding-left: 20px;
+     margin-left: -15px;
+     .carousel-control.right {
+        margin-right: -75px;
+      }
+      .carousel-control.left {
+        margin-left: -35px;
+      }
+  }
+  .animal_description {
+    display: block;
+  }
+  #events {
+    .panel-default {
+      padding: 30px;
+    }
+  }
+  #habitats {
+    .habitats_card {
+      margin: 0;
+      padding: 0 15px;
+    }
+  }
+  #footer {
+    padding: 15px 40px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .large_img {
+    display: block;
+  }
+  .small_img, .medium_img {
+    display: none;
+  }
+  #header_img_container {
+    background: url(images/vki_header.jpg) no-repeat top center/cover fixed;
+  }
+  .header_img_text {
+    top: 27%;
+  }
+  #events {
+    font-size: 0.9em;
+    margin-top: -10px;
+    padding-bottom: 15px;
+    box-shadow: -5px 0px 5px rgba(0,0,0,0.4);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    #tablet_events {
+      display: none;
+    }
+    & > header {
+      text-align: center;
+      border-top-left-radius: 15px;
+      padding: 15px;
+      background: $contentBox3Color;
+      background-image: url(images/events/flower.png);
+      background-repeat: no-repeat;
+    }
+    .panel-title {
+      padding: 7px 20px;
+    }
+    .panel-body {
+      margin: 0 20px;
+    }
+    .panel-default {
+      padding: 0;
+    }
+  }
+  #carousel1 .carousel-caption {
+    bottom: 27.5%;
+    left: 11%;
+  }
+  #carousel2 .carousel-caption, #carousel3 .carousel-caption {
+    bottom: 1%;
+    left: 6%;
+  }
+  .carousel-caption {
+    text-align: left;
+    h3 {
+      font-size: 3em;
+    }
+    p {
+      font-size: 2em;
+    }
+  }
+  .carousel-indicators {
+    li {
+      width: 15px;
+      height: 15px;
+      margin: 1px 5px;
+    }
+    .active {
+      width: 16px;
+      height: 16px;
+      margin: 1px 5px;
+    }
+  }
+}

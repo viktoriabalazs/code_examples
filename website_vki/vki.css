@@ -1,0 +1,715 @@
+/* Colors */
+body {
+  color: #fff;
+  font-family: Arial,sans-serif;
+  font-size: 1.5em;
+  background-color: #90b4bb;
+  width: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.google_map {
+  width: 100%;
+  height: 400px;
+  background: #fff;
+}
+
+.leftpadding {
+  padding-left: 0;
+  padding-right: 30px;
+}
+
+.rightpadding {
+  padding-left: 30px;
+  padding-right: 0;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.navbar {
+  z-index: 4;
+}
+
+.navbar-default {
+  background: #a6bbc4;
+  background: rgba(166, 187, 196, 0.85);
+  border: none;
+}
+.navbar-default .navbar-nav > li {
+  position: relative;
+  padding-bottom: 5px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 15px 0;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #fff;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background: #a6bbc4;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+#home_button {
+  position: relative;
+  display: block;
+  top: 2px;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  width: 130px;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 50;
+}
+#home_button img {
+  display: inline-block;
+  width: 100px;
+  height: auto;
+}
+
+.navbar-nav {
+  float: none;
+}
+
+#myNavbar {
+  position: relative;
+  top: 15px;
+  clear: both;
+  margin: 10px;
+}
+
+#header_img_container {
+  width: 100%;
+  height: 500px;
+  background: url(images/vki_header.jpg) no-repeat top center fixed;
+  z-index: 1;
+}
+
+.header_img_text {
+  left: 0;
+  top: 23%;
+  position: relative;
+  z-index: 2;
+}
+
+.large_img, .medium_img {
+  display: none;
+}
+
+.small_img {
+  display: block;
+}
+
+#container {
+  padding: 0;
+}
+
+#content {
+  position: relative;
+  background-image: url(images/content_top.png);
+  background-position: left top;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  margin-top: -90px;
+  z-index: 3;
+}
+#content .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.content_box {
+  margin: 0;
+  padding: 15px 25px 30px;
+}
+.content_box p {
+  padding: 15px 0;
+}
+
+.homepage_link {
+  color: #fff;
+  margin-top: 30px;
+  display: block;
+  text-align: right;
+  clear: both;
+}
+.homepage_link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#content_header {
+  padding: 15px 25px 0 25px;
+  background-color: #569099;
+  background-image: url(images/content_top2.png);
+  background-position: left top;
+  background-repeat: no-repeat;
+}
+#content_header h2 {
+  margin-top: 0;
+}
+#content_header p {
+  border-bottom: 1px solid #c0d4d8;
+  padding-bottom: 35px;
+  margin-bottom: 0;
+}
+
+#content_text {
+  background-color: #569099;
+  margin: 0;
+  padding: 10px 10%;
+}
+
+#wildlife, #events {
+  background: #569099;
+}
+
+#carousel_animals {
+  width: 280px;
+  margin: 10px auto 30px auto;
+  padding-left: 0;
+  overflow: visible;
+  color: #569099;
+  text-align: center;
+}
+#carousel_animals img {
+  width: 250px;
+  height: auto;
+}
+#carousel_animals h3 {
+  font-size: 26px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 7px 0 0;
+}
+#carousel_animals h4 {
+  margin: 0;
+  padding: 5px;
+}
+#carousel_animals strong {
+  padding-top: 10px;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+#carousel_animals p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+#carousel_animals p:last-child {
+  font-style: normal;
+  padding: 10px 0;
+}
+#carousel_animals .carousel-inner {
+  width: 280px;
+}
+#carousel_animals .carousel-inner > .item {
+  width: 100%;
+  padding: 15px;
+}
+#carousel_animals .animal_card {
+  box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.3);
+  background: #fff;
+}
+#carousel_animals .animal_carousel_text header {
+  background: #90b4bb;
+  color: #fff;
+}
+#carousel_animals .animal_carousel_text header p {
+  font-style: italic;
+  padding: 2px 0 5px 0;
+}
+#carousel_animals .animal_carousel_label {
+  background: #c0d4d8;
+  color: #fff;
+  text-transform: uppercase;
+}
+#carousel_animals .animal_carousel_label h4 {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+#carousel_animals .carousel-control {
+  font-size: 30px;
+  width: 35%;
+}
+#carousel_animals .carousel-control.right, #carousel_animals .carousel-control.left {
+  background-image: none;
+}
+#carousel_animals .carousel-control.right {
+  margin-right: -50px;
+}
+#carousel_animals .carousel-control.left {
+  margin-left: -50px;
+}
+#carousel_animals .cons_status {
+  margin: 2px;
+  font-size: 12px;
+}
+#carousel_animals .active_status {
+  margin: 6px 2px 0;
+  padding: 8px;
+  width: 35px;
+  font-size: 15px;
+  height: 35px;
+  font-style: normal;
+  background: #90b4bb;
+  color: #fff;
+  border: 0;
+}
+
+.carousel-caption {
+  text-shadow: 1px 1px 1px #000;
+}
+.carousel-caption h3 {
+  font-size: 2em;
+}
+.carousel-caption p {
+  font-size: 1em;
+}
+
+.carousel-indicators li {
+  background: #ebebeb;
+}
+.carousel-indicators .active {
+  background: #569099;
+}
+
+.animal_description {
+  display: none;
+  position: relative;
+  padding: 20px;
+  margin: 10px 0 30px 0;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  left: 40px;
+  margin-top: -10px;
+  padding: 30px;
+}
+.animal_description h5 {
+  font-style: italic;
+}
+.animal_description h6 {
+  font-size: 1em;
+  margin-bottom: 0;
+}
+.animal_description h6 + p {
+  padding-top: 5px;
+  margin-top: 8px;
+  border-top: 1px solid #fff;
+}
+.animal_description p {
+  padding: 0;
+  margin: 15px 0;
+}
+.animal_description p:last-child {
+  margin: 0;
+}
+.animal_description .besorolas {
+  position: absolute;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #c0d4d8;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #90b4bb;
+  top: 35px;
+  right: 30px;
+}
+.animal_description .iucn {
+  margin-right: 5px;
+  display: inline-block;
+}
+.animal_description .status_symbols {
+  display: inline-block;
+}
+
+.cons_status {
+  display: inline-block;
+  margin: 10px 4px;
+  padding: 4px;
+  width: 27px;
+  height: 27px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 1px solid #c0d4d8;
+}
+
+.active_status {
+  background: #fff;
+  color: #569099;
+}
+
+#events {
+  line-height: 1.2;
+  padding: 0;
+  padding-bottom: 30px;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #events {
+    padding: 15px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #events #accordion {
+    display: none;
+  }
+}
+#events header {
+  padding: 30px;
+  background: #569099;
+  color: #fff;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #events header {
+    background: transparent;
+  }
+}
+#events p {
+  margin: 0;
+  padding: 0;
+}
+#events h3 {
+  margin-top: 0;
+  font-size: 1.4em;
+}
+#events h3 a {
+  color: #fff;
+}
+#events a {
+  text-decoration: none;
+}
+#events .panel {
+  background: #c0d4d8;
+  border: 0;
+}
+#events .panel-heading {
+  padding: 0;
+}
+#events .panel-heading img {
+  width: 100%;
+  height: auto;
+}
+#events .panel-heading a {
+  display: block;
+}
+#events .panel-title {
+  padding: 7px 30px;
+  background: #c0d4d8;
+  color: #569099;
+  font-size: 1em;
+  font-weight: bold;
+}
+#events .panel-body {
+  color: #569099;
+  border-color: #569099;
+  padding: 15px 0;
+  margin: 0 30px;
+}
+#events .panel-body .event_link {
+  display: inline-block;
+  color: #569099;
+  margin-top: 15px;
+  text-decoration: underline;
+  font-size: 0.9em;
+}
+#events .panel-default {
+  margin-bottom: 20px;
+  padding: 0;
+}
+#events .homepage_link {
+  margin-right: 20px;
+}
+#events .homepage_link:hover {
+  text-decoration: underline;
+}
+
+#tablet_events {
+  padding: 30px;
+  padding-top: 0;
+  display: none;
+  background: #569099;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  #tablet_events {
+    display: block;
+  }
+}
+#tablet_events .tablet_events {
+  margin: 20px 0;
+  color: #569099;
+}
+#tablet_events .tablet_events_head {
+  background: #fff;
+  padding: 0 20px;
+}
+#tablet_events .tablet_events_head h4 {
+  margin: 0;
+  padding: 10px 0 5px 0;
+  color: #569099;
+}
+#tablet_events .tablet_events_body {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 0 0 10px 10px;
+}
+#tablet_events img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+#tablet_events .tablet_event_link {
+  color: #569099;
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: underline;
+}
+#tablet_events .homepage_link {
+  font-size: 1em;
+}
+
+#habitats {
+  background: #90b4bb;
+}
+#habitats h4 {
+  margin-top: 40px;
+  padding-top: 35px;
+  border-top: 1px solid #fff;
+}
+#habitats .habitats_card {
+  position: relative;
+  margin: 30px 0;
+  padding: 0;
+}
+#habitats .habitats_card img {
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+}
+#habitats .habitats_card h5 {
+  position: absolute;
+  top: 20px;
+  left: 2px;
+  padding: 0 20px;
+  font-size: 1.2em;
+  line-height: 1.3;
+  text-align: center;
+}
+#habitats .habitats_card a {
+  position: absolute;
+  bottom: 25px;
+  left: 35px;
+  color: #fff;
+}
+
+#water_quality {
+  background: #fff;
+  color: #000;
+  padding: 0;
+}
+
+#footer {
+  background: #569099;
+  padding: 15px 25px;
+}
+#footer p {
+  margin: 0;
+}
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+  .header_img_text {
+    top: 25%;
+  }
+
+  .large_img {
+    display: block;
+  }
+
+  .small_img, .medium_img {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .navbar-nav {
+    background: transparent;
+  }
+
+  .navbar-nav > li {
+    float: none;
+    display: inline-block;
+    width: 19%;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    padding: 25px 0;
+  }
+
+  #myNavbar {
+    top: 0;
+    margin: 0;
+    margin-top: -80px;
+  }
+
+  #second_link {
+    margin-right: 10%;
+  }
+
+  #third_link {
+    margin-left: 10%;
+  }
+
+  .nav > li > a {
+    padding: 25px 10px;
+  }
+
+  .small_img {
+    display: none;
+  }
+
+  .medium_img {
+    display: block;
+  }
+
+  .content_box {
+    padding: 15px 40px 30px;
+  }
+
+  #content_header {
+    padding: 15px 40px 0 40px;
+  }
+
+  #header_img_container {
+    height: 700px;
+  }
+
+  #wildlife > p {
+    margin-bottom: 20px;
+  }
+
+  #carousel_animals {
+    padding-left: 20px;
+    margin-left: -15px;
+  }
+  #carousel_animals .carousel-control.right {
+    margin-right: -75px;
+  }
+  #carousel_animals .carousel-control.left {
+    margin-left: -35px;
+  }
+
+  .animal_description {
+    display: block;
+  }
+
+  #events .panel-default {
+    padding: 30px;
+  }
+
+  #habitats .habitats_card {
+    margin: 0;
+    padding: 0 15px;
+  }
+
+  #footer {
+    padding: 15px 40px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .large_img {
+    display: block;
+  }
+
+  .small_img, .medium_img {
+    display: none;
+  }
+
+  #header_img_container {
+    background: url(images/vki_header.jpg) no-repeat top center/cover fixed;
+  }
+
+  .header_img_text {
+    top: 27%;
+  }
+
+  #events {
+    font-size: 0.9em;
+    margin-top: -10px;
+    padding-bottom: 15px;
+    box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.4);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  #events #tablet_events {
+    display: none;
+  }
+  #events > header {
+    text-align: center;
+    border-top-left-radius: 15px;
+    padding: 15px;
+    background: #90b4bb;
+    background-image: url(images/events/flower.png);
+    background-repeat: no-repeat;
+  }
+  #events .panel-title {
+    padding: 7px 20px;
+  }
+  #events .panel-body {
+    margin: 0 20px;
+  }
+  #events .panel-default {
+    padding: 0;
+  }
+
+  #carousel1 .carousel-caption {
+    bottom: 27.5%;
+    left: 11%;
+  }
+
+  #carousel2 .carousel-caption, #carousel3 .carousel-caption {
+    bottom: 1%;
+    left: 6%;
+  }
+
+  .carousel-caption {
+    text-align: left;
+  }
+  .carousel-caption h3 {
+    font-size: 3em;
+  }
+  .carousel-caption p {
+    font-size: 2em;
+  }
+
+  .carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    margin: 1px 5px;
+  }
+  .carousel-indicators .active {
+    width: 16px;
+    height: 16px;
+    margin: 1px 5px;
+  }
+}

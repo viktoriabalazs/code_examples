@@ -8,6 +8,8 @@ Janos Krettinger's Website: https://krettingerjanos.hu/
 
 Gazda-Chem Website: http://gazdachem.viktoriasgraphics.com/
 
+VKI Website: under development
+
 HTML e-mail: https://viktoriasgraphics.com/content/html_email/novochem_christmas_letter.html
 
 CSS3 Transforms: https://viktoriasgraphics.com/content/css3_transforms/css3_transforms.html

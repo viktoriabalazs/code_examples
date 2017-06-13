@@ -1,3 +1,4 @@
+<!-- http://vkidev.viktoriasgraphics.com/ -->
 <!DOCTYPE html>
 <html lang="hu">
   <head>
@@ -24,7 +25,7 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
+          <span class="icon-bar"></span>
         </button>
         <a href="index.html" id="home_button"><img src="images/vki.png" alt="VKI" width="120" height="52" /><p>Víz Keretirányelv</p></a>
         <div class="collapse navbar-collapse text-center" id="myNavbar">
@@ -43,16 +44,15 @@
       <img src="images/vizeink_vedelme_small.png" class="small_img header_img_text img-responsive" alt="header" width="643" height="264" />
     </div>
     <div id="content" class="container-fluid">
-      <div class="row">
-        <div id="container" class="col-md-9">
-          <header id="content_header">
+        <div id="container">
+          <header id="content_header" class="large_container">
             <h2>Vizeink Védelme</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales ac dui eget iaculis. Nulla imperdiet dolor vel ante suscipit bibendum. Vivamus elit purus, viverra in bibendum a, blandit vel lacus.</p>
           </header>
-          <section id="wildlife" class="content_box row">
+          <section id="wildlife" class="content_box large_container row">
             <h3>Élővilág</h3>
             <p>Bizonyos állatok jelenléte vagy hiánya jelzi az adott élőhely állapotát. Például ahol a táplálékláncban magasabb szinten elhelyezkedő állatok is megtalálhatók, ott megfelelő mennyiségű táplálék van jelen és ez jó vízminőséget jelent.</p>
-            <div id="carousel_animals" class="carousel slide col-sm-5">
+            <div id="carousel_animals" class="carousel slide">
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
                 <div class="item active" id="animals_carousel1">
@@ -120,7 +120,7 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
-            <div class="animal_description col-sm-7">
+            <div class="animal_description">
               <h4>Európai Vidra</h4>
               <h5>Lutra lutra</h5>
               <span class="besorolas">Emlősök</span>
@@ -134,7 +134,7 @@
             </div>
             <a href="#" class="homepage_link">Tovább az Élővilághoz >></a>
           </section>
-          <section id="habitats" class="content_box">
+          <section id="habitats" class="content_box large_container">
             <h3>Vizes Élőhelyek</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales ac dui eget iaculis. Nulla imperdiet dolor vel ante suscipit bibendum. Vivamus elit purus, viverra in bibendum a, blandit vel lacus.</p>
             <div id="google_map" class="google_map"></div>
@@ -154,11 +154,11 @@
             </div>
             <a href="#" class="homepage_link">Tovább a Vizes Élőhelyekhez >></a>
           </section>
-        </div>
-        <section id="events" class="col-md-3 content_box">
+          <section id="events" class="content_box">
           <header>
-            <h3><a href="#">Program Ajánló</a></h3>
+            <h3 id="header_title"><a href="#">Program Ajánló</a></h3>
             <p>Túralehetőségek és Események</p>
+            <span id="collapse_sign" class="glyphicon glyphicon-chevron-right"></span>
           </header>
             <div class="panel-group" id="accordion">
               <article class="panel panel-default">
@@ -252,7 +252,7 @@
                 </div>
               </article>
               <a href="#" class="homepage_link">Tovább a Program Ajánlóhoz >></a>
-            </div> 
+            </div>
             <section class="row" id="tablet_events">
               <article class="tablet_events col-sm-6 leftpadding">
                 <img src="images/events/budapest.jpg" alt="Budapest" width="800" height="450" />
@@ -329,6 +329,7 @@
               <a href="#" class="homepage_link">Tovább a Program Ajánlóhoz >></a>
             </section>
         </section>
+        </div>
         <section id="water_quality" class="col-xs-12">
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -372,11 +373,10 @@
             </a>
           </div>
         </section>
-      </div>
     </div><!-- content -->
     <div id="footer" class="container-fluid">
       <div id="copyright">
-        <p>Copyright</p>
+        <p><a href="http://viktoriasgraphics.com" target="_blank">Webdesign: viktoriasgraphics.com</a></p>
       </div>
     </div>
     <script>

@@ -5,6 +5,10 @@ $contentBox1Color: #569099;
 $contentBox2Color: #c0d4d8;
 $contentBox3Color: #90b4bb;
 
+body, html {
+  max-width: 1920px;
+  margin: 0 auto;
+}
 body {
   color: #fff;
   font: {
@@ -43,6 +47,8 @@ img {
 }
 .navbar {
   z-index: 4;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .navbar-default {
   background: $navBarColor;
@@ -101,7 +107,7 @@ img {
 #header_img_container {
   width: 100%;
   height: 500px;
-  background: url(images/vki_header.jpg) no-repeat top center fixed;
+  background: url(images/vki_header.jpg) no-repeat top center;
   z-index: 1;
 }
 .header_img_text {
@@ -117,7 +123,13 @@ img {
   display: block;
 }
 #container {
+  position: relative;
   padding: 0;
+  .collapse_events {
+    width: 60px;
+    height: 200px;
+    background: $contentBox3Color;
+  }
 }
 #content {
   position: relative;
@@ -138,7 +150,7 @@ img {
 }
 .content_box {
   margin: 0;
-  padding: 15px 25px 30px;
+  padding: 15px 15px 30px 15px;
   p {
     padding: 15px 0;
   }
@@ -147,7 +159,6 @@ img {
   color: #fff;
   margin-top: 30px;
   display: block;
-  text-align: right;
   clear: both;
   &:hover {
     color: #fff;
@@ -155,7 +166,7 @@ img {
   }
 }
 #content_header {
-  padding: 15px 25px 0 25px;
+  padding: 15px 15px 0 15px;
   background: {
     color: $contentBox1Color;
     image: url(images/content_top2.png);
@@ -179,6 +190,9 @@ img {
 #wildlife, #events {
   background: $contentBox1Color;
 }
+#wildlife {
+  position: relative;
+}
 #carousel_animals {
   width: 280px;
   margin: 10px auto 30px auto;
@@ -187,7 +201,7 @@ img {
   color: $contentBox1Color;
   text-align: center;
   img {
-    width: 250px;
+    width: 260px;
     height: auto;
   }
   h3 {
@@ -218,7 +232,7 @@ img {
     }
   }
   .carousel-inner {
-     width: 280px;
+     width: 290px;
   }
   .carousel-inner > .item {
     width: 100%;
@@ -258,7 +272,7 @@ img {
     background-image: none;
   }
   .carousel-control.right {
-    margin-right: -50px;
+    margin-right: -60px;
   }
   .carousel-control.left {
     margin-left: -50px;
@@ -299,13 +313,14 @@ img {
 .animal_description {
   display: none;
   position: relative;
-  padding: 20px;
-  margin: 10px 0 30px 0;
+  margin: 10px 0 30px 310px;
   border: 1px solid #fff;
   border-radius: 10px;
-  left: 40px;
   margin-top: -10px;
   padding: 30px;
+  h4 {
+    margin-top: 0;
+  }
   h5 {
     font-style: italic;
   }
@@ -338,7 +353,7 @@ img {
     padding: 5px 10px;
     border-radius: 20px;
     border: 1px solid $contentBox3Color;
-    top: 35px;
+    top: 30px;
     right: 30px;
   }
   .iucn {
@@ -371,30 +386,45 @@ img {
     color: $contentBox1Color;
   }
 #events {
+  transition: width 0.8s, background 0.1s;
   line-height: 1.2;
   padding: 0;
   padding-bottom: 30px;
-  @media screen and (min-width: 768px) and (max-width: 992px) {
+  @media screen and (min-width: 768px) and (max-width: 991px) {
     padding: 15px;
   }
   #accordion {
-    @media screen and (min-width: 768px) and (max-width: 992px) {
+    @media screen and (min-width: 768px) and (max-width: 991px) {
       display: none;
     }
   }
   header {
-    padding: 30px;
+    padding: 30px 15px;
     background: $contentBox1Color;
-    @media screen and (min-width: 768px) and (max-width: 992px) {
+    @media screen and (min-width: 768px) and (max-width: 991px) {
       background: transparent;
+      padding: 30px 30px;
     }
     color: #fff;
+  }
+  & > header {
+    span {
+        display: none;
+        position: absolute;
+        top: 25px;
+        left: 15px;
+        width: 25px;
+        height: 25px;
+        font-size: 25px;
+        cursor: pointer;
+      }
   }
   p {
     margin: 0;
     padding: 0;
   }
   h3 {
+    display: inline-block;
     margin-top: 0;
     font-size: 1.4em;
     a {
@@ -419,7 +449,7 @@ img {
     }
   }
   .panel-title {
-      padding: 7px 30px;
+      padding: 7px 15px;
       background: $contentBox2Color;
       color: $contentBox1Color;
       font: {
@@ -431,7 +461,7 @@ img {
     color: $contentBox1Color;
     border-color: $contentBox1Color;
     padding: 15px 0;
-    margin: 0 30px;
+    margin: 0 15px;
     .event_link {
       display: inline-block;
       color: $contentBox1Color;
@@ -446,6 +476,7 @@ img {
   }
   .homepage_link {
     margin-right: 20px;
+    text-align: right;
     &:hover {
       text-decoration: underline;
     }
@@ -456,10 +487,10 @@ img {
     padding-top: 0;
     display: none;
     background: $contentBox1Color;
-    @media screen and (min-width: 768px) and (max-width: 992px) {
+    @media screen and (min-width: 768px) and (max-width: 991px) {
       display: block;
     }
-    
+
     .tablet_events {
       margin: 20px 0;
       color: $contentBox1Color;
@@ -504,6 +535,7 @@ img {
     position: relative;
     margin: 30px 0;
     padding: 0;
+    max-width: 450px;
     img {
       border-radius: 10px;
       box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
@@ -535,6 +567,15 @@ img {
   padding: 15px 25px;
   p {
     margin: 0;
+  }
+}
+#copyright {
+  text-align: center;
+  a {
+    color: #fff;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
  @import "responsive";

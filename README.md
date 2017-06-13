@@ -8,7 +8,7 @@ Janos Krettinger's Website: https://krettingerjanos.hu/
 
 Gazda-Chem Website: http://gazdachem.viktoriasgraphics.com/
 
-VKI Website: under development
+VKI Website (under development): http://vkidev.viktoriasgraphics.com/
 
 HTML e-mail - Gazda-Chem: http://gazdachem.viktoriasgraphics.com/newsletter/index.html
 

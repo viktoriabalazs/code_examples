@@ -1,4 +1,9 @@
 /* Colors */
+body, html {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 body {
   color: #fff;
   font-family: Arial,sans-serif;
@@ -38,6 +43,8 @@ img {
 
 .navbar {
   z-index: 4;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .navbar-default {
@@ -97,7 +104,7 @@ img {
 #header_img_container {
   width: 100%;
   height: 500px;
-  background: url(images/vki_header.jpg) no-repeat top center fixed;
+  background: url(images/vki_header.jpg) no-repeat top center;
   z-index: 1;
 }
 
@@ -117,7 +124,13 @@ img {
 }
 
 #container {
+  position: relative;
   padding: 0;
+}
+#container .collapse_events {
+  width: 60px;
+  height: 200px;
+  background: #90b4bb;
 }
 
 #content {
@@ -136,7 +149,7 @@ img {
 
 .content_box {
   margin: 0;
-  padding: 15px 25px 30px;
+  padding: 15px 15px 30px 15px;
 }
 .content_box p {
   padding: 15px 0;
@@ -146,7 +159,6 @@ img {
   color: #fff;
   margin-top: 30px;
   display: block;
-  text-align: right;
   clear: both;
 }
 .homepage_link:hover {
@@ -155,7 +167,7 @@ img {
 }
 
 #content_header {
-  padding: 15px 25px 0 25px;
+  padding: 15px 15px 0 15px;
   background-color: #569099;
   background-image: url(images/content_top2.png);
   background-position: left top;
@@ -180,6 +192,10 @@ img {
   background: #569099;
 }
 
+#wildlife {
+  position: relative;
+}
+
 #carousel_animals {
   width: 280px;
   margin: 10px auto 30px auto;
@@ -189,7 +205,7 @@ img {
   text-align: center;
 }
 #carousel_animals img {
-  width: 250px;
+  width: 260px;
   height: auto;
 }
 #carousel_animals h3 {
@@ -218,7 +234,7 @@ img {
   padding: 10px 0;
 }
 #carousel_animals .carousel-inner {
-  width: 280px;
+  width: 290px;
 }
 #carousel_animals .carousel-inner > .item {
   width: 100%;
@@ -254,7 +270,7 @@ img {
   background-image: none;
 }
 #carousel_animals .carousel-control.right {
-  margin-right: -50px;
+  margin-right: -60px;
 }
 #carousel_animals .carousel-control.left {
   margin-left: -50px;
@@ -295,13 +311,14 @@ img {
 .animal_description {
   display: none;
   position: relative;
-  padding: 20px;
-  margin: 10px 0 30px 0;
+  margin: 10px 0 30px 310px;
   border: 1px solid #fff;
   border-radius: 10px;
-  left: 40px;
   margin-top: -10px;
   padding: 30px;
+}
+.animal_description h4 {
+  margin-top: 0;
 }
 .animal_description h5 {
   font-style: italic;
@@ -333,7 +350,7 @@ img {
   padding: 5px 10px;
   border-radius: 20px;
   border: 1px solid #90b4bb;
-  top: 35px;
+  top: 30px;
   right: 30px;
 }
 .animal_description .iucn {
@@ -364,35 +381,48 @@ img {
 }
 
 #events {
+  transition: width 0.8s, background 0.1s;
   line-height: 1.2;
   padding: 0;
   padding-bottom: 30px;
 }
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   #events {
     padding: 15px;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   #events #accordion {
     display: none;
   }
 }
 #events header {
-  padding: 30px;
+  padding: 30px 15px;
   background: #569099;
   color: #fff;
 }
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   #events header {
     background: transparent;
+    padding: 30px 30px;
   }
+}
+#events > header span {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+  cursor: pointer;
 }
 #events p {
   margin: 0;
   padding: 0;
 }
 #events h3 {
+  display: inline-block;
   margin-top: 0;
   font-size: 1.4em;
 }
@@ -417,7 +447,7 @@ img {
   display: block;
 }
 #events .panel-title {
-  padding: 7px 30px;
+  padding: 7px 15px;
   background: #c0d4d8;
   color: #569099;
   font-size: 1em;
@@ -427,7 +457,7 @@ img {
   color: #569099;
   border-color: #569099;
   padding: 15px 0;
-  margin: 0 30px;
+  margin: 0 15px;
 }
 #events .panel-body .event_link {
   display: inline-block;
@@ -442,6 +472,7 @@ img {
 }
 #events .homepage_link {
   margin-right: 20px;
+  text-align: right;
 }
 #events .homepage_link:hover {
   text-decoration: underline;
@@ -453,7 +484,7 @@ img {
   display: none;
   background: #569099;
 }
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   #tablet_events {
     display: block;
   }
@@ -503,6 +534,7 @@ img {
   position: relative;
   margin: 30px 0;
   padding: 0;
+  max-width: 450px;
 }
 #habitats .habitats_card img {
   border-radius: 10px;
@@ -538,9 +570,23 @@ img {
   margin: 0;
 }
 
+#copyright {
+  text-align: center;
+}
+#copyright a {
+  color: #fff;
+}
+#copyright a:hover {
+  text-decoration: underline;
+}
+
 @media only screen and (max-width: 767px) and (orientation: landscape) {
   .header_img_text {
     top: 25%;
+  }
+
+  #header_img_container {
+    height: 300px;
   }
 
   .large_img {
@@ -549,6 +595,38 @@ img {
 
   .small_img, .medium_img {
     display: none;
+  }
+
+  .navbar-fixed-top {
+    position: relative;
+  }
+
+  .navbar-fixed-top .navbar-collapse {
+    max-height: none;
+  }
+
+  #content_header {
+    padding: 15px 30px 0 30px;
+  }
+
+  .content_box {
+    padding: 15px 30px;
+  }
+
+  #habitats .habitats_card {
+    margin: 30px auto;
+  }
+
+  #events header {
+    padding: 30px 30px;
+  }
+
+  #events .panel-title {
+    padding: 7px 30px;
+  }
+
+  #events .panel-body {
+    margin: 0 30px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -609,14 +687,10 @@ img {
   }
 
   #carousel_animals {
-    padding-left: 20px;
-    margin-left: -15px;
-  }
-  #carousel_animals .carousel-control.right {
-    margin-right: -75px;
-  }
-  #carousel_animals .carousel-control.left {
-    margin-left: -35px;
+    float: left;
+    position: absolute;
+    top: 25%;
+    left: 40px;
   }
 
   .animal_description {
@@ -629,7 +703,10 @@ img {
 
   #habitats .habitats_card {
     margin: 0;
-    padding: 0 15px;
+    padding: 0 30px 0 0;
+  }
+  #habitats .habitats_card h5 {
+    width: 92%;
   }
 
   #footer {
@@ -646,31 +723,61 @@ img {
   }
 
   #header_img_container {
-    background: url(images/vki_header.jpg) no-repeat top center/cover fixed;
+    background: url(images/vki_header.jpg) no-repeat top center;
+    background-size: cover;
   }
 
   .header_img_text {
     top: 27%;
   }
 
+  #container .large_container {
+    padding-right: 28%;
+    transition: all 0.8s;
+  }
+  #container .expand_large_container {
+    padding-right: 90px;
+  }
+
   #events {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 25%;
     font-size: 0.9em;
     margin-top: -10px;
     padding-bottom: 15px;
     box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.4);
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    overflow: hidden;
   }
   #events #tablet_events {
     display: none;
   }
   #events > header {
+    overflow: hidden;
+    position: relative;
     text-align: center;
     border-top-left-radius: 15px;
     padding: 15px;
     background: #90b4bb;
     background-image: url(images/events/flower.png);
     background-repeat: no-repeat;
+    padding-left: 40px;
+  }
+  #events > header span {
+    display: inline-block;
+  }
+  #events > header #header_title {
+    transition: all 0.8s;
+  }
+  #events > header .header_rotate {
+    padding-left: 0px;
+    transform: rotate(-90deg) translate(-30px, -60px);
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
   }
   #events .panel-title {
     padding: 7px 20px;
@@ -711,5 +818,24 @@ img {
     width: 16px;
     height: 16px;
     margin: 1px 5px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  #content {
+    background-size: contain;
+    padding-top: 150px;
+  }
+
+  .content_box {
+    padding: 15px 28% 30px 80px;
+  }
+
+  #content_header {
+    padding: 15px 28% 0 80px;
+  }
+
+  #carousel_animals {
+    top: 20%;
+    left: 80px;
   }
 }

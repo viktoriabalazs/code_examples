@@ -1,0 +1,9 @@
+# npm debugging logs
+*.log
+
+# OSX folder attributes
+.DS_Store
+
+# temporary files
+*.tmp
+*~

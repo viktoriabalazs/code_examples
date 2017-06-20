@@ -1,0 +1,342 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-size: 20px;
+  font-family: arial;
+  color: #2d5986;
+  width: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.btn {
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  font-size: 24px;
+  font-family: arial;
+  font-weight: bold;
+  color: #fff;
+  background: #3973ac;
+  background: -moz-radial-gradient(center, ellipse cover, #4080bf 0%, #3973ac 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #4080bf), color-stop(100%, #3973ac));
+  background: -webkit-radial-gradient(center, ellipse cover, #4080bf 0%, #3973ac 100%);
+  background: -o-radial-gradient(center, ellipse cover, #4080bf 0%, #3973ac 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #4080bf 0%, #3973ac 100%);
+  background: radial-gradient(center, ellipse cover, #4080bf 0%, #3973ac 100%);
+  background-color: #4080bf;
+  border: 1px solid #3973ac;
+  border-radius: 10px;
+}
+.btn:hover {
+  color: #2d5986;
+  background: #c6d9ec;
+}
+
+.white-display {
+  border: 1px solid #3973ac;
+  background: #fff;
+}
+
+table {
+  border-collapse: collapse !important;
+}
+
+td {
+  padding: 10px;
+}
+
+#calc {
+  border: 1px solid #3973ac;
+  background: #2d5986;
+  overflow: hidden;
+  display: table;
+  z-index: 1;
+}
+
+#table_display {
+  margin-bottom: 10px;
+}
+
+#table_buttons {
+  margin-bottom: 10px;
+}
+#table_buttons td {
+  padding: 2px;
+}
+#table_buttons .number {
+  width: 33.3%;
+}
+#table_buttons .math {
+  width: 33.3%;
+}
+
+#saved-table.white-display {
+  background: #ecf2f9;
+}
+
+#saved-math-container th {
+  padding: 5px 10px 10px;
+}
+#saved-math-container td {
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 5px;
+}
+#saved-math-container td:nth-child(2n) {
+  padding-left: 10px;
+}
+#saved-math-container .btn {
+  height: auto;
+  color: #2d5986;
+  background: #fff;
+}
+#saved-math-container .btn:hover {
+  background: #c6d9ec;
+}
+#saved-math-container .saved_math {
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  padding: 5px 5px;
+}
+#saved-math-container .delete_math {
+  width: 100%;
+  color: #2d5986;
+  background: #c6d9ec;
+  font-size: 16px;
+  padding: 5px 5px;
+}
+#saved-math-container .delete_math:hover {
+  color: #fff;
+  background: #3973ac;
+}
+
+form {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+input {
+  background: transparent;
+  border: none;
+  height: 100%;
+  font-size: 20px;
+  font-family: arial;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type=button]:disabled {
+  background: #c6d9ec;
+  cursor: not-allowed;
+}
+input[type=button]:disabled:hover {
+  background: #c6d9ec;
+}
+
+#savedmath-nameinput label {
+  display: block;
+  font-size: 18px;
+}
+#savedmath-nameinput span {
+  font-size: 16px;
+  margin: 0;
+}
+
+.prompt-box {
+  display: none;
+  position: absolute;
+  top: 80px;
+  left: 5%;
+  width: 90%;
+  border: 1px solid #000;
+  background: #c6d9ec;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  text-align: center;
+  z-index: 5;
+}
+.prompt-box .btn {
+  display: inline-block;
+  width: 100px;
+  height: auto;
+  margin: 10px;
+  background: #3973ac;
+  padding: 5px 0;
+}
+.prompt-box .btn:hover {
+  background: #2d5986;
+  color: #fff;
+}
+.prompt-box input {
+  display: block;
+  background: #fff;
+  border: 1px solid #000;
+  padding: 2px 5px;
+  width: 150px;
+  margin: 5px auto 0 auto;
+  font-size: 18px;
+}
+.prompt-box span {
+  display: block;
+}
+
+.lg-screen, .md-lg-screen, .md-screen {
+  display: none;
+}
+
+@media screen and (max-width: 359px) {
+  #saved-math-container td {
+    max-width: 185px;
+  }
+}
+@media screen and (max-width: 979px) {
+  .responsive-table {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .sm-screen {
+    display: none;
+  }
+
+  .md-screen, .md-lg-screen {
+    display: table-cell;
+  }
+
+  #table_buttons .number {
+    width: 17%;
+  }
+  #table_buttons .math {
+    width: 9%;
+  }
+  #table_buttons td {
+    padding: 5px;
+  }
+
+  .btn {
+    height: 65px;
+  }
+
+  td[rowspan="2"] .btn {
+    height: 138px;
+  }
+
+  .prompt-box {
+    left: 23%;
+    width: 54%;
+  }
+}
+@media screen and (max-width: 640px) and (orientation: landscape) {
+  #table_display, #table_buttons {
+    margin-bottom: 5px;
+  }
+
+  #table_buttons .number {
+    width: 17%;
+  }
+  #table_buttons .math {
+    width: 9%;
+  }
+  #table_buttons td {
+    padding: 2px;
+  }
+
+  .btn {
+    height: 45px;
+  }
+
+  td[rowspan="2"] .btn {
+    height: 94px;
+  }
+
+  .sm-screen {
+    display: none;
+  }
+
+  .md-screen, .md-lg-screen {
+    display: table-cell;
+  }
+}
+@media screen and (min-width: 980px) {
+  #calc {
+    height: auto;
+  }
+
+  .sm-md-screen, .md-screen {
+    display: none;
+  }
+
+  .lg-screen {
+    display: table-cell;
+  }
+
+  form {
+    margin-top: 15px;
+  }
+
+  #saved-table {
+    height: 83%;
+  }
+
+  #table_buttons .math {
+    padding-right: 10px;
+  }
+
+  .btn {
+    height: 55px;
+  }
+
+  td[rowspan="2"] .btn {
+    height: 120px;
+  }
+
+  .prompt-box {
+    left: 30%;
+    width: 40%;
+  }
+
+  #saved-math-container .saved_math, #saved-math-container .delete_math {
+    padding: 2px 5px;
+  }
+}
+/**
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+  .foo {
+    height: 1024px;
+  }
+}
+/**
+ * iPad with landscape orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+  .foo {
+    height: 768px;
+  }
+}
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40 / 71) {
+  .foo {
+    height: 500px;
+  }
+}

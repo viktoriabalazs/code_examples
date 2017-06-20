@@ -1,0 +1,89 @@
+<!-- https://viktoriasgraphics.com/content/calculator/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <link href="calculator.css" rel="stylesheet">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <form id="calculator" Name="calc">
+      <table id="calc" class="full-height" border=0 width="100%" cellpadding=0 cellspacing=0>
+        <tr>
+          <td height="100%" valign="top">
+            <table id="table_display" width="100%" border=0 cellpadding=0 cellspacing=0>
+              <tr>
+                <td class="white-display" style="padding: 12px 15px;"><input id="display" style="padding: 0;" name="display" type="text"></td>
+              </tr>
+            </table>
+            <table id="table_buttons" border=0 width="60%" class="responsive-table" align="left" cellpadding=0 cellspacing=0>
+              <tr>
+                <td class="number"><input class="btn" type=button value="7" OnClick="calc.display.value+='7'"></td>
+                <td class="number"><input class="btn" type=button value="8" OnClick="calc.display.value+='8'"></td>
+                <td class="number"><input class="btn" type=button value="9" OnClick="calc.display.value+='9'"></td>
+                <td class="math md-lg-screen"><input class="btn" type=button value="+" OnClick="calc.display.value+='+'"></td>
+              </tr>
+              <tr>
+                <td class="number"><input class="btn" type=button value="4" OnClick="calc.display.value+='4'"></td>
+                <td class="number"><input class="btn" type=button value="5" OnClick="calc.display.value+='5'"></td>
+                <td class="number"><input class="btn" type=button value="6" OnClick="calc.display.value+='6'"></td>
+                <td class="math md-lg-screen"><input class="btn" type=button value="-" OnClick="calc.display.value+='-'"></td>
+              </tr>
+              <tr>
+                <td class="number"><input class="btn" type=button value="1" OnClick="calc.display.value+='1'"></td>
+                <td class="number"><input class="btn" type=button value="2" OnClick="calc.display.value+='2'"></td>
+                <td class="number"><input class="btn" type=button value="3" OnClick="calc.display.value+='3'"></td>
+                <td class="math md-lg-screen"><input class="btn" type=button value="*" OnClick="calc.display.value+='*'"></td>
+              </tr>
+              <tr>
+                <td class="number"><input class="btn" type=button value="0" OnClick="calc.display.value+='0'"></td>
+                <td class="math sm-screen"><input class="btn" type=button value="+" OnClick="calc.display.value+='+'"></td>
+                <td class="math sm-screen"><input class="btn" type=button value="-" OnClick="calc.display.value+='-'"></td>
+                <td rowspan=2 class="md-lg-screen"><input class="btn" type=button value="Save" OnClick="saveMath()"></td>
+                <td rowspan=2 class="md-lg-screen"><input class="btn" type=button value="Cancel" OnClick="calc.display.value=''"></td>
+                <td class="math md-lg-screen"><input class="btn" type=button value="/" OnClick="calc.display.value+='/'"></td>
+              </tr>
+              <tr>
+                <td class="number"><input class="btn" type=button value="." OnClick="calc.display.value+='.'"></td>
+                <td class="math sm-screen"><input class="btn" type=button value="*" OnClick="calc.display.value+='*'"></td>
+                <td class="math sm-screen"><input class="btn" type=button value="/" OnClick="calc.display.value+='/'"></td>
+                <td class="math md-lg-screen"><input class="btn" type=button value="=" OnClick="calc.display.value=eval(calc.display.value)"></td>
+              </tr>
+              <tr class="sm-screen">
+                <td colspan=3 class="math"><input class="btn" type=button value="=" OnClick="calc.display.value=eval(calc.display.value)"></td>
+              </tr>
+              <tr class="sm-screen">
+                <td colspan=2><input class="btn" type=button value="Save" OnClick="saveMath()"></td>
+                <td><input class="btn" type=button value="Cancel" OnClick="calc.display.value=''"></td>
+              </tr>
+            </table>
+            <table id="saved-table" border=0 width="40%" align="right" class="responsive-table white-display" cellpadding=0 cellspacing=0>
+              <tr>
+                <td valign="top">
+                  <table border=0 width="100%" cellpadding=0 cellspacing=0>
+                    <tbody id="saved-math-container">
+                      <tr>
+                        <th colspan=2 style="text-align: center; text-transform: uppercase;">Saved Maths</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <div id="savedmath-nameinput" class="prompt-box">
+        <label for="savedmath-name">Please enter a math name:<input id="savedmath-name" type="text" name="savedmath-name" maxlength="8" onkeydown="verifyName()"><span>(max 8 character)</span></label>
+        <input id="save-button" class="btn" type="button" value="Save" onclick="saveMathName()" disabled="disabled">
+        <input class="btn" type="button" value="Cancel" onclick="hideBox('savedmath-nameinput')">
+      </div>
+      <div id="error-message" class="prompt-box">
+        <span>Please enter a math</span>
+        <input type="button" class="btn" value="OK" onclick="hideBox('error-message')">
+      </div>
+    </form>
+  </body>
+</html>

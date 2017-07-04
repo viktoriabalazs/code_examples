@@ -1,0 +1,386 @@
+* {
+  box-sizing: border-box;
+}
+
+@viewport {
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
+[class*="col-"] {
+  float: left;
+  padding: 0;
+  width: 100%;
+}
+
+.row:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+/* Resets */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f7f7;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a:link, a:visited {
+  text-decoration: underline;
+  color: #005EB8;
+  border: none;
+}
+
+a[href^=tel] {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+}
+
+/* For Mobiles */
+header {
+  max-width: 1440px;
+  margin: 0 auto;
+  color: #006747;
+}
+header #header-box {
+  margin: 0 10px;
+  padding: 15px;
+  border: 1px solid #e2e2e2;
+  background: #fff;
+}
+header img {
+  width: 90px;
+}
+header #nhs-logo {
+  float: left;
+}
+header #evalucom-logo {
+  float: right;
+  width: 150px;
+}
+header h2 {
+  display: inline-block;
+  font-size: 165%;
+  font-weight: normal;
+  margin: 15px 0 5px 0;
+}
+header h3 {
+  font-size: 105%;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0;
+}
+
+#result {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+#result .btn {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+#result .btn-box {
+  display: inline-block;
+  margin: 15px auto;
+  padding: 10px;
+  text-align: center;
+  float: right;
+}
+#result .load-button {
+  display: inline-block;
+  border: 1px solid #adadad;
+  background: none;
+  padding: 20px 15px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.nursing-home-box {
+  position: relative;
+  padding: 0;
+  margin: 5px 0;
+}
+.nursing-home-box .button {
+  display: block;
+  font-size: 18px;
+  margin: 0 auto;
+  padding: 10px 15px;
+  width: 94%;
+  color: #fff;
+  background: #005EB8;
+  border: 1px solid #adadad;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.nursing-home-box .button:hover {
+  background: #036;
+}
+.nursing-home-box .button:disabled {
+  cursor: not-allowed;
+  background: #adadad;
+}
+
+.my-new-list {
+  height: 260px;
+  overflow: auto;
+  margin: 10px;
+  margin-bottom: 0;
+  padding: 15px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+}
+.my-new-list p {
+  margin: 0;
+}
+.my-new-list .id {
+  visibility: hidden;
+}
+.my-new-list .name {
+  font-size: 115%;
+  font-weight: normal;
+  margin: 0 0 5px 0;
+  color: #005EB8;
+}
+.my-new-list .provider {
+  font-size: 80%;
+  margin: 0 0 20px 0;
+  color: #005EB8;
+}
+.my-new-list .address span {
+  white-space: nowrap;
+}
+.my-new-list .contact {
+  font-size: 90%;
+}
+.my-new-list .no_beds, .my-new-list .no_occupied_beds {
+  width: 50%;
+  float: right;
+}
+.my-new-list .beds-container, .my-new-list .occup-container {
+  font-size: 105%;
+  font-weight: bold;
+  color: #006747;
+}
+.my-new-list .beds-container {
+  margin: 15px 0 3px 0;
+}
+.my-new-list .occup-container {
+  margin-bottom: 15px;
+}
+.my-new-list .phone {
+  display: block;
+  clear: both;
+}
+.my-new-list .website {
+  margin: 5px 0 15px 0;
+  display: block;
+  text-align: center;
+}
+.my-new-list .postcode, .my-new-list .no_occupied_beds {
+  margin-bottom: 8px;
+}
+
+/* Media Queries */
+/* For Mobiles in Landscape Mode */
+/* For Tablets */
+@media screen and (min-width: 600px) {
+  .col-m-12 {
+    width: 100%;
+  }
+
+  .col-m-11 {
+    width: 91.66667%;
+  }
+
+  .col-m-10 {
+    width: 83.33333%;
+  }
+
+  .col-m-9 {
+    width: 75%;
+  }
+
+  .col-m-8 {
+    width: 66.66667%;
+  }
+
+  .col-m-7 {
+    width: 58.33333%;
+  }
+
+  .col-m-6 {
+    width: 50%;
+  }
+
+  .col-m-5 {
+    width: 41.66667%;
+  }
+
+  .col-m-4 {
+    width: 33.33333%;
+  }
+
+  .col-m-3 {
+    width: 25%;
+  }
+
+  .col-m-2 {
+    width: 16.66667%;
+  }
+
+  .col-m-1 {
+    width: 8.33333%;
+  }
+
+  body {
+    padding: 15px;
+  }
+
+  header h2 {
+    display: inline-block;
+    font-size: 170%;
+    font-weight: normal;
+    margin: 5px 20px;
+  }
+  header h3 {
+    font-size: 105%;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0 110px;
+  }
+
+  .nursing-home-box {
+    margin: 10px 0;
+  }
+
+  .my-new-list {
+    height: 280px;
+  }
+}
+/* For Desktops */
+@media screen and (min-width: 980px) {
+  .col-12 {
+    width: 100%;
+  }
+
+  .col-11 {
+    width: 91.66667%;
+  }
+
+  .col-10 {
+    width: 83.33333%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
+
+  .col-8 {
+    width: 66.66667%;
+  }
+
+  .col-7 {
+    width: 58.33333%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-5 {
+    width: 41.66667%;
+  }
+
+  .col-4 {
+    width: 33.33333%;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-2 {
+    width: 16.66667%;
+  }
+
+  .col-1 {
+    width: 8.33333%;
+  }
+
+  body {
+    padding: 30px;
+  }
+}
+/* For Large Desktops */
+@media screen and (min-width: 1280px) {
+  .col-l-12 {
+    width: 100%;
+  }
+
+  .col-l-11 {
+    width: 91.66667%;
+  }
+
+  .col-l-10 {
+    width: 83.33333%;
+  }
+
+  .col-l-9 {
+    width: 75%;
+  }
+
+  .col-l-8 {
+    width: 66.66667%;
+  }
+
+  .col-l-7 {
+    width: 58.33333%;
+  }
+
+  .col-l-6 {
+    width: 50%;
+  }
+
+  .col-l-5 {
+    width: 41.66667%;
+  }
+
+  .col-l-4 {
+    width: 33.33333%;
+  }
+
+  .col-l-3 {
+    width: 25%;
+  }
+
+  .col-l-2 {
+    width: 16.66667%;
+  }
+
+  .col-l-1 {
+    width: 8.33333%;
+  }
+}

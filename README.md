@@ -1,9 +1,7 @@
-# Viktoria Balazs - Web Developer and Designer
+# Viktoria Balazs - Front-end Developer and UX Designer
 ## Code Examples
 Welcome to my GitHub account where you can see some examples of my HTML, CSS, SASS and JavaScript codes.
 ### Projects
-Viktoria's Graphics Website: https://viktoriasgraphics.com/
-
 Janos Krettinger's Website: https://krettingerjanos.hu/
 
 Gazda-Chem Website: http://gazdachem.viktoriasgraphics.com/

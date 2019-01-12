@@ -1,0 +1,163 @@
+/* SASS example with Foundatio 6 */
+/* Buttons, links */
+
+/**
+Buttons
+*/
+$button-icon-size: $medium-font-icon;
+$button-icon-padding: 0.711em 1.5em 0.771em;
+$button-icon-small-size: $small-font-icon;
+$link-icon-size: $small-font-icon;
+$large-link-icon-size: $large-font-icon;
+$small-button-padding: 0.5rem 0.8rem 0.506rem;
+
+.button {
+    line-height: 1.2;
+    &:focus {
+        outline: none;
+    }
+    &.primary {
+        color: $white;
+        &:hover, &:active, &:visited {
+            color: $white;
+        }
+    }
+    &.secondary {
+        border: 1px solid $medium-gray;
+    }
+    &.small {
+        padding: $small-button-padding;
+        margin: 0.5em 0;
+    }
+    &--icon {
+        padding: $button-icon-padding;
+        .svg-inline--fa {
+            margin-right: 8px;
+            font-size: $button-icon-size;
+            position: relative;
+            top: 1px;
+        }
+        &.small {
+            .svg-inline--fa {
+                font-size: $button-icon-small-size;
+                margin-right: 6px;
+                top: 0;
+            }
+        }
+    }
+}
+
+/**
+Button groups
+*/
+.button-group {
+    position: relative;
+    margin: 1rem 0 0;
+    overflow: hidden;
+    &::before, &::after {
+        content: "";
+    }
+    &.small {
+        .button {
+            padding: $small-button-padding;
+        }
+        .svg-inline--fa {
+            font-size: $button-icon-small-size;
+        }
+    }
+    &.center {
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &--tabs {
+        margin-bottom: 0;
+        z-index: 2;
+        .button {
+            margin-bottom: 0;
+            &:first-child:last-child {
+                max-width: 100%;
+            }
+            @for $i from 2 through $buttongroup-expand-max {
+                &:first-child:nth-last-child(#{$i}) {
+                    &, &:first-child:nth-last-child(#{$i}) ~ .button {
+                        max-width: calc(#{percentage(1 / $i)} - #{$buttongroup-spacing});
+                        margin-#{$global-right}: $buttongroup-spacing;
+
+                        &:last-child {
+                            margin-#{$global-right}: $buttongroup-spacing * -$buttongroup-expand-max;
+                        }
+                    }
+                }
+            }
+        }
+        .active-tab {
+            background: $white;
+            border: 1px solid $light-gray;
+            border-bottom: 1px solid $white;
+            color: $body-font-color;
+            &:hover {
+                background: $white;
+            }
+        }
+    }
+}
+
+/**
+Links
+*/
+.link {
+    &--icon {
+        .svg-inline--fa {
+            font-size: $link-icon-size;
+            margin: 0;
+            position: relative;
+        }
+        margin-right: 15px;
+        &.large {
+            .svg-inline--fa {
+                font-size: $large-link-icon-size;
+            }
+        }
+    }
+    &--secondary {
+        color: $extra-dark-gray;
+        background: transparent;
+        transition: none;
+        padding: 0 0.1em 0.05em 0.1em;
+        border-bottom: 1px solid transparent;
+        border-radius: 0;
+        display: inline-block;
+        margin-top: 1em;
+        cursor: pointer;
+        &:hover {
+            color: $primary-color;
+            border-bottom: 1px solid $primary-color;
+            background: transparent;
+            outline: none;
+        }
+        &:focus, &:active, &:visited {
+            background: transparent;
+            outline: none;
+        }
+
+        &.backtotop-button {
+            border: none;
+            &:hover {
+                border: none;
+            }
+        }
+    }
+    &--inverse {
+        color: $light-text;
+        &:hover, &:focus, &:active, &:visited {
+            color: $light-text;
+            outline: none;
+        }
+        .svg-inline--fa {
+            margin-right: 5px;
+            font-size: 90%;
+        }
+    }
+}

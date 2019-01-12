@@ -1,0 +1,99 @@
+/* SASS example with Foundatio 6 */
+.navigation {
+    position: fixed;
+    left: 0;
+    min-height: 35px;
+    width: 100%;
+    z-index: 505;
+    margin: 0;
+    transition: padding 0.5s;
+    &__title {
+        padding-left: 0;
+        display: inline-block;
+        @include breakpoint(medium) {
+            padding-left: 2em;
+        }
+        @include breakpoint(large) {
+            padding-left: 4.5em;
+        }
+    }
+    &__dropdown {
+        position: relative;
+        display: none;
+        height: 360px;
+        overflow: hidden;
+        @include breakpoint(medium) {
+            height: 460px;
+            padding-left: 75px;
+        }
+        @include breakpoint(large) {
+            height: 300px;
+        }
+        &__title {
+            margin-bottom: 5px;
+            display: inline-block;
+            color: $grey-text;
+            padding: 0 15px;
+            @include breakpoint(medium) {
+                margin-bottom: 10px;
+            }
+            @include breakpoint(large) {
+                padding: 0 20px;
+            }
+            &--button {
+                display: block;
+                margin: 1px 5px 2px 5px;
+                @include breakpoint(medium) {
+                    margin: 5px;
+                }
+            }
+        }
+        &--active {
+            color: $primary-color;
+        }
+        &__button {
+            line-height: 1.4;
+            padding: 0.65em 0.75em;
+            @include breakpoint(medium) {
+                padding: 1rem 2rem;
+            }
+        }
+    }
+    &__dropdown-box {
+        padding: 1.75em 0.75em 0.75em 0.5em;
+        height: 100%;
+        background: white;
+        border: 1px solid $panel-border;
+        border-top: 0;
+        @include breakpoint(medium) {
+            padding: 1em 1em 1em 1.6em;
+        }
+        @include breakpoint(large) {
+            padding: 1.5em 2em 2em 1.9em;
+        }
+    }
+    &__settings {
+        &-container {
+            position: absolute;
+            bottom: -4px;
+            right: 1em;
+            @include breakpoint(medium) {
+                bottom: 0px;
+            }
+            @include breakpoint(large) {
+                right: 2.2em;
+            }
+            @include breakpoint(medium only) {
+                right: 2.25em;
+            }
+        }
+        &-button {
+            padding: 1px 5px 4px;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            &--active {
+                background: $white;
+            }
+        }
+    }
+}

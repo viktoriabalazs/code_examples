@@ -40,13 +40,3 @@ $(window).on("resize", function () {
     var userName = $("#user-name");
     Foundation.MediaQuery.is("small only") ? userName.css("visibility", "hidden") : userName.css("visibility", "visible");
 });
-
-// Moving the announcements into the content-wrap
-var announcements = $("div[id*='announcements']");
-announcements.length > 0 ? $("#content-wrap").prepend("<br/>") : "";
-announcements.each(function () {
-    // Remove the default sizing
-    $(this).parent().find(".announcement_size").removeClass("medium-8 medium-centered large-6 large-centered columns announcement_size");
-    $("#content-wrap").prepend($(this).remove());
-    $(this).show();
-});

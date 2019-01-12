@@ -1,0 +1,1107 @@
+<!-- CarePulse design guidelines -->
+{% extends "base/base-commissioners.html" %}
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <style>
+        .title {
+            font-size: 130%;
+            margin-top: 1em;
+            padding-top: 1em;
+            border-top: 1px solid #ccc;
+        }
+        .subtitle {
+            display: block;
+            margin-top: 1em;
+            color: #979797;
+            margin-bottom: 0.5em;
+        }
+        .popup-example .callout {
+            min-width: 350px;
+            min-height: 100px;
+        }
+        .stop-overlay {
+            position: relative;
+            top: 40%;
+            display: block;
+            margin: 0 auto;
+        }
+        .spinner {
+            display: none;
+        }
+        div:not(.button-group) > .button + .button {
+            margin-left: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block inner-content %}
+    <div id="styling_guidelines">
+        <div id="content-wrap">
+            <!-- Use "callout" class instead of "panel" or "content-box" for a general container -->
+            <div class="callout">
+                <h4>External and internal pages (using Foundation 6)</h4>
+                <h6>Foundation 6 and SCSS system required</h6>
+                <!-- Buttons -->
+                <!-- Use type="submit" attribute instead of type="button" if the button is submitting a form -->
+                <h5 class="title">Buttons</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Primary button:</span>
+                    <button type="button" class="button">Go to CCG dashboard</button>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Secondary button:</span>
+                    <button type="button" class="button secondary">Search</button>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Small buttons:</span>
+                    <button type="button" class="button small">View home</button>
+                    <button type="button" class="button secondary small">Select all</button>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Tiny buttons:</span>
+                    <button type="button" class="button tiny">Edit</button>
+                    <button type="button" class="button secondary tiny">Cancel</button>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Special buttons:</span>
+                    <button type="button" class="button success">Success</button>
+                    <button type="button" class="button alert">Alert</button>
+                    <button type="button" class="button warning">Warning</button>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Coloured buttons (always red - Delete, Remove):</span>
+                    <button type="button" class="button alert">Delete</button>
+                    <button type="button" class="button alert">Remove</button>
+                    <button type="button" class="button button--icon alert"><i class="fas fa-trash-alt" aria-hidden="true"></i>Delete</button>
+                    <button type="button" class="button button--only-icon alert"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Coloured buttons (always grey - Cancel):</span>
+                    <button type="button" class="button secondary">Cancel</button>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Disabled buttons:</span>
+                    <button type="button" class="button" disabled>Go to CCG dashboard</button>
+                    <button type="button" class="button secondary" disabled>Search</button>
+                    <button type="button" class="button success" disabled>Success</button>
+                    <button type="button" class="button alert" disabled>Alert</button>
+                    <button type="button" class="button warning" disabled>Warning</button>
+                    <button type="button" class="button small" disabled>View home</button>
+                    <button type="button" class="button secondary small" disabled>Select all</button>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Buttons with icon:</span>
+                    <button type="button" class="button button--icon"><i class="fa fa-list-ul" aria-hidden="true"></i>Button with icon</button>
+                    <button type="button" class="button button--icon secondary"><i class="fa fa-list-ul" aria-hidden="true"></i>Button with icon</button>
+                    <button type="button" class="button button--icon alert"><i class="fas fa-trash-alt" aria-hidden="true"></i>Delete</button>
+                    <button type="button" class="button button--only-icon alert"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Small buttons with icon:</span>
+                    <button type="button" class="button button--icon small"><i class="fa fa-list-ul" aria-hidden="true"></i>Button with icon</button>
+                    <button type="button" class="button button--icon small secondary"><i class="fa fa-list-ul" aria-hidden="true"></i>Button with icon</button>
+                    <button type="button" class="button button--icon small alert"><i class="fas fa-trash-alt" aria-hidden="true"></i>Delete</button>
+                    <button type="button" class="button button--only-icon small alert"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Button in top banner:</span>
+                    <div style="background: #2980b9; padding: 0.3em 2em;">
+                        <button type="button" class="button button--top-banner">Close window</button>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Buttons in top banner with icon:</span>
+                    <div style="background: #2980b9; padding: 0.3em 2em; display: inline-block">
+                        <button type="button" class="button button--top-banner-icon"><i class="fa fa-times" aria-hidden="true"></i>Close window</button>
+                        <button type="button" class="button button--top-banner-only-icon" title="Download the list displayed below"><i class="fa fa-download" aria-hidden="true"></i></button>
+                        <button type="button" class="button button--top-banner-icon login__login-button"><i class="fa fa-user" aria-hidden="true"></i>Name</button>
+                    </div>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em;">
+                    <span class="subtitle">Close button - tooltips (styling example):</span>
+                    <div class="callout callout--closeable">
+                        <button class="close-button" aria-label="Dismiss alert" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p>It's just an example!</p>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em;">
+                    <span class="subtitle">Close button - tooltips (with functionality):</span>
+                    <div class="callout callout--closeable" data-closable>
+                        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p>You can close this panel!</p>
+                    </div>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em;" class="popup-example">
+                    <span class="subtitle">Close button - pop-ups (styling example):</span>
+                    <div class="callout">
+                        <div class="popup__close-button">
+                            <button type="button" class="button secondary small"><i class="fa fa-times" aria-hidden="true"></i>Close</button>
+                        </div>
+                        <p>It's just an example!</p>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em;" class="popup-example">
+                    <span class="subtitle">Close button - pop-ups (with functionality):</span>
+                    <div class="callout" data-closable>
+                        <div class="popup__close-button">
+                            <button type="button" class="button secondary small" data-close><i class="fa fa-times" aria-hidden="true"></i>Close</button>
+                        </div>
+                        <p>You can close this panel!</p>
+                    </div>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em;">
+                    <span class="subtitle">Control buttons:</span>
+                    <div class="button--control__box">
+                        <button title="Click here to decrease the number of beds"
+                                type="button" id="button_decrement"
+                                class="button secondary postfix button--control">&#8722;
+                        </button>
+                        <input class="input--vacancy" type="number" name="beds"
+                               id="input_beds"
+                               min="0"
+                               max="1000"
+                               value="8"
+                               placeholder="" required
+                        />
+                        <button title="Click here to increase the number of beds"
+                                type="button" id="button_increment"
+                                class="button secondary postfix button--control">&#43;
+                        </button>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em;">
+                    <span class="subtitle">Small control buttons:</span>
+                    <div class="button--control__box small">
+                        <button title="Click here to decrease the number of beds"
+                                type="button" id="button_decrement"
+                                class="button secondary postfix button--control">&#8722;
+                        </button>
+                        <input class="input--vacancy" type="number" name="beds"
+                               id="input_beds"
+                               min="0"
+                               max="1000"
+                               value="8"
+                               placeholder="" required
+                        />
+                        <button title="Click here to increase the number of beds"
+                                type="button" id="button_increment"
+                                class="button secondary postfix button--control">&#43;
+                        </button>
+                    </div>
+                </div>
+                <!-- Button groups -->
+                <!-- Use button group if more than one button is needed in a row -->
+                <!-- Use "buttos-group stacked-for-small" class for vertical button-group on small screens -->
+                <h5 class="title">Button groups</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Button group (more button in one row):</span>
+                    <div class="button-group">
+                        <a class="button">One</a>
+                        <a class="button">Two</a>
+                        <a class="button">Three</a>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Secondary button group:</span>
+                    <div class="button-group secondary">
+                        <a class="button">One</a>
+                        <a class="button">Two</a>
+                        <a class="button">Three</a>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Button group with special buttons:</span>
+                    <div class="button-group">
+                        <a class="button success">One</a>
+                        <a class="button alert">Two</a>
+                        <a class="button warning">Three</a>
+                    </div>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Small button group:</span>
+                    <div class="button-group small">
+                        <a class="button">One</a>
+                        <a class="button">Two</a>
+                        <a class="button">Three</a>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Small secondary button group:</span>
+                    <div class="button-group secondary small">
+                        <a class="button">One</a>
+                        <a class="button">Two</a>
+                        <a class="button">Three</a>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Small button group with icon:</span>
+                    <div class="button-group small">
+                        <button type="button" class="button button--icon"><i class="fa fa-list-ul" aria-hidden="true"></i>Button with icon</button>
+                        <button type="button" class="button button--icon secondary"><i class="fa fa-list-ul" aria-hidden="true"></i>Button with icon</button>
+                        <button type="button" class="button button--icon alert"><i class="fas fa-trash-alt" aria-hidden="true"></i>Delete</button>
+                        <button type="button" class="button button--only-icon alert"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Tiny button group:</span>
+                    <div class="button-group tiny">
+                        <a class="button">One</a>
+                        <a class="button">Two</a>
+                        <a class="button">Three</a>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Tiny secondary button group:</span>
+                    <div class="button-group secondary tiny">
+                        <a class="button">One</a>
+                        <a class="button">Two</a>
+                        <a class="button">Three</a>
+                    </div>
+                </div>
+                <span class="subtitle">Centered button group:</span>
+                <div class="button-group center">
+                    <a class="button">Centered</a>
+                    <a class="button">Button</a>
+                    <a class="button">Group</a>
+                </div>
+                <span class="subtitle">Expanded button group:</span>
+                <div class="button-group expanded">
+                    <a class="button">Expanded</a>
+                    <a class="button">Button</a>
+                    <a class="button">Group</a>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Button group (status buttons):</span>
+                    <div class="button-group status">
+                        <a class="button button--status current_status"><i class="fas fa-minus"></i></a>
+                        <a class="button button--status"><i class="fas fa-ban"></i></a>
+                        <a class="button button--status"><i class="fas fa-check"></i></a>
+                        <a class="button button--status"><i class="fas fa-plus"></i></a>
+                        <a class="button button--status"><i class="fas fa-flag"></i></a>
+                    </div>
+                </div>
+                <h5 class="title" id="button-group-tabs">Button group tabs</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Button group tabs (vertical tabs on small screen, horizontal on large screen):</span>
+                    <div class="button-group button-group--tabs stacked-for-small" data-equalizer="tabs" data-equalize-on-stack="true">
+                        <a class="button button-group--tabs__button active-tab" href="#tabs-content1" data-equalizer-watch="tabs">One</a>
+                        <a class="button button-group--tabs__button" href="#tabs-content2" data-equalizer-watch="tabs">Two</a>
+                        <a class="button button-group--tabs__button" href="#tabs-content3" data-equalizer-watch="tabs">Three</a>
+                    </div>
+                    <div class="callout">
+                        <div class="button-group--tabs__content active-content" id="tabs-content1">This is the content for tab 1.</div>
+                        <div class="button-group--tabs__content" id="tabs-content2">This is the content for tab 2.</div>
+                        <div class="button-group--tabs__content" id="tabs-content3">This is the content for tab 3.</div>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Expanded button group tabs (horizontal tabs only):</span>
+                    <div class="button-group expanded button-group--tabs" data-equalizer="tabs" data-equalize-on-stack="true">
+                        <a class="button button-group--tabs__button active-tab" href="#tabs-content4" data-equalizer-watch="tabs">One</a>
+                        <a class="button button-group--tabs__button" href="#tabs-content5" data-equalizer-watch="tabs">Two</a>
+                        <a class="button button-group--tabs__button" href="#tabs-content6" data-equalizer-watch="tabs">Three</a>
+                    </div>
+                    <div class="callout">
+                        <div class="button-group--tabs__content active-content" id="tabs-content4">This is the content for tab 1.</div>
+                        <div class="button-group--tabs__content" id="tabs-content5">This is the content for tab 2.</div>
+                        <div class="button-group--tabs__content" id="tabs-content6">This is the content for tab 3.</div>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Button group tabs with table (vertical tabs on small screen, horizontal on large screen):</span>
+                    <div class="button-group button-group--tabs stacked-for-small" data-equalizer="tabs" data-equalize-on-stack="true">
+                        <a class="button button-group--tabs__button active-tab" href="#tabs-content7" data-equalizer-watch="tabs">One</a>
+                        <a class="button button-group--tabs__button" href="#tabs-content8" data-equalizer-watch="tabs">Two</a>
+                        <a class="button button-group--tabs__button" href="#tabs-content9" data-equalizer-watch="tabs">Three</a>
+                    </div>
+                    <div class="button-group__table-container callout">
+                        <div class="button-group--tabs__content active-content" id="tabs-content7">
+                            <table class="button-group__table">
+                                <thead>
+                                    <tr>
+                                        <td>Table 1</td>
+                                        <td>AQP</td>
+                                        <td>Incomplete reports
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Abbey Ravenscroft Park Nursing Home</td>
+                                        <td>Yes</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Appletree Court Care Home</td>
+                                        <td>Yes</td>
+                                        <td>December 2017
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="button-group--tabs__content" id="tabs-content8">
+                            <table class="button-group__table">
+                                <thead>
+                                    <tr>
+                                        <td>Table 2</td>
+                                        <td>AQP</td>
+                                        <td>Incomplete reports
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Abbey Ravenscroft Park Nursing Home</td>
+                                        <td>Yes</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Appletree Court Care Home</td>
+                                        <td>Yes</td>
+                                        <td>December 2017
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="button-group--tabs__content" id="tabs-content9">
+                            <table class="button-group__table">
+                                <thead>
+                                    <tr>
+                                        <td>Table 3</td>
+                                        <td>AQP</td>
+                                        <td>Incomplete reports
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Abbey Ravenscroft Park Nursing Home</td>
+                                        <td>Yes</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Appletree Court Care Home</td>
+                                        <td>Yes</td>
+                                        <td>December 2017
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="title">Tabs (with Foundation 6 Tabs plugin)</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Horizontal tabs (don't use it if not necessary, use <a href="#button-group-tabs">button group tabs</a> instead)</span>
+                    <ul class="tabs" data-tabs data-match-height="true" id="example-tabs">
+                        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">One</a></li>
+                        <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Two</a></li>
+                        <li class="tabs-title"><a data-tabs-target="panel3" href="#panel3">Three</a></li>
+                    </ul>
+                    <div class="tabs-content" data-tabs-content="example-tabs">
+                        <div class="tabs-panel is-active" id="panel1">
+                            <p>This is the content for tab 1.</p>
+                        </div>
+                        <div class="tabs-panel" id="panel2">
+                            <p>This is the content for tab 2.</p>
+                        </div>
+                        <div class="tabs-panel" id="panel3">
+                            <p>This is the content for tab 3.</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Vertical tabs:</span>
+                    <ul class="vertical tabs" data-tabs id="example-tabs2">
+                        <li class="tabs-title is-active"><a href="#panel4" aria-selected="true">One</a></li>
+                        <li class="tabs-title"><a data-tabs-target="panel5" href="#panel5">Two</a></li>
+                        <li class="tabs-title"><a data-tabs-target="panel6" href="#panel6">Three</a></li>
+                    </ul>
+                    <div class="tabs-content" data-tabs-content="example-tabs2">
+                        <div class="tabs-panel is-active" id="panel4">
+                            <p>This is the content for tab 1.</p>
+                        </div>
+                        <div class="tabs-panel" id="panel5">
+                            <p>This is the content for tab 2.</p>
+                        </div>
+                        <div class="tabs-panel" id="panel6">
+                            <p>This is the content for tab 3.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Centered vertical tabs:</span>
+                    <ul class="vertical tabs center" data-tabs id="example-tabs2">
+                        <li class="tabs-title is-active"><a href="#panel7" aria-selected="true">One</a></li>
+                        <li class="tabs-title"><a data-tabs-target="panel8" href="#panel8">Two</a></li>
+                        <li class="tabs-title"><a data-tabs-target="panel9" href="#panel9">Three</a></li>
+                    </ul>
+                    <div class="tabs-content" data-tabs-content="example-tabs2">
+                        <div class="tabs-panel is-active" id="panel7">
+                            <p>This is the content for tab 1.</p>
+                        </div>
+                        <div class="tabs-panel" id="panel8">
+                            <p>This is the content for tab 2.</p>
+                        </div>
+                        <div class="tabs-panel" id="panel9">
+                            <p>This is the content for tab 3.</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!-- Menu -->
+                <h5 class="title">Navigation with buttons</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle" style="margin-bottom: 1em;">Navigation with large buttons:</span>
+                    <ul class="menu menu--button">
+                        <li class="active"><a href="#menu1" data-menu-button="menu1">One</a></li>
+                        <li><a href="#menu2" data-menu-button="menu2">Two</a></li>
+                        <li><a href="#menu3" data-menu-button="menu3">Three</a></li>
+                    </ul>
+                    <p class="menu--button__content active-content" id="menu1">Content 1</p>
+                    <p class="menu--button__content" id="menu2">Content 2</p>
+                    <p class="menu--button__content" id="menu3">Content 3</p>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle" style="margin-bottom: 1em;">Navigation with large buttons (vertical on small screens):</span>
+                    <ul class="menu menu--button stacked-for-small">
+                        <li class="active"><a href="#menu10" data-menu-button="menu10">Long Text One</a></li>
+                        <li><a href="#menu11" data-menu-button="menu11">Long Text Two</a></li>
+                        <li><a href="#menu12" data-menu-button="menu12">Long Text Three</a></li>
+                    </ul>
+                    <p class="menu--button__content active-content" id="menu10">Content 1</p>
+                    <p class="menu--button__content" id="menu11">Content 2</p>
+                    <p class="menu--button__content" id="menu12">Content 3</p>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle" style="margin-bottom: 1em;">Navigation with small buttons:</span>
+                    <ul class="menu menu--button small">
+                        <li class="active"><a href="#menu4" data-menu-button="menu4">One</a></li>
+                        <li><a href="#menu5" data-menu-button="menu5">Two</a></li>
+                        <li><a href="#menu6" data-menu-button="menu6">Three</a></li>
+                    </ul>
+                    <p class="menu--button__content active-content" id="menu4">Content 1</p>
+                    <p class="menu--button__content" id="menu5">Content 2</p>
+                    <p class="menu--button__content" id="menu6">Content 3</p>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle" style="margin-bottom: 1em;">Navigation with tiny buttons:</span>
+                    <ul class="menu menu--button tiny">
+                        <li class="active"><a href="#menu7" data-menu-button="menu7">One</a></li>
+                        <li><a href="#menu8" data-menu-button="menu8">Two</a></li>
+                        <li><a href="#menu9" data-menu-button="menu9">Three</a></li>
+                    </ul>
+                    <p class="menu--button__content active-content" id="menu7">Content 1</p>
+                    <p class="menu--button__content" id="menu8">Content 2</p>
+                    <p class="menu--button__content" id="menu9">Content 3</p>
+                </div>
+                <br>
+                <!-- Links -->
+                <h5 class="title">Links</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle" style="margin-bottom: 1em;">Primary link:</span>
+                    <a href="#">AQP homes in NEL</a>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Primary link with icon:</span>
+                    <a href="#" class="link--icon">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Report archive
+                    </a>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Secondary link:</span>
+                    <a href="#" class="link--secondary">Notifications</a>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Secondary link with icon:</span>
+                    <a href="#" class="link--icon link--secondary">
+                        <i class="fa fa-plus" aria-hidden="true"></i> more information
+                    </a>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Secondary link (back to top):</span>
+                    <a href="#" class="link--secondary backtotop-button">Back to top</a>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle" style="margin-bottom: 1em;">Footer link:</span>
+                    <div style="background: #2980b9; padding: 0.8em 2em 0.875em; font-size: 0.8em">
+                        <a href="#" class="link--inverse footer__link">Privacy Policy</a>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle" style="margin-bottom: 1em;">Using icons for links:</span>
+                    <div class="link--icon-list">
+                        <a href="#" class="link--icon large">
+                            <span class='svg__container--tiny svg__icon--quality'>
+                                <img src='{% static "carepulse_generics/img/icon_quality_blue.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_quality_blue.png" %}"; this.parentNode.classList.add("no-svg")' title='Provider completes monthly quality reporting'>
+                            </span>
+                        </a>
+                        <a href="#" class="link--icon large"><i class="fas fa-home"></i></a>
+                    </div>
+                </div>
+                <!-- Tooltips and popups -->
+                <h5 class="title">Tooltips and pop-ups:</h5>
+                <!-- Tooltips -->
+                <div style="display: inline-block; margin-right: 2em;">
+                    <span class="subtitle">General tooltip:</span>
+                    <div class="tooltip--custom">
+                        Click <span class='tooltip--custom__text tooltip--custom__link' onclick='togglePopup(this)'>here
+                            <div class='tooltip--custom__popup-wrap' style='display: none' data-closable>
+                                <div class='tooltip--custom__popup'>
+                                    Please note that comments are not reviewed by the LPH team for accuracy or content.
+                                    <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                                        <span aria-hidden='true'>&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </span> to see the tooltip
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em;">
+                    <span class="subtitle">Tooltip with secondary link:</span>
+                    <div class="tooltip--custom">
+                        <span class='link--secondary tooltip--custom__link' onclick='togglePopup(this)'>Notifications
+                        <div class='tooltip--custom__popup-wrap' style='display: none' data-closable>
+                            <div class='tooltip--custom__popup'>
+                                Please note that comments are not reviewed by the LPH team for accuracy or content.
+                                <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                                    <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                        </span>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em;">
+                    <span class="subtitle">Tooltip with information icon:</span>
+                    <!-- Wrap the text in a container with class name "tooltip--custom" -->
+                    <div class="tooltip--custom">
+                        Info tooltip<i class='fa fa-info-circle tooltip--custom__link tooltip--custom__info-icon' onclick='togglePopup(this)'>
+                        <div class='tooltip--custom__popup-wrap' style='display: none' data-closable>
+                            <div class='tooltip--custom__popup'>
+                                Please note that comments are not reviewed by the LPH team for accuracy or content.
+                                <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                                    <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                        </i>
+                    </div>
+                </div>
+                <!-- Pop-up using Foundation 6 modal -->
+                <div style="display: inline-block; margin-right: 2em;">
+                    <span class="subtitle">Pop-up:</span>
+                    <p><button class="button" data-open="exampleModal1">Click me for a modal</button></p>
+                    <div class="reveal" id="exampleModal1" data-reveal>
+                        <div class="reveal__close-button" data-close aria-label="Close modal">
+                            <button type="button" class="button secondary small"><i class="fa fa-times" aria-hidden="true"></i>Close</button>
+                        </div>
+                        <h3 class="reveal__title">Pop-up title</h3>
+                        <p class="lead">Subtitle</p>
+                        <p>I'm a paragraph that lives inside of a modal.</p>
+                    </div>
+                </div>
+                <!-- Labels -->
+                <!-- Use "label__list" class for the container -->
+                <h5 class="title">Labels</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">General labels:</span>
+                    <div class="label__list">
+                        <span class="label">£784</span>
+                        <span class="label secondary">Kent</span>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Special labels:</span>
+                    <div class="label__list">
+                        <span class="label aqp">AQP</span>
+                        <span class="label success">Success</span>
+                        <span class="label alert">Alert</span>
+                        <span class="label warning">Warning</span>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Labels with icons:</span>
+                    <div class="label__list">
+                        <span class="label label--icon"><i class="fa fa-home" aria-hidden="true"></i>56</span>
+                        <span class="label label--icon"><i class="fa fa-bed" aria-hidden="true"></i>16</span>
+                        <span class="label label--icon"><i class="fas fa-user-circle" aria-hidden="true"></i>Sheena John</span>
+                    </div>
+                </div>
+                <br>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Small labels:</span>
+                    <div class="label__list">
+                        <span class="label small aqp">AQP</span>
+                        <span class="label small alert">Closed</span>
+                    </div>
+                </div>
+                <br>
+                <!-- Highlighted text -->
+                <h5 class="title">Highlighted text</h5>
+                <!-- Regular size -->
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Regular:</span>
+                    <span class="highlight">General</span>
+                    <span class="highlight success">Good</span>
+                    <span class="highlight warning">Requires improvement</span>
+                    <span class="highlight alert">Inadequate</span>
+                    <span class="highlight secondary">Not yet inspected</span>
+                </div>
+                <br>
+                <!-- Small size -->
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Small:</span>
+                    <span class="highlight small">General</span>
+                    <span class="highlight success small">Active</span>
+                    <span class="highlight warning small">Inactive</span>
+                    <span class="highlight alert small">Deleted</span>
+                    <span class="highlight secondary small">Unverified</span>
+                </div>
+                <br>
+                <!-- Forms -->
+                <h5 class="title">Forms</h5>
+                <form>
+                    <div class="row">
+                        <div class="small-12 medium-6 columns">
+                            <span class="subtitle">Input label:</span>
+                            <label>Label
+                                <div class="input-group">
+                                    <span class="input-group-label">$</span>
+                                    <input class="input-group-field" type="number" placeholder="0">
+                                </div>
+                            </label>
+                            <label>Label
+                                <div class="input-group">
+                                    <input class="input-group-field" type="number" placeholder="0">
+                                    <span class="input-group-label">$</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="small-12 medium-6 columns">
+                            <span class="subtitle">Input button:</span>
+                            <label>Label
+                                <div class="input-group">
+                                    <input class="input-group-field" type="text" placeholder="None">
+                                    <div class="input-group-button">
+                                        <input type="submit" class="button" value="Submit">
+                                    </div>
+                                </div>
+                            </label>
+                            <label>Label
+                                <div class="input-group">
+                                    <span class="input-group-label">$</span>
+                                    <input class="input-group-field" type="number" placeholder="0">
+                                    <div class="input-group-button">
+                                        <input type="submit" class="button" value="Submit">
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-6 columns">
+                            <!-- Select menu -->
+                            <span class="subtitle">Select:</span>
+                            <label>Select Menu
+                                <select>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                    <option value="option4">Option 4</option>
+                                </select>
+                            </label>
+                            <!-- Add "multiple" attribute to the select element -->
+                            <label>Select Menu (multiple)
+                                <select multiple>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                    <option value="option4">Option 4</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="small-12 medium-6 columns">
+                            <!-- Textarea -->
+                            <span class="subtitle">Textarea:</span>
+                            <label>
+                                Title
+                                <textarea placeholder="None" rows="6"></textarea>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-6 columns">
+                            <!-- Radio buttons -->
+                            <!-- Use "radio-button__container" class for the container -->
+                            <span class="subtitle">Radio button:</span>
+                            <!-- Horizontal -->
+                            <legend>Colours (horizontal)</legend>
+                            <span class="radio-button__container"><input type="radio" name="colour" value="Red" id="colourRed" checked>Red</span>
+                            <span class="radio-button__container"><input type="radio" name="colour" value="Blue" id="colourBlue">Blue</span>
+                            <span class="radio-button__container"><input type="radio" name="colour" value="Yellow" id="colourYellow">Yellow</span>
+                            <!-- Vertical -->
+                            <legend>Colours (vertical)</legend>
+                            <span class="radio-button__container--block"><input type="radio" name="colour2" value="Red" id="colourRed" checked>Red</span>
+                            <span class="radio-button__container--block"><input type="radio" name="colour2" value="Blue" id="colourBlue">Blue</span>
+                            <span class="radio-button__container--block"><input type="radio" name="colour2" value="Yellow" id="colourYellow">Yellow</span>
+                        </div>
+                        <div class="small-12 medium-6 columns">
+                            <!-- Checkboxes -->
+                            <!-- Use "checkbox__container" class for the container -->
+                            <span class="subtitle">Checkbox:</span>
+                            <!-- Horizontal -->
+                            <legend>Title (horizontal)</legend>
+                            <span class="checkbox__container"><input id="checkbox1" type="checkbox" checked>Checkbox 1</span>
+                            <span class="checkbox__container"><input id="checkbox2" type="checkbox">Checkbox 2</span>
+                            <span class="checkbox__container"><input id="checkbox3" type="checkbox">Checkbox 3</span>
+                            <!-- Vertical -->
+                            <legend>Title (vertical)</legend>
+                            <span class="checkbox__container--block"><input id="checkbox1" type="checkbox" checked>Checkbox 1</span>
+                            <span class="checkbox__container--block"><input id="checkbox2" type="checkbox">Checkbox 2</span>
+                            <span class="checkbox__container--block"><input id="checkbox3" type="checkbox">Checkbox 3</span>
+                        </div>
+                    </div>
+                </form>
+                <!-- Info/alert box -->
+                <h5 class="title">Info/Alert box</h5>
+                <div>
+                    <span class="subtitle">General box:</span>
+                    <div class="alert-box"><p class="alert-box__text">General information</p></div>
+                </div>
+                <div>
+                    <span class="subtitle">General box with title:</span>
+                    <div class="alert-box">
+                        <h5 class="alert-box__header">Information</h5>
+                        <p class="alert-box__text">We are verifying your request to add new homes. We will send you an email within 1 working day as soon as this request is approved.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="subtitle">General box with title and subtitle:</span>
+                    <div class="alert-box">
+                        <h5 class="alert-box__header">Information</h5>
+                        <p class="lead">Subtitle</p>
+                        <p class="alert-box__text">We are verifying your request to add new homes. We will send you an email within 1 working day as soon as this request is approved.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="subtitle">Success box:</span>
+                    <div class="alert-box success"><p class="alert-box__text">Thank you. Your response has been saved.</p></div>
+                </div>
+                <div>
+                    <span class="subtitle">Alert box:</span>
+                    <div class="alert-box alert"><p class="alert-box__text">Something went wrong...</p></div>
+                </div>
+                <div>
+                    <span class="subtitle">Warning box:</span>
+                    <div class="alert-box warning"><p class="alert-box__text">This account is awaiting verification.</p></div>
+                </div>
+                <div>
+                    <span class="subtitle">Info box with icon:</span>
+                    <div class="alert-box success">
+                        <p class="alert-box__text">
+                            <i class="fa fa-check" aria-hidden="true"></i>All mandatory questions have been completed and validated.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <span class="subtitle">Closable info box:</span>
+                    <div class="alert-box" data-closable>
+                        <p class="alert-box__text">Closable information box.</p>
+                        <button class='close-button' aria-label='Dismiss alert' type='button' data-close>&times;</button>
+                    </div>
+                </div>
+                <div>
+                    <span class="subtitle">Special box (forms):</span>
+                    <div class="alert-box alert-custom">Fields marked with an asterisk (*) are required.</div>
+                </div>
+                <!-- Progress bar -->
+                <!-- Requires JavaScript for dynamic styling -->
+                <h5 class="title">Progress bar</h5>
+                <div class="progress-bar">
+                    <div class="progress-bar__bar" style="width: 35%">
+                        <span class="progress-bar__text">35%</span>
+                    </div>
+                </div>
+                <!-- Icons -->
+                <h5 class="title">SVG icons</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">SVG icons:</span>
+                    <!-- Using icon groups -->
+                    <div class="svg__list">
+                        <!-- Regular size -->
+                        <span class='svg__container--medium svg__icon--triangle-alert'><img src='{% static "carepulse_generics/img/icon_triangle_alert.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_warning_triangle_red.png" %}"; this.parentNode.classList.add("no-svg")' title='Suspension on new placements'></span>
+                        <span class='svg__container--medium svg__icon--triangle-warning'><img src='{% static "carepulse_generics/img/icon_triangle_warning.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_warning_triangle_orange.png" %}"; this.parentNode.classList.add("no-svg")' title='Contract change pending'></span>
+                        <span class='svg__container--medium svg__icon--quality'><img src='{% static "carepulse_generics/img/icon_quality.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_quality_reporting.png" %}"; this.parentNode.classList.add("no-svg")' title='Provider completes monthly quality reporting'></span>
+                        <span class='svg__container--medium svg__icon--quality'><img src='{% static "carepulse_generics/img/icon_quality_blue.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_quality_blue.png" %}"; this.parentNode.classList.add("no-svg")' title='Provider completes monthly quality reporting'></span>
+                        <span class='svg__container--medium svg__icon--aqp'><img src='{% static "carepulse_generics/img/icon_aqp.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_aqp.png" %}"; this.parentNode.classList.add("no-svg")' title='Qualified provider for the pan-London AQP framework'></span>
+                    </div>
+                    <!-- Inserting one individual icon -->
+                    <!-- Small size -->
+                    <span class='svg__container--small svg__icon--triangle-alert'><img class='svg__image' src='{% static "carepulse_generics/img/icon_triangle_alert.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_warning_triangle_red.png" %}"; this.parentNode.classList.add("no-svg")' title='No capacity for new AQP placements'></span>
+                    <span class='svg__container--small svg__icon--triangle-warning'><img class='svg__image' src='{% static "carepulse_generics/img/icon_triangle_warning.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_warning_triangle_orange.png" %}"; this.parentNode.classList.add("no-svg")' title=''></span>
+                    <!-- Tiny size -->
+                    <span class='svg__container--tiny svg__icon--triangle-alert'><img class='svg__image' src='{% static "carepulse_generics/img/icon_triangle_alert.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_warning_triangle_red.png" %}"; this.parentNode.classList.add("no-svg")' title=''></span>
+                    <span class='svg__container--tiny svg__icon--triangle-warning'><img class='svg__image' src='{% static "carepulse_generics/img/icon_triangle_warning.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_warning_triangle_orange.png" %}"; this.parentNode.classList.add("no-svg")' title=''></span>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">SVG icons in navigation:</span>
+                    <div style="background: #244564;">
+                        <li class="navbar__listitem">
+                            <a href="#" id="nhdashboards-link" class="navbar__link" title="Nursing home quality monitoring">
+                                <span class="navbar__icon-box"><span class='svg__container--navigation svg__icon--quality navbar__icon'><img class='svg__image' src='{% static "carepulse_generics/img/icon_quality_white.svg" %}' onerror='this.src="{% static "carepulse_generics/img/icon_quality_white.png" %}"; this.parentNode.classList.add("no-svg")'></span></span>
+                                <span class="navbar__link-text"></span>
+                            </a>
+                            <div class="fa fa-caret-left navbar__icon navbar__icon--indicator navbar__icon--large"></div>
+                        </li>
+                    </div>
+                </div>
+                <h5 class="title">Font icons</h5>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Loading icon:</span>
+                    <button class="button" onclick="toggleSpinner(this)">Click for loading overlay</button>
+                    <div class="spinner">
+                        <div class='spinner__inner'>
+                            <span class='fa fa-spinner fa-pulse'></span>
+                        </div>
+                        <button class="button large stop-overlay" onclick="toggleSpinner(this)">Stop</button>
+                    </div>
+                </div>
+                <div style="display: inline-block; margin-right: 2em">
+                    <span class="subtitle">Loading icon with text:</span>
+                    <button class="button" onclick="toggleSpinner(this)">Click for loading overlay</button>
+                    <div class="spinner">
+                        <div class='spinner__inner'>
+                            <span class='fa fa-spinner fa-pulse'></span>
+                            <p>Loading</p>
+                        </div>
+                        <button class="button large stop-overlay" onclick="toggleSpinner(this)">Stop</button>
+                    </div>
+                </div>
+                <br>
+                <h5 class="title">Charts</h5>
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <span class="subtitle">Line chart:</span>
+                        <div class="chart__box">
+                            <div class="chart__title">
+                                <h4>Line chart example</h4>
+                                <h6>Subtitle</h6>
+                            </div>
+                            <div class="chart__sizing chart__sizing--large" id="line-chart"></div>
+                        </div>
+                    </div>
+                    <div class="small-12 medium-6 columns">
+                        <span class="subtitle">Bar chart:</span>
+                        <div class="chart__box">
+                            <div class="chart__title">
+                                <h4>Bar chart example</h4>
+                                <h6>Subtitle</h6>
+                            </div>
+                            <div class="chart__sizing chart__sizing--large" id="bar-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static "echarts.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "carepulse/js/echart_simplified.js" %}"></script>
+    <script>
+        // for control buttons
+        $('#button_increment').on('click', function () {
+            var value = parseInt($('#input_beds').val());
+            if (value >= 0 && value !== "NaN") {
+                $('#input_beds').val(parseInt($('#input_beds').val()) + 1);
+            } else {
+                $('#input_beds').val(0);
+            }
+        });
+        $('#button_decrement').on('click', function () {
+            var value = parseInt($('#input_beds').val());
+            if (value > 0 && value !== "NaN") {
+                $('#input_beds').val(parseInt($('#input_beds').val()) - 1);
+            } else {
+                $('#input_beds').val(0);
+            }
+        });
+
+        // for tooltips
+        function togglePopup(element) {
+            var popupWrap = $(element).find(".tooltip--custom__popup-wrap")[0];
+            var infoPosition;
+            infoPosition = $(element).position();
+
+            $(".tooltip--custom__link").removeClass("active");
+
+            if(popupWrap.style.display === "none") {
+                popupWrap.style.display = "inline";
+                var popupWidth = $(element).find(".tooltip--custom__popup")[0].offsetWidth;
+                console.log(popupWidth);
+                console.log(infoPosition);
+                element.classList.add("active");
+                if (infoPosition.left > popupWidth) {
+                    popupWrap.style.left = "-" + popupWidth + "px";
+                } else {
+                    popupWrap.style.left = "-" + infoPosition.left + "px";
+                }
+            } else {
+                popupWrap.style.display = "none";
+                element.classList.remove("active");
+            }
+            $(".tooltip--custom__link").not(".active").find(".tooltip--custom__popup-wrap").css("display","none");
+        }
+
+        document.addEventListener('click', function (event) {
+            if (!$(event.target).hasClass("tooltip--custom__link")) {
+                $(".tooltip--custom__link").removeClass("active");
+                $(".tooltip--custom__link").not(".active").find(".tooltip--custom__popup-wrap").css("display", "none");
+            }
+        });
+
+        // for loading overlay/icon
+        function toggleSpinner(element) {
+            if($(element).parent().hasClass("spinner")) {
+                $(element).parent(".spinner").toggle();
+            } else {
+                $(element).next(".spinner").toggle();
+            }
+        }
+
+        // for button group tabs
+        $(".button-group--tabs__button").on("click", function(e) {
+            e.preventDefault();
+            $(this).siblings().removeClass("active-tab");
+            $(this).addClass("active-tab");
+            var tabId = $(this).attr("href");
+            $(tabId).siblings().removeClass("active-content");
+            $(tabId).addClass("active-content");
+        });
+
+        // for status buttons
+        $(".button--status").on("click", function() {
+            $(this).siblings().removeClass("current_status");
+            $(this).addClass("current_status");
+        });
+
+        // for menu buttons
+        $(".menu--button a").on("click", function(e) {
+            e.preventDefault();
+            var contentId = "#" + $(this).attr("data-menu-button");
+            $(this).parent().addClass("active");
+            $(this).parent().siblings().removeClass("active");
+            $(this).parent().parent().siblings(".menu--button__content").removeClass("active-content");
+            $(contentId).addClass("active-content");
+        });
+
+        // inactivating form's submit buttons
+        $("button[type='submit']").on("click", function(e) {
+           e.preventDefault();
+        });
+
+        // for creating e-charts
+        $(window).on('load', function() {
+            createLineChart();
+            createBarChart();
+
+            function createLineChart() {
+                // creating line chart
+                lineChartExample = echarts.init(document.getElementById('line-chart'));
+
+                var option = createLineGraphOptionsObject();
+                var x_axis_labels = [1,2,3,4,5,6];
+                var data1 = [45,55,65,75,85,95];
+                var data2 = [30,40,50,60,70,80];
+                var data3 = [15,25,35,45,55,65];
+                var data4 = [0,10,20,30,40,50];
+                option.setGlobalAxisData(x_axis_labels);
+                option.animation = true;
+                option.showAllXAxis();
+                option['xAxis']['boundaryGap'] = false;
+                option.createLine('Line 1', data1, '#2980b9');
+                option.createLine('Line 2', data2, '#8f9ea5');
+                option.createLine('Line 3', data3, '#245979');
+                option.createLine('Line 4', data4, '#75b2e4');
+                option.setGraphPosition('20%', '15%', '10%', '5%');
+
+                option['legend'] = {
+                    show: true,
+                    right: '5%',
+                    top: '10%',
+                    orient: 'horizontal',
+                    data: ['Line 1', 'Line 2', 'Line 3', 'Line 4'],
+                };
+
+                lineChartExample.setOption(option);
+            }
+
+            function createBarChart() {
+                // creating bar chart
+                barChartExample = echarts.init(document.getElementById('bar-chart'));
+
+                var option = createBarGraphOptionsObject();
+                var x_axis_labels = ['1 bar','2 bars','3 bars','4 bars'];
+                var data1 = [30,40,50,60];
+                var data2 = [0,30,40,50];
+                var data3 = [0,0,30,40];
+                var data4 = [0,0,0,30];
+                option.setGlobalAxisData(x_axis_labels);
+                option.animation = true;
+                option.showAllXAxis();
+                option.createBar('Bar 1', data1, '#2980b9');
+                option.createBar('Bar 2', data2, '#8f9ea5');
+                option.createBar('Bar 3', data3, '#245979');
+                option.createBar('Bar 4', data4, '#75b2e4');
+                option.setGraphPosition('20%', '15%', '10%', '5%');
+
+                option['legend'] = {
+                    show: true,
+                    right: '5%',
+                    top: '10%',
+                    data: ['Bar 1', 'Bar 2', 'Bar 3', 'Bar 4'],
+                    orient: 'horizontal',
+                };
+
+                option.barGap = 0.25;
+
+                barChartExample.setOption(option);
+            }
+
+            // making responsive charts
+
+            function getWidth(elem) {
+                return $(elem).width()
+            }
+
+            window.addEventListener('resize', function() {
+               lineChartExample.resize({width: getWidth('#line-chart')});
+               barChartExample.resize({width: getWidth('#bar-chart')});
+            });
+        });
+
+    </script>
+{% endblock %}

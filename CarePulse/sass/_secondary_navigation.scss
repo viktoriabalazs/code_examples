@@ -1,0 +1,204 @@
+.secondary-navigation {
+    position: fixed;
+    left: 0;
+    min-height: 35px;
+    width: 100%;
+    z-index: 505;
+    margin: 0;
+    transition: padding 0.5s;
+    &__title {
+        padding-left: 0;
+        display: inline-block;
+        @include breakpoint(medium) {
+            padding-left: 2em;
+        }
+        @include breakpoint(large) {
+            padding-left: 4.5em;
+        }
+    }
+    &__path-box {
+        padding-left: 0;
+        @include breakpoint(medium) {
+            padding-left: 75px;
+        }
+    }
+    &__path {
+        color: $body-font-color;
+        width: 100%;
+        overflow: visible;
+        background: lightgrey;
+        padding: 5px 1.4em 7px 1.4em;
+        position: relative;
+        @include breakpoint(medium) {
+            padding: 5px 2.5em 5px 2.5em;
+        }
+        @include breakpoint(large) {
+            padding: 5px 2.5em 5px 3em;
+        }
+        .fa-chevron-right {
+            font-size: 14px;
+            margin: {
+                right: 5px;
+                left: 5px;
+            }
+            @include breakpoint(medium) {
+                margin: {
+                    right: 7px;
+                    left: 7px;
+                }
+            }
+            @include breakpoint(large) {
+                margin: {
+                    right: 17px;
+                    left: 17px;
+                }
+            }
+        }
+        &__button {
+            margin: 0;
+            padding: 0.3rem 0.8rem 0.306rem;
+            font-size: 0.85em;
+            position: relative;
+            top: -2px;
+            display: inline-block;
+            @include breakpoint(large) {
+                float: right;
+            }
+        }
+    }
+    &__path-name {
+        float: left;
+        margin-right: 47px;
+        @include breakpoint(medium) {
+            margin-right: 150px;
+        }
+    }
+    &__dropdown {
+        position: relative;
+        display: none;
+        height: 360px;
+        overflow: hidden;
+        @include breakpoint(medium) {
+            height: 460px;
+            padding-left: 75px;
+        }
+        @include breakpoint(large) {
+            height: 300px;
+        }
+        &__sectors {
+            height: 66%;
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+            @include breakpoint(medium) {
+                display: block;
+                margin-bottom: 15px;
+                height: 75%;
+            }
+            @include breakpoint(large) {
+                height: 100%;
+            }
+        }
+        &__title {
+            margin-bottom: 5px;
+            display: inline-block;
+            color: $grey-text;
+            padding: 0 15px;
+            @include breakpoint(medium) {
+                margin-bottom: 10px;
+            }
+            @include breakpoint(large) {
+                padding: 0 20px;
+            }
+            &--button {
+                display: block;
+                margin: 1px 5px 2px 5px;
+                @include breakpoint(medium) {
+                    margin: 5px;
+                }
+            }
+        }
+        &__column {
+            margin-top: 5px;
+            padding: 0;
+            overflow: hidden;
+            @include breakpoint(medium) {
+                border-right: 1px solid $panel-box-border-color;
+            }
+            &:first-child {
+                border-right: 1px solid $panel-box-border-color;
+            }
+            li {
+                padding: 3px 0;
+                @include breakpoint(large) {
+                    padding: 0;
+                }
+            }
+        }
+        & ul {
+            margin: 0;
+            height: 80%;
+            overflow-y: auto;
+            padding: 0 15px;
+            list-style: none;
+            @include breakpoint(large) {
+                padding: 0 20px;
+            }
+        }
+        &__list-item {
+            position: relative;
+            display: block;
+            &:hover {
+                cursor: pointer;
+                color: $primary-color;
+            }
+        }
+        &--active {
+            color: $primary-color;
+        }
+        &__button {
+            line-height: 1.4;
+            padding: 0.65em 0.75em;
+            @include breakpoint(medium) {
+                padding: 1rem 2rem;
+            }
+        }
+    }
+    &__dropdown-box {
+        padding: 1.75em 0.75em 0.75em 0.5em;
+        height: 100%;
+        background: white;
+        border: 1px solid $panel-border;
+        border-top: 0;
+        @include breakpoint(medium) {
+            padding: 1em 1em 1em 1.6em;
+        }
+        @include breakpoint(large) {
+            padding: 1.5em 2em 2em 1.9em;
+        }
+    }
+    &__settings {
+        &-container {
+            position: absolute;
+            bottom: -4px;
+            right: 1em;
+            @include breakpoint(medium) {
+                bottom: 0px;
+            }
+            @include breakpoint(large) {
+                right: 2.2em;
+            }
+            @include breakpoint(medium only) {
+                right: 2.25em;
+            }
+        }
+        &-button {
+            padding: 1px 5px 4px;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            &--active {
+                background: $white;
+            }
+        }
+    }
+}

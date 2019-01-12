@@ -3,9 +3,8 @@
 Welcome to my GitHub account where you can see some examples of my HTML, CSS, SASS and JavaScript codes.
 ### Projects
 
-**CarePulse Website:**<br/>
-HTML5 / CSS3 / SASS / Foundation / jQuery / React<br/>
-https://www.carepulse.co.uk/registration/
+**Code examples:**<br/>
+HTML5 / CSS3 / SASS / Foundation / jQuery<br/>
 
 **Janos Krettinger's Website:**<br/>
 HTML5 / CSS3 / SASS / jQuery<br/>

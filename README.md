@@ -34,6 +34,6 @@ https://viktoriasgraphics.com/content/calculator/index.html
 HTML5 / CSS3<br/>
 https://viktoriasgraphics.com/content/css3_transforms/css3_transforms.html
 
-#### CSS3 Animation:<br/>
+**CSS3 Animation:**<br/>
 HTML5 / CSS3<br/>
 https://viktoriasgraphics.com/content/css3_animation/css3_animation.html

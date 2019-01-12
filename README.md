@@ -2,18 +2,37 @@
 ## Code Examples
 Welcome to my GitHub account where you can see some examples of my HTML, CSS, SASS and JavaScript codes.
 ### Projects
-Janos Krettinger's Website: https://krettingerjanos.hu/
+CarePulse:
+HTML5 / CSS3 / SASS / Foundation / React
+https://www.carepulse.co.uk/registration/
 
-Gazda-Chem Website: http://gazdachem.viktoriasgraphics.com/
+Janos Krettinger's Website:
+HTML5 / CSS3 / SASS / jQuery
+https://krettingerjanos.hu/
 
-VKI Website (under development): http://vkidev.viktoriasgraphics.com/
+Gazda-Chem Website:
+HTML5 / CSS3 / jQuery
+http://gazdachem.viktoriasgraphics.com/
 
-HTML e-mail - Gazda-Chem: http://gazdachem.viktoriasgraphics.com/newsletter/index.html
+VKI website:
+HTML5 / CSS3 / SASS / jQuery / Bootstrap
 
-HTML e-mail - Novochem: https://viktoriasgraphics.com/content/html_email/novochem_christmas_letter.html
+HTML e-mail - Gazda-Chem:
+HTML5 / CSS3
+http://gazdachem.viktoriasgraphics.com/newsletter/index.html
 
-Online Calculator: https://viktoriasgraphics.com/content/calculator/index.html
+HTML e-mail - Novochem:
+HTML5 / CSS3
+https://viktoriasgraphics.com/content/html_email/novochem_christmas_letter.html
 
-CSS3 Transforms: https://viktoriasgraphics.com/content/css3_transforms/css3_transforms.html
+Online Calculator:
+HTML5 / CSS3 / SASS / JS
+https://viktoriasgraphics.com/content/calculator/index.html
 
-CSS3 Animation: https://viktoriasgraphics.com/content/css3_animation/css3_animation.html
+CSS3 Transforms:
+HTML5 / CSS3
+https://viktoriasgraphics.com/content/css3_transforms/css3_transforms.html
+
+CSS3 Animation:
+HTML5 / CSS3
+https://viktoriasgraphics.com/content/css3_animation/css3_animation.html

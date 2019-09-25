@@ -1,4 +1,4 @@
-# Viktoria Balazs - Front-end Developer and UX Designer
+# Viktoria Balazs - Front-end Developer
 ## Code Examples
 Welcome to my GitHub account where you can see some examples of my HTML, CSS, SASS and JavaScript codes.
 ### Projects

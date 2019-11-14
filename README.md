@@ -3,8 +3,12 @@
 Welcome to my GitHub account where you can see some examples of my HTML, CSS, SASS and JavaScript codes.
 ### Projects
 
+**Calendar week picker:**<br/>
+HTML5 / CSS3 / SASS / React<br/>
+https://viktoriasgraphics.com/content/calendar/index.html
+
 **Code examples:**<br/>
-HTML5 / CSS3 / SASS / Foundation / jQuery<br/>
+HTML5 / CSS3 / SASS / Foundation<br/>
 
 **Janos Krettinger's Website:**<br/>
 HTML5 / CSS3 / SASS / jQuery<br/>

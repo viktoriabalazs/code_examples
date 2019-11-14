@@ -1,0 +1,298 @@
+/* Calendar */
+
+// Colours
+$blue: #2A9AF8;
+$light-blue: #4AADFF;
+$extra-light-blue: #E8F7FF;
+$medium-blue: rgba(42, 156, 248, 0.6);
+$dark-blue: #1788E6;
+
+$grey: #EEEFF1;
+$light-grey: #D1D4DB;
+$extra-light-grey: #FAFAFB;
+$medium-grey: #E7E9EC;
+$dark-grey: #B9BFC9;
+$extra-dark-grey: #8C95A6;
+
+$white: #fff;
+$main-text: #314160;
+$grey-text: $light-grey;
+$light-text: $white;
+
+// Typography
+$font-size: 14px;
+$small-font-size: 12px;
+$large-font-size: 16px;
+
+$bold-font: 500;
+
+$global-radius: 16px;
+$column-number: 7;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+* {
+  box-sizing: border-box;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// General styling for calendar items
+%calendar-item {
+  display: inline-block;
+  width: 100% / $column-number;
+  text-align: center;
+  padding: 8px 0;
+  position: relative;
+  &.today {
+    margin: 0;
+    color: $blue;
+    border-radius: $global-radius;
+    span {
+      position: absolute;
+      top: 0;
+      left: 4px;
+      display: inline-block;
+      border-radius: $global-radius;
+      height: 32px;
+      width: 32px;
+      border: 1px solid $blue;
+    }
+    .active & {
+      background: $blue;
+      color: $white;
+      span {
+        border: 1px solid $white;
+      }
+    }
+  }
+}
+
+// General button styling
+%button {
+  border-radius: $global-radius;
+  border: 1px solid $light-grey;
+  background: $white;
+  padding: 6.5px 15px 7px;
+  font-weight: $bold-font;
+  margin: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: $extra-light-grey;
+    border: 1px solid $dark-grey;
+  }
+  &:focus {
+    border: 1px solid $light-grey;
+    background: $white;
+    outline: none;
+  }
+  &.active {
+    color: $dark-blue;
+    background: $extra-light-blue;
+    border: 1px solid $medium-blue;
+  }
+}
+
+@mixin img-correction($side) {
+  position: relative;
+  top: -1px;
+  @if $side == right {
+    right: -1px;
+  } @else {
+    left: -1px;
+  }
+}
+
+.button-group {
+  height: 32px;
+  white-space: nowrap;
+  overflow: visible;
+  &::after {
+      clear: both;
+      content: "";
+      display: block;
+  }
+  & > div {
+    display: inline-block;
+    height: 100%;
+  }
+  .button {
+    position: relative;
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
+    display: block;
+    float: left;
+    z-index: 1;
+    &:first-child {
+      border-radius: $global-radius 0 0 $global-radius;
+      position: relative;
+      left: 1px;
+    }
+    &:last-child {
+      border-radius: 0 $global-radius $global-radius 0;
+      position: relative;
+      right: 1px;
+    }
+    &--center {
+      position: relative;
+      z-index: 2;
+      font: {
+        size: $font-size;
+        weight: $bold-font;
+      }
+      min-width: 185px;
+      padding: 7px 12px;
+    }
+  }
+}
+
+.button {
+  @extend %button;
+  &--primary {
+    background: $blue;
+    color: $white;
+    border: 1px solid $blue;
+    &:hover {
+      background: $light-blue;
+      border: 1px solid $light-blue;
+    }
+    &.active {
+      background: $dark-blue;
+      border: 1px solid $dark-blue;
+    }
+  }
+  &--control {
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background: $extra-light-grey;
+      img {
+        opacity: 0.5;
+      }
+    }
+  }
+  &--icon {
+    height: 32px;
+    img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+// Calendar styling
+.calendar {
+  font: {
+    family: 'Roboto', sans-serif;
+    size: $font-size;
+  }
+  width: 304px;
+  color: $main-text;
+  position: relative;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  @media screen and (min-width: 768px) {
+    top: 50px;
+  }
+  &__control {
+    text-align: center;
+    margin: 4px 0;
+  }
+  &__header {
+    background: $extra-light-grey;
+    position: relative;
+    padding: 18px 15px;
+    border: {
+      bottom: 1px solid $medium-grey;
+      radius: 8px 8px 0 0;
+    }
+    div {
+      font: {
+        weight: $bold-font;
+        size: $large-font-size;
+      }
+      text-align: center;
+    }
+    .button--control {
+      position: absolute;
+      &:first-child {
+        top: 8px;
+        left: 11px;
+        img {
+          @include img-correction(left);
+        }
+      }
+      &:last-child {
+        top: 8px;
+        right: 11px;
+        img {
+          @include img-correction(right);
+        }
+      }
+    }
+  }
+  &__dropdown {
+    border-radius: 8px;
+    border: 1px solid $medium-grey;
+    background: $white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    &.show {
+      display: block;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+  &__days {
+    padding: 7px 12px 2px;
+    &-item {
+      @extend %calendar-item;
+      font-size: $small-font-size;
+      color: $extra-dark-grey;
+    }
+  }
+  &__body {
+    padding: 0 11px;
+    &-row {
+      margin: 7px 0;
+      border-radius: $global-radius;
+      cursor: pointer;
+      &:last-child {
+        margin-bottom: 6px;
+      }
+      &:hover {
+        background: $grey;
+      }
+      &.active {
+        background: $blue;
+        color: $white;
+      }
+    }
+    &-item {
+      @extend %calendar-item;
+      &--prev, &--curr, &--next {
+        @extend %calendar-item;
+      }
+      &--prev, &--next {
+        color: $light-grey;
+      }
+    }
+  }
+  &__footer {
+    background: $extra-light-grey;
+    padding: 7px 10px;
+    border: {
+      top: 1px solid $medium-grey;
+      radius: 0 0 8px 8px;
+    }
+  }
+}

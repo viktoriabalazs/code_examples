@@ -18,9 +18,6 @@ https://krettingerjanos.hu/
 HTML5 / CSS3 / jQuery<br/>
 http://gazdachem.viktoriasgraphics.com/
 
-**VKI website:**<br/>
-HTML5 / CSS3 / SASS / jQuery / Bootstrap<br/>
-
 **HTML e-mail - Gazda-Chem:**<br/>
 HTML5 / CSS3<br/>
 http://gazdachem.viktoriasgraphics.com/newsletter/index.html

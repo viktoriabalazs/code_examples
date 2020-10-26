@@ -5,15 +5,15 @@ const CalendarControl = ({
   activeDate = new Date(),
   dataSet = [],
   handleClick = f => f,
-  show = true,
   selectedDate = new Date(),
   selectedWeekNumber = 0,
+  show = true,
   updateDate = f => f,
   updateSelectedDate = f => f
 }) => {
-  let endDateOfWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 6);
-  let prevWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() - 7);
-  let nextWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 7);
+  const endDateOfWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 6);
+  const prevWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() - 7);
+  const nextWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 7);
 
   const updateWeek = (week) => {
     updateSelectedDate(week)
@@ -55,9 +55,9 @@ CalendarControl.propTypes = {
   activeDate: PropTypes.object.isRequired,
   dataSet: PropTypes.array.isRequired,
   handleClick: PropTypes.func.isRequired,
-  show: PropTypes.bool.isRequired,
   selectedDate: PropTypes.object.isRequired,
   selectedWeekNumber: PropTypes.number.isRequired,
+  show: PropTypes.bool.isRequired,
   updateDate: PropTypes.func.isRequired,
   updateSelectedDate: PropTypes.func.isRequired
 }

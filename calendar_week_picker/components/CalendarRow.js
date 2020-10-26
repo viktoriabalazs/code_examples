@@ -2,65 +2,62 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CalendarDay from './CalendarDay';
 
-const CalendarRow = ({
-  activeDate = new Date(),
-  id = 1,
-  isLastWeek = false,
-  isNotCurrentMonth = false,
-  next = [],
-  prev = [],
-  week = [],
-  selectedDate = new Date(),
-  selectedWeekNumber = 1,
-  updateSelectedDate = f => f
-}) => {
-  const isActive = () => {
-    let date = activeDate;
-    if(activeDate.getMonth() === 0 && activeDate.getDay() !== 1 && selectedWeekNumber === 1) {
-      date = new Date(activeDate.getFullYear(), activeDate.getMonth(), activeDate.getDate() - 1);
-    }
-    return (
-      date.getFullYear() === selectedDate.getFullYear() &&
-      selectedWeekNumber === id ? 'active' : ''
-    )
+class CalendarRow extends React.Component {
+
+  shouldComponentUpdate(nextProps) {
+    const { activeDate, isActive } = this.props;
+    return isActive !== nextProps.isActive || activeDate !== nextProps.activeDate
   }
 
-  return (
-  <div
-    id={id}
-    className={`calendar__body-row ${isActive()}`}
-    onClick={() => updateSelectedDate(new Date(week[0]))}
-  >
-    {week.map((day, i) =>
-      <CalendarDay
-        activeDate={activeDate}
-        day={day.getDate()}
-        isPrevMonth={
-          isNotCurrentMonth &&
-          (!isLastWeek && i < prev.length)
-        }
-        isNextMonth={
-          isNotCurrentMonth &&
-          (isLastWeek && i > 7 - next.length - 1)
-        }
-        key={i}
-      />
-    )}
-  </div>
-  )
+  render() {
+    const {
+      activeDate = new Date(), 
+      id = 1,
+      isActive = false,
+      isLastWeek = false,
+      isNotCurrentMonth = false,
+      next = [],
+      prev = [],
+      updateSelectedDate = f => f,
+      week = []
+    } = this.props;
+
+    return (
+      <div
+        id={id}
+        className={`calendar__body-row ${isActive ? "active" : ""}`}
+        onClick={() => updateSelectedDate(new Date(week[0]))}
+      >
+        {week.map((day, i) =>
+          <CalendarDay
+            activeDate={activeDate}
+            day={day.getDate()}
+            isNextMonth={
+              isNotCurrentMonth &&
+              (isLastWeek && i > 7 - next.length - 1)
+            }
+            isPrevMonth={
+              isNotCurrentMonth &&
+              (!isLastWeek && i < prev.length)
+            }
+            key={i}
+          />
+        )}
+      </div>
+    )
+  }
 }
 
 CalendarRow.propTypes ={
   activeDate: PropTypes.object.isRequired,
   id: PropTypes.number.isRequired,
+  isActive: PropTypes.bool.isRequired,
   isLastWeek: PropTypes.bool.isRequired,
   isNotCurrentMonth: PropTypes.bool.isRequired,
   next: PropTypes.array.isRequired,
   prev: PropTypes.array.isRequired,
-  week: PropTypes.array.isRequired,
   updateSelectedDate: PropTypes.func.isRequired,
-  selectedDate: PropTypes.object.isRequired,
-  selectedWeekNumber: PropTypes.number.isRequired
+  week: PropTypes.array.isRequired
 }
 
 export default CalendarRow;

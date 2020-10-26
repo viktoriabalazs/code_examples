@@ -4,15 +4,10 @@ import CalendarHeader from './CalendarHeader';
 import CalendarBody from './CalendarBody';
 import CalendarFooter from './CalendarFooter';
 
-const today = new Date();
-const dataSet = [{
-  "days": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
-  "months": ["January","February","March","April","May","June","July","August","September","October","November","December"]
-}];
-
-class App extends React.Component {
+class Calendar extends React.Component {
   constructor(props) {
     super(props);
+    const today = new Date();
     this.state = {
       date: today,
       selectedDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() - (today.getDay() === 0 ? 7 - 1 : today.getDay() - 1)),
@@ -58,19 +53,19 @@ class App extends React.Component {
 
   getPrevMonth() {
     // render previous month
-    let currentDate = this.state.date;
-    let activeMonth = currentDate.getMonth() - 1;
-    let activeYear = currentDate.getFullYear();
-    let activeDate = new Date(activeYear, activeMonth, 1);
+    const currentDate = this.state.date;
+    const activeMonth = currentDate.getMonth() - 1;
+    const activeYear = currentDate.getFullYear();
+    const activeDate = new Date(activeYear, activeMonth, 1);
     this.updateDate(activeDate);
   }
 
   getNextMonth() {
     // render next month
-    let currentDate = this.state.date;
-    let activeMonth = currentDate.getMonth() + 1;
-    let activeYear = currentDate.getFullYear();
-    let activeDate = new Date(activeYear, activeMonth, 1);
+    const currentDate = this.state.date;
+    const activeMonth = currentDate.getMonth() + 1;
+    const activeYear = currentDate.getFullYear();
+    const activeDate = new Date(activeYear, activeMonth, 1);
     this.updateDate(activeDate);
   }
 
@@ -81,22 +76,29 @@ class App extends React.Component {
   }
 
   updateSelectedDate(date) {
-    let week = this.calcNumberOfWeek(date);
-    this.setState({
-      selectedDate: date,
-      selectedWeekNumber: week
-    });
+    const week = this.calcNumberOfWeek(date);
+
+    if(week !== this.state.selectedWeekNumber) {
+      this.setState({
+        selectedDate: date,
+        selectedWeekNumber: week
+      }); 
+    }
   }
 
   calcNumberOfWeek(date) {
-    let firstDayOfYear = new Date(date.getFullYear(), 0, 1);
-    let pastDaysOfYear = (date - firstDayOfYear) / 86400000;
-    let weekNumber = Math.ceil((pastDaysOfYear + (firstDayOfYear.getDay() === 0 ? 7 : firstDayOfYear.getDay())) / 7);
+    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+    const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
+    const weekNumber = Math.ceil((pastDaysOfYear + (firstDayOfYear.getDay() === 0 ? 7 : firstDayOfYear.getDay())) / 7);
     return weekNumber === 53 ? 1 : weekNumber;
   }
 
   render() {
     const { date, show, selectedDate, selectedWeekNumber } = this.state;
+    const dataSet = [{
+      "days": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+      "months": ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    }];
 
     return (
       <div className="calendar" ref={this.calendar}>
@@ -104,9 +106,9 @@ class App extends React.Component {
           activeDate={date}
           dataSet={dataSet}
           handleClick={this.handleClick}
-          show={show}
           selectedDate={selectedDate}
           selectedWeekNumber={selectedWeekNumber}
+          show={show}
           updateDate={this.updateDate}
           updateSelectedDate={this.updateSelectedDate}
         />
@@ -137,4 +139,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Calendar;

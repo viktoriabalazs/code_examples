@@ -18,18 +18,18 @@ const CalendarBody = ({
   updateSelectedDate = f => f
 }) => {
   const getNumberOfDaysInMonth = (year, month) => {
-    let date = new Date(year, month, 32);
-    let daysNumber = 32 - date.getDate();
+    const date = new Date(year, month, 32);
+    const daysNumber = 32 - date.getDate();
     return daysNumber;
   };
 
   const getStartDayOfMonth = (year, month) => {
-    let day = new Date(year,month,1).getDay();
+    const day = new Date(year,month,1).getDay();
     return day === 0 ? 7 : day;
   };
 
   const getDaysInMonth = (iteration, day) => {
-    let days = [];
+    const days = [];
     for(let i = 0; i < iteration; i++) {
       days.push(!day ? i + 1 : day + i + 1);
     }
@@ -37,7 +37,7 @@ const CalendarBody = ({
   };
 
   const weeksWithDays = () => {
-    let weeks = [];
+    const weeks = [];
     for(let i = 0; i < days.length; i += 7) {
       let week = days.slice(i, i + 7);
       weeks.push(week);
@@ -45,37 +45,48 @@ const CalendarBody = ({
     return weeks;
   };
 
-  let currentMonthStartDay = getStartDayOfMonth(activeDate.getFullYear(),activeDate.getMonth());
-  let nextMonthStartDay = getStartDayOfMonth(activeDate.getFullYear(),activeDate.getMonth() + 1);
-  let currentMonthNumberOfDays = getNumberOfDaysInMonth(activeDate.getFullYear(), activeDate.getMonth());
-  let previousMonthNumberOfDays = getNumberOfDaysInMonth(activeDate.getFullYear(), activeDate.getMonth() - 1);
+  const currentMonthStartDay = getStartDayOfMonth(activeDate.getFullYear(),activeDate.getMonth());
+  const nextMonthStartDay = getStartDayOfMonth(activeDate.getFullYear(),activeDate.getMonth() + 1);
+  const currentMonthNumberOfDays = getNumberOfDaysInMonth(activeDate.getFullYear(), activeDate.getMonth());
+  const previousMonthNumberOfDays = getNumberOfDaysInMonth(activeDate.getFullYear(), activeDate.getMonth() - 1);
 
-  let prevMonthDays = getDaysInMonth(currentMonthStartDay - 1, previousMonthNumberOfDays - currentMonthStartDay + 1).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth() - 1, day));
-  let currentMonthDays = getDaysInMonth(currentMonthNumberOfDays).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth(), day));
-  let nextMonthDays = nextMonthStartDay === 1 ? [] : getDaysInMonth(7 - nextMonthStartDay + 1).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth() + 1, day));
+  const prevMonthDays = getDaysInMonth(currentMonthStartDay - 1, previousMonthNumberOfDays - currentMonthStartDay + 1).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth() - 1, day));
+  const currentMonthDays = getDaysInMonth(currentMonthNumberOfDays).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth(), day));
+  const nextMonthDays = nextMonthStartDay === 1 ? [] : getDaysInMonth(7 - nextMonthStartDay + 1).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth() + 1, day));
 
-  let days = [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
+  const days = [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
 
-  let id = calcNumberOfWeek(new Date(activeDate.getFullYear(), activeDate.getMonth(), 1));
+  const id = calcNumberOfWeek(new Date(activeDate.getFullYear(), activeDate.getMonth(), 1));
 
-  const calendarRows = weeksWithDays().map((week, i) =>
+  const calendarRows = weeksWithDays().map((week, i) => {
+  const isActive = () => {
+    let date = activeDate;
+    if(activeDate.getMonth() === 0 && activeDate.getDay() !== 1 && selectedWeekNumber === 1) {
+      date = new Date(activeDate.getFullYear(), activeDate.getMonth(), activeDate.getDate() - 1);
+    }
+    return (
+      date.getFullYear() === selectedDate.getFullYear() &&
+      selectedWeekNumber === id + i
+    )
+  }
+  return (
       <CalendarRow
         activeDate={activeDate}
         id={id + i === 53 ? 1 : id + i}
+        isActive={isActive()}
         isLastWeek={i === weeksWithDays().length - 1}
         isNotCurrentMonth={
           (prevMonthDays.length && i === 0) ||
           (nextMonthDays.length && i === weeksWithDays().length - 1)
         }
-        week={week}
         key={i}
-        prev={prevMonthDays}
         next={nextMonthDays}
-        selectedDate={selectedDate}
-        selectedWeekNumber={selectedWeekNumber}
+        prev={prevMonthDays}
         updateSelectedDate={updateSelectedDate}
+        week={week}
       />
-  );
+  )
+      });
 
     return (
       <React.Fragment>

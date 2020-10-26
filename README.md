@@ -1,13 +1,13 @@
 # Viktoria Balazs - Front-end Developer
 ## Code Examples
-Welcome to my GitHub account where you can see some examples of my HTML, CSS, SASS and JavaScript codes.
+Welcome to my GitHub account where you can see some examples of my HTML, CSS and JavaScript codes.
 ### Projects
 
 **Calendar week picker:**<br/>
-HTML5 / CSS3 / SASS / React<br/>
+HTML5 / CSS3 / SASS / React / JavaScript (ES6)<br/>
 https://viktoriasgraphics.com/content/calendar/index.html
 
-**Code examples:**<br/>
+**Random examples:**<br/>
 HTML5 / CSS3 / SASS / Foundation<br/>
 
 **Janos Krettinger's Website:**<br/>
@@ -27,7 +27,7 @@ HTML5 / CSS3<br/>
 https://viktoriasgraphics.com/content/html_email/novochem_christmas_letter.html
 
 **Online Calculator:**<br/>
-HTML5 / CSS3 / SASS / JS<br/>
+HTML5 / CSS3 / SASS / JavaScript<br/>
 https://viktoriasgraphics.com/content/calculator/index.html
 
 **CSS3 Transforms:**<br/>

@@ -59,25 +59,29 @@ const CalendarBody = ({
   const id = calcNumberOfWeek(new Date(activeDate.getFullYear(), activeDate.getMonth(), 1));
 
   const calendarRows = weeksWithDays().map((week, i) => {
-  const isActive = () => {
-    let date = activeDate;
-    if(activeDate.getMonth() === 0 && activeDate.getDay() !== 1 && selectedWeekNumber === 1) {
-      date = new Date(activeDate.getFullYear(), activeDate.getMonth(), activeDate.getDate() - 1);
+    const currentId = id + i === 53 ? 1 : id + i;
+    
+    const isActive = () => {
+      let date = activeDate;
+
+      if(activeDate.getMonth() === 0 && activeDate.getDay() !== 1 && selectedWeekNumber === 1) {
+        date = new Date(activeDate.getFullYear(), activeDate.getMonth(), activeDate.getDate() - 1);
+      }
+      return (
+        date.getFullYear() === selectedDate.getFullYear() &&
+        selectedWeekNumber === currentId
+      )
     }
+
     return (
-      date.getFullYear() === selectedDate.getFullYear() &&
-      selectedWeekNumber === id + i
-    )
-  }
-  return (
       <CalendarRow
         activeDate={activeDate}
-        id={id + i === 53 ? 1 : id + i}
+        id={currentId}
         isActive={isActive()}
         isLastWeek={i === weeksWithDays().length - 1}
         isNotCurrentMonth={
-          (prevMonthDays.length && i === 0) ||
-          (nextMonthDays.length && i === weeksWithDays().length - 1)
+          (prevMonthDays.length !== 0 && i === 0) ||
+          (nextMonthDays.length !== 0 && i === weeksWithDays().length - 1)
         }
         key={i}
         next={nextMonthDays}
@@ -85,19 +89,19 @@ const CalendarBody = ({
         updateSelectedDate={updateSelectedDate}
         week={week}
       />
-  )
-      });
-
-    return (
-      <React.Fragment>
-        {dataSet.map((data, i) =>
-          <DayNames key={i} {...data} />
-        )}
-        <div className="calendar__body">
-          {calendarRows}
-        </div>
-      </React.Fragment> 
     )
+  });
+
+  return (
+    <React.Fragment>
+      {dataSet.map((data, i) =>
+        <DayNames key={i} {...data} />
+      )}
+      <div className="calendar__body">
+        {calendarRows}
+      </div>
+    </React.Fragment> 
+  )
 }
 
 CalendarBody.propTypes = {

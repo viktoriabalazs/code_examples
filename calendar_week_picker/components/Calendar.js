@@ -1,8 +1,7 @@
 import React from 'react';
 import CalendarControl from './CalendarControl';
-import CalendarHeader from './CalendarHeader';
-import CalendarBody from './CalendarBody';
-import CalendarFooter from './CalendarFooter';
+import CalendarDropdown from './CalendarDropdown';
+import Expandable from '../hoc/Expandable';
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -11,13 +10,11 @@ class Calendar extends React.Component {
     this.state = {
       date: today,
       selectedDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() - (today.getDay() === 0 ? 7 - 1 : today.getDay() - 1)),
-      selectedWeekNumber: this.calcNumberOfWeek(today),
-      show: true
+      selectedWeekNumber: this.calcNumberOfWeek(today)
     };
 
     this.calendar = React.createRef();
 
-    this.handleClick = this.handleClick.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.getPrevMonth = this.getPrevMonth.bind(this);
     this.getNextMonth = this.getNextMonth.bind(this);
@@ -30,17 +27,6 @@ class Calendar extends React.Component {
     document.addEventListener("click", this.handleOutsideClick, false);
   }
 
-  handleClick() {
-    if (!this.state.show) {
-      document.addEventListener("click", this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener("click", this.handleOutsideClick, false);
-    }
-    this.setState(state => ({
-      show: !state.show
-    }));
-  }
-
   handleOutsideClick(e) {
     // ignore clicks on the component itself
     if (
@@ -48,7 +34,7 @@ class Calendar extends React.Component {
     ) {
       return;
     }
-    this.handleClick();
+    this.props.expandCollapse();
   }
 
   getPrevMonth() {
@@ -94,7 +80,8 @@ class Calendar extends React.Component {
   }
 
   render() {
-    const { date, show, selectedDate, selectedWeekNumber } = this.state;
+    const { collapsed, expandCollapse } = this.props;
+    const { date, selectedDate, selectedWeekNumber } = this.state;
     const dataSet = [{
       "days": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
       "months": ["January","February","March","April","May","June","July","August","September","October","November","December"]
@@ -105,38 +92,29 @@ class Calendar extends React.Component {
         <CalendarControl
           activeDate={date}
           dataSet={dataSet}
-          handleClick={this.handleClick}
+          expandCollapse={expandCollapse}
           selectedDate={selectedDate}
           selectedWeekNumber={selectedWeekNumber}
-          show={show}
+          collapsed={collapsed}
           updateDate={this.updateDate}
           updateSelectedDate={this.updateSelectedDate}
         />
-        <div 
-          
-          className={`calendar__dropdown ${!show ? "hide" : "show"}`}
-        >
-          <CalendarHeader
-            dataSet={dataSet}
-            date={date}
-            getNextMonth={this.getNextMonth}
-            getPrevMonth={this.getPrevMonth}
-          />
-          <CalendarBody
-            activeDate={date}
-            calcNumberOfWeek={this.calcNumberOfWeek}
-            dataSet={dataSet}
-            selectedDate={selectedDate}
-            selectedWeekNumber={selectedWeekNumber}
-            updateSelectedDate={this.updateSelectedDate}
-          />
-          <CalendarFooter
-            handleClick={this.handleClick}
-          />
-        </div>
+        <CalendarDropdown
+          activeDate={date}
+          calcNumberOfWeek={this.calcNumberOfWeek}
+          collapsed={collapsed}
+          dataSet={dataSet}
+          date={date}
+          expandCollapse={expandCollapse}
+          getNextMonth={this.getNextMonth}
+          getPrevMonth={this.getPrevMonth}
+          selectedDate={selectedDate}
+          selectedWeekNumber={selectedWeekNumber}
+          updateSelectedDate={this.updateSelectedDate}
+        />
       </div>
     );
   }
 }
 
-export default Calendar;
+export default Expandable(Calendar);

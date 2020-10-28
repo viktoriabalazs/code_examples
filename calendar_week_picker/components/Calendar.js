@@ -2,6 +2,7 @@ import React from 'react';
 import CalendarControl from './CalendarControl';
 import CalendarDropdown from './CalendarDropdown';
 import Expandable from '../hoc/Expandable';
+import SelectedWeek from './SelectedWeek';
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -12,29 +13,11 @@ class Calendar extends React.Component {
       selectedDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() - (today.getDay() === 0 ? 7 - 1 : today.getDay() - 1)),
       selectedWeekNumber: this.calcNumberOfWeek(today)
     };
-
-    this.calendar = React.createRef();
-
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.getPrevMonth = this.getPrevMonth.bind(this);
     this.getNextMonth = this.getNextMonth.bind(this);
     this.updateDate = this.updateDate.bind(this);
     this.updateSelectedDate = this.updateSelectedDate.bind(this);
     this.calcNumberOfWeek = this.calcNumberOfWeek.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener("click", this.handleOutsideClick, false);
-  }
-
-  handleOutsideClick(e) {
-    // ignore clicks on the component itself
-    if (
-      this.calendar.current.contains(e.target)
-    ) {
-      return;
-    }
-    this.props.expandCollapse();
   }
 
   getPrevMonth() {
@@ -80,15 +63,19 @@ class Calendar extends React.Component {
   }
 
   render() {
-    const { collapsed, expandCollapse } = this.props;
+    const { collapsed, expandCollapse, forwardRef } = this.props;
     const { date, selectedDate, selectedWeekNumber } = this.state;
-    const dataSet = [{
-      "days": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
-      "months": ["January","February","March","April","May","June","July","August","September","October","November","December"]
-    }];
+    const dataSet = {
+      days: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+      months: ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    };
 
     return (
-      <div className="calendar" ref={this.calendar}>
+      <div className="calendar" ref={forwardRef}>
+        <SelectedWeek
+          dataSet={dataSet}
+          selectedDate={selectedDate}
+        />
         <CalendarControl
           activeDate={date}
           dataSet={dataSet}

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const CalendarControl = ({
   activeDate = new Date(),
   collapsed = false,
-  dataSet = [],
+  dataSet = {},
   expandCollapse = f => f,
   selectedDate = new Date(),
   selectedWeekNumber = 0,
@@ -37,7 +37,7 @@ const CalendarControl = ({
         className={`button button--center ${!collapsed ? " active" : ""}`}
         onClick={expandCollapse}
       >
-        {`W${selectedWeekNumber}: ${dataSet[0].months[selectedDate.getMonth()].slice(0, 3)} ${selectedDate.getDate()} - ${dataSet[0].months[endDateOfWeek.getMonth()].slice(0, 3)} ${endDateOfWeek.getDate()}`}
+        {`W${selectedWeekNumber}: ${dataSet.months[selectedDate.getMonth()].slice(0, 3)} ${selectedDate.getDate()} - ${dataSet.months[endDateOfWeek.getMonth()].slice(0, 3)} ${endDateOfWeek.getDate()}`}
       </button>
       <button
         type="button"
@@ -54,7 +54,7 @@ const CalendarControl = ({
 CalendarControl.propTypes = {
   activeDate: PropTypes.object.isRequired,
   collapsed: PropTypes.bool.isRequired,
-  dataSet: PropTypes.array.isRequired,
+  dataSet: PropTypes.object.isRequired,
   expandCollapse: PropTypes.func.isRequired,
   selectedDate: PropTypes.object.isRequired,
   selectedWeekNumber: PropTypes.number.isRequired,

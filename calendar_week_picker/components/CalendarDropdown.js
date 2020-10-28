@@ -7,7 +7,7 @@ import CalendarFooter from './CalendarFooter';
 const CalendarDropdown = ({
   calcNumberOfWeek = f => f,
   collapsed = false,
-  dataSet = [],
+  dataSet = {},
   date = new Date(),
   expandCollapse = f => f,
   getNextMonth = f => f,
@@ -39,7 +39,7 @@ const CalendarDropdown = ({
 CalendarDropdown.propTypes = {
   calcNumberOfWeek: PropTypes.func.isRequired,
   collapsed: PropTypes.bool.isRequired,
-  dataSet: PropTypes.array.isRequired,
+  dataSet: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,
   expandCollapse: PropTypes.func.isRequired,
   getNextMonth: PropTypes.func.isRequired,

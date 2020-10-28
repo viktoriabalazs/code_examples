@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 const CalendarFooter = ({ handleClick = f => f }) => 
   <div className="calendar__footer">
-    <button type="button" className="button button--primary">Done</button>
-    <button type="button" className="button" onClick={handleClick}>Cancel</button>
+    <button type="button" className="button" onClick={handleClick}>Close</button>
   </div>
 
 CalendarFooter.propTypes = {

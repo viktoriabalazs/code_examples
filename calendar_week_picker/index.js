@@ -4,9 +4,11 @@ import './index.scss';
 import Calendar from './components/Calendar';
 import * as serviceWorker from './serviceWorker';
 
+const ref = React.createRef();
+
 ReactDOM.render(
   <React.StrictMode>
-    <Calendar />
+    <Calendar ref={ref} />
   </React.StrictMode>,
   document.getElementById('root')
 );

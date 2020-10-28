@@ -201,7 +201,7 @@ $column-number: 7;
     right: auto;
   }
   @media screen and (min-width: 768px) {
-    top: 50px;
+    top: 30px;
   }
   &__control {
     text-align: center;
@@ -239,6 +239,10 @@ $column-number: 7;
         }
       }
     }
+  }
+  &__selected-week {
+    text-align: center;
+    margin-bottom: 1rem;
   }
   &__dropdown {
     border-radius: 8px;

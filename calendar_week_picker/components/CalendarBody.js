@@ -12,7 +12,7 @@ const DayNames = ({ days }) =>
 const CalendarBody = ({
   activeDate = new Date(),
   calcNumberOfWeek = f => f,
-  dataSet = [],
+  dataSet = {},
   selectedDate = new Date(),
   selectedWeekNumber = 1,
   updateSelectedDate = f => f
@@ -94,9 +94,7 @@ const CalendarBody = ({
 
   return (
     <React.Fragment>
-      {dataSet.map((data, i) =>
-        <DayNames key={i} {...data} />
-      )}
+      <DayNames {...dataSet} />
       <div className="calendar__body">
         {calendarRows}
       </div>
@@ -107,7 +105,7 @@ const CalendarBody = ({
 CalendarBody.propTypes = {
   activeDate: PropTypes.object.isRequired,
   calcNumberOfWeek: PropTypes.func.isRequired,
-  dataSet: PropTypes.array.isRequired,
+  dataSet: PropTypes.object.isRequired,
   selectedDate: PropTypes.object.isRequired,
   selectedWeekNumber: PropTypes.number.isRequired,
   updateSelectedDate: PropTypes.func.isRequired

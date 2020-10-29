@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import CalendarHeader from './CalendarHeader';
 import CalendarBody from './CalendarBody';
 import CalendarFooter from './CalendarFooter';
+import moment from 'moment';
 
 const CalendarDropdown = ({
   calcNumberOfWeek = f => f,
   collapsed = false,
-  dataSet = {},
-  date = new Date(),
+  date = moment(),
   expandCollapse = f => f,
   getNextMonth = f => f,
   getPrevMonth = f => f,
-  selectedDate = new Date(),
+  selectedDate = moment(),
   selectedWeekNumber = 1,
+  updateDate = f => f,
   updateSelectedDate = f => f
 }) =>
   <div className={`calendar__dropdown ${!collapsed ? "show" : "hide"}`}>
     <CalendarHeader
-      dataSet={dataSet}
       date={date}
       getNextMonth={getNextMonth}
       getPrevMonth={getPrevMonth}
@@ -26,26 +26,26 @@ const CalendarDropdown = ({
     <CalendarBody
       activeDate={date}
       calcNumberOfWeek={calcNumberOfWeek}
-      dataSet={dataSet}
       selectedDate={selectedDate}
       selectedWeekNumber={selectedWeekNumber}
       updateSelectedDate={updateSelectedDate}
     />
     <CalendarFooter
       handleClick={expandCollapse}
+      updateDate={updateDate}
     />
   </div>
 
 CalendarDropdown.propTypes = {
   calcNumberOfWeek: PropTypes.func.isRequired,
   collapsed: PropTypes.bool.isRequired,
-  dataSet: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,
   expandCollapse: PropTypes.func.isRequired,
   getNextMonth: PropTypes.func.isRequired,
   getPrevMonth: PropTypes.func.isRequired,
   selectedDate: PropTypes.object.isRequired,
   selectedWeekNumber: PropTypes.number.isRequired,
+  updateDate: PropTypes.func.isRequired,
   updateSelectedDate: PropTypes.func.isRequired
 }
 

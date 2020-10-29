@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CalendarDay from './CalendarDay';
+import moment from 'moment';
 
 class CalendarRow extends React.Component {
 
@@ -11,7 +12,7 @@ class CalendarRow extends React.Component {
 
   render() {
     const {
-      activeDate = new Date(), 
+      activeDate = moment(), 
       id = 1,
       isActive = false,
       isLastWeek = false,
@@ -26,12 +27,12 @@ class CalendarRow extends React.Component {
       <div
         id={id}
         className={`calendar__body-row ${isActive ? "active" : ""}`}
-        onClick={() => updateSelectedDate(new Date(week[0]))}
+        onClick={() => updateSelectedDate(week[0])}
       >
         {week.map((day, i) =>
           <CalendarDay
             activeDate={activeDate}
-            day={day.getDate()}
+            day={day.date()}
             isNextMonth={
               isNotCurrentMonth &&
               (isLastWeek && i > 7 - next.length - 1)

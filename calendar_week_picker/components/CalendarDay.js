@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as classNames from 'classnames';
+import moment from 'moment';
 
 const CalendarDay = ({
-  activeDate = new Date(),
+  activeDate = moment(),
   day = 1,
   isNextMonth = false,
   isPrevMonth = false
 }) => {
   const currentMonth = !isPrevMonth && !isNextMonth;
-  const today = new Date();
+  const today = moment();
 
   const isToday =
     currentMonth &&
-    today.getFullYear() === activeDate.getFullYear() &&
-    today.getMonth() === activeDate.getMonth() &&
-    today.getDate() === day;
+    today.year() === activeDate.year() &&
+    today.month() === activeDate.month() &&
+    today.date() === day;
 
   const classNameDay = classNames(
     {

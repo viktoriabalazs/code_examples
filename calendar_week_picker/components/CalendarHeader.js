@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const CalendarHeader = ({
-    dataSet = {},
-    date = new Date(),
+    date = moment(),
     getNextMonth = f => f,
     getPrevMonth = f => f
   }) =>
@@ -16,7 +16,7 @@ const CalendarHeader = ({
       <img src="images/icon_arrow_left.png" alt="Prev" height="14" width="8" />
     </button>
     <div>
-      {dataSet.months[date.getMonth()]} {date.getFullYear()}
+      {date.format('MMMM')} {date.year()}
     </div>
     <button
       type="button"
@@ -28,7 +28,6 @@ const CalendarHeader = ({
   </div>
 
 CalendarHeader.propTypes = {
-  dataSet: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,
   getNextMonth: PropTypes.func.isRequired,
   getPrevMonth: PropTypes.func.isRequired

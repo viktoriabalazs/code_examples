@@ -152,12 +152,11 @@ $column-number: 7;
 .button {
   @extend %button;
   &--primary {
-    background: $blue;
-    color: $white;
+    background: $white;
+    color: $blue;
     border: 1px solid $blue;
     &:hover {
-      background: $light-blue;
-      border: 1px solid $light-blue;
+      border: 1px solid $dark-blue;
     }
     &.active {
       background: $dark-blue;

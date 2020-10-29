@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
-const SelectedWeek = ({ dataSet = {}, selectedDate = new Date() }) => {
-  const endDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 6);
-  const startDateOfWeek = `${selectedDate.getDate()} ${dataSet.months[selectedDate.getMonth()]} ${selectedDate.getFullYear()}`;
-  const endDateOfWeek = `${endDate.getDate()} ${dataSet.months[endDate.getMonth()]} ${endDate.getFullYear()}`;
-
-  const text = `${startDateOfWeek} - ${endDateOfWeek}`;
+const SelectedWeek = ({ selectedDate = moment() }) => {
+  const startDateOfWeek = moment(selectedDate).startOf('isoWeek').format('DD MMMM YYYY');
+  const endDateOfWeek = moment(selectedDate).endOf('isoWeek').format('DD MMMM YYYY');
 
   return <div className="calendar__selected-week">
       <strong>Week selected:</strong><br />
-      {text}
+      {`${startDateOfWeek} - ${endDateOfWeek}`}
     </div>
 }
 
 SelectedWeek.propTypes = {
-  dataSet: PropTypes.object.isRequired,
   selectedDate: PropTypes.object.isRequired
 }
 

@@ -1,30 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CalendarRow from './CalendarRow';
+import moment from 'moment';
 
-const DayNames = ({ days }) =>
+const DayNames = ({ weekArray }) =>
   <div className="calendar__days">
-    {days.map((day, i) =>
+    {weekArray.map((day, i) =>
       <div className="calendar__days-item" key={i}>{day}</div>
     )}
   </div>
 
 const CalendarBody = ({
-  activeDate = new Date(),
+  activeDate = moment(),
   calcNumberOfWeek = f => f,
-  dataSet = {},
-  selectedDate = new Date(),
+  selectedDate = moment(),
   selectedWeekNumber = 1,
   updateSelectedDate = f => f
 }) => {
-  const getNumberOfDaysInMonth = (year, month) => {
-    const date = new Date(year, month, 32);
-    const daysNumber = 32 - date.getDate();
-    return daysNumber;
-  };
-
-  const getStartDayOfMonth = (year, month) => {
-    const day = new Date(year,month,1).getDay();
+  const getStartDayOfMonth = (date) => {
+    const day = date.startOf('month').day();
     return day === 0 ? 7 : day;
   };
 
@@ -45,18 +39,22 @@ const CalendarBody = ({
     return weeks;
   };
 
-  const currentMonthStartDay = getStartDayOfMonth(activeDate.getFullYear(),activeDate.getMonth());
-  const nextMonthStartDay = getStartDayOfMonth(activeDate.getFullYear(),activeDate.getMonth() + 1);
-  const currentMonthNumberOfDays = getNumberOfDaysInMonth(activeDate.getFullYear(), activeDate.getMonth());
-  const previousMonthNumberOfDays = getNumberOfDaysInMonth(activeDate.getFullYear(), activeDate.getMonth() - 1);
-
-  const prevMonthDays = getDaysInMonth(currentMonthStartDay - 1, previousMonthNumberOfDays - currentMonthStartDay + 1).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth() - 1, day));
-  const currentMonthDays = getDaysInMonth(currentMonthNumberOfDays).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth(), day));
-  const nextMonthDays = nextMonthStartDay === 1 ? [] : getDaysInMonth(7 - nextMonthStartDay + 1).map(day => new Date(activeDate.getFullYear(), activeDate.getMonth() + 1, day));
+  const currentMonthStartDay = getStartDayOfMonth(activeDate);
+  const nextMonthStartDay = getStartDayOfMonth(moment(activeDate).add(1, 'months'));
+  const currentMonthNumberOfDays = activeDate.daysInMonth();
+  const prevMonthNumberOfDays = moment(activeDate).subtract(1, 'months').daysInMonth();
+  const prevMonthDays = getDaysInMonth(currentMonthStartDay - 1, prevMonthNumberOfDays - currentMonthStartDay + 1)
+    .map(day => moment(activeDate).subtract(1, 'months').set('date', day));
+  const currentMonthDays = getDaysInMonth(currentMonthNumberOfDays)
+    .map(day => moment(activeDate).set('date', day));
+  const nextMonthDays = nextMonthStartDay !== 1
+    ? getDaysInMonth(7 - nextMonthStartDay + 1)
+      .map(day => moment(activeDate).add(1, 'months').set('date', day))
+    : [];
 
   const days = [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
 
-  const id = calcNumberOfWeek(new Date(activeDate.getFullYear(), activeDate.getMonth(), 1));
+  const id = calcNumberOfWeek(moment(activeDate).startOf('month'));
 
   const calendarRows = weeksWithDays().map((week, i) => {
     const currentId = id + i === 53 ? 1 : id + i;
@@ -64,11 +62,11 @@ const CalendarBody = ({
     const isActive = () => {
       let date = activeDate;
 
-      if(activeDate.getMonth() === 0 && activeDate.getDay() !== 1 && selectedWeekNumber === 1) {
-        date = new Date(activeDate.getFullYear(), activeDate.getMonth(), activeDate.getDate() - 1);
+      if(activeDate.month() === 0 && activeDate.day() !== 1 && selectedWeekNumber === 1) {
+        date = moment(activeDate).subtract(1, 'days');
       }
       return (
-        date.getFullYear() === selectedDate.getFullYear() &&
+        date.year() === selectedDate.year() &&
         selectedWeekNumber === currentId
       )
     }
@@ -92,9 +90,13 @@ const CalendarBody = ({
     )
   });
 
+  const weekArray = moment.weekdaysShort();
+  const weekArrayFirstItem = weekArray.shift();
+  const weekArrayStartWithMonday = [...weekArray, weekArrayFirstItem];
+
   return (
     <React.Fragment>
-      <DayNames {...dataSet} />
+      <DayNames weekArray={weekArrayStartWithMonday} />
       <div className="calendar__body">
         {calendarRows}
       </div>
@@ -105,7 +107,6 @@ const CalendarBody = ({
 CalendarBody.propTypes = {
   activeDate: PropTypes.object.isRequired,
   calcNumberOfWeek: PropTypes.func.isRequired,
-  dataSet: PropTypes.object.isRequired,
   selectedDate: PropTypes.object.isRequired,
   selectedWeekNumber: PropTypes.number.isRequired,
   updateSelectedDate: PropTypes.func.isRequired

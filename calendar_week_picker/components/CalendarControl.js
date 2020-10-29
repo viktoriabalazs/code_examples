@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const CalendarControl = ({
-  activeDate = new Date(),
+  activeDate = moment(),
   collapsed = false,
-  dataSet = {},
   expandCollapse = f => f,
-  selectedDate = new Date(),
+  selectedDate = moment(),
   selectedWeekNumber = 0,
   updateDate = f => f,
   updateSelectedDate = f => f
 }) => {
-  const endDateOfWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 6);
-  const prevWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() - 7);
-  const nextWeek = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 7);
+  const endDateOfWeek = moment(selectedDate).endOf('isoWeek');
+  const prevWeek = moment(selectedDate).subtract(1, 'weeks');
+  const nextWeek = moment(selectedDate).add(1, 'weeks');
 
   const updateWeek = (week) => {
     updateSelectedDate(week)
-    if(activeDate.getFullYear() !== week.getFullYear() || activeDate.getMonth() !== week.getMonth()) {
-      updateDate(new Date(week.getFullYear(), week.getMonth(), 1))
+    if(moment(activeDate).startOf('month') !== moment(week).startOf('month')) {
+      updateDate(moment(week).startOf('month'));
     }
   }
 
@@ -37,7 +37,7 @@ const CalendarControl = ({
         className={`button button--center ${!collapsed ? " active" : ""}`}
         onClick={expandCollapse}
       >
-        {`W${selectedWeekNumber}: ${dataSet.months[selectedDate.getMonth()].slice(0, 3)} ${selectedDate.getDate()} - ${dataSet.months[endDateOfWeek.getMonth()].slice(0, 3)} ${endDateOfWeek.getDate()}`}
+        {`W${selectedWeekNumber}: ${selectedDate.format('MMM')} ${selectedDate.date()} - ${endDateOfWeek.format('MMM')} ${endDateOfWeek.date()}`}
       </button>
       <button
         type="button"
@@ -54,7 +54,6 @@ const CalendarControl = ({
 CalendarControl.propTypes = {
   activeDate: PropTypes.object.isRequired,
   collapsed: PropTypes.bool.isRequired,
-  dataSet: PropTypes.object.isRequired,
   expandCollapse: PropTypes.func.isRequired,
   selectedDate: PropTypes.object.isRequired,
   selectedWeekNumber: PropTypes.number.isRequired,

@@ -17,8 +17,8 @@ class CalendarRow extends React.Component {
       isActive = false,
       isLastWeek = false,
       isNotCurrentMonth = false,
-      next = [],
-      prev = [],
+      nextMonthDays = [],
+      prevMonthDays = [],
       updateSelectedDate = f => f,
       week = []
     } = this.props;
@@ -35,11 +35,11 @@ class CalendarRow extends React.Component {
             day={day.date()}
             isNextMonth={
               isNotCurrentMonth &&
-              (isLastWeek && i > 7 - next.length - 1)
+              (isLastWeek && i > 7 - nextMonthDays.length - 1)
             }
             isPrevMonth={
               isNotCurrentMonth &&
-              (!isLastWeek && i < prev.length)
+              (!isLastWeek && i < prevMonthDays.length)
             }
             key={i}
           />
@@ -55,8 +55,8 @@ CalendarRow.propTypes ={
   isActive: PropTypes.bool.isRequired,
   isLastWeek: PropTypes.bool.isRequired,
   isNotCurrentMonth: PropTypes.bool.isRequired,
-  next: PropTypes.array.isRequired,
-  prev: PropTypes.array.isRequired,
+  nextMonthDays: PropTypes.array.isRequired,
+  prevMonthDays: PropTypes.array.isRequired,
   updateSelectedDate: PropTypes.func.isRequired,
   week: PropTypes.array.isRequired
 }

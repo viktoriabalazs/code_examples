@@ -58,10 +58,16 @@ class Calendar extends React.Component {
   }
 
   calcNumberOfWeek(date) {
-    const firstDayOfYear = moment(date).startOf('year');
-    const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
-    const weekNumber = Math.ceil((pastDaysOfYear + (firstDayOfYear.day() === 0 ? 7 : firstDayOfYear.day())) / 7);
-    return weekNumber === 53 ? 1 : weekNumber;
+    const tdt = moment(date.valueOf());
+    const dayn = (date.day() + 6) % 7;
+    tdt.set('date', tdt.date() - dayn + 3);
+    const firstThursday = tdt.valueOf();
+    tdt.set({'month': 0, 'date': 1});
+    if (tdt.day() !== 4) {
+      tdt.set({'month': 0, 'date': 1 + ((4 - tdt.day()) + 7) % 7});
+    }
+    const weekNumber = 1 + Math.ceil((firstThursday - tdt) / 604800000);
+    return weekNumber;
   }
 
   render() {

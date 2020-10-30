@@ -13,7 +13,8 @@ const CalendarFooter = ({ handleClick = f => f, updateDate = f => f }) =>
   </div>
 
 CalendarFooter.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  updateDate: PropTypes.func.isRequired
 }
 
 export default CalendarFooter;

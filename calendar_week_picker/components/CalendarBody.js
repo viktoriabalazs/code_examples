@@ -54,27 +54,27 @@ const CalendarBody = ({
 
   const days = [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
 
-  const id = calcNumberOfWeek(moment(activeDate).startOf('month'));
-
   const calendarRows = weeksWithDays().map((week, i) => {
-    const currentId = id + i === 53 ? 1 : id + i;
+    const currentMonthStartDate = moment(activeDate).startOf('month');
+    const id = calcNumberOfWeek(moment(currentMonthStartDate).add(i, 'weeks'));
     
     const isActive = () => {
-      let date = activeDate;
+      let date = moment(currentMonthStartDate);
 
-      if(activeDate.month() === 0 && activeDate.day() !== 1 && selectedWeekNumber === 1) {
-        date = moment(activeDate).subtract(1, 'days');
+      if(date.day() !== 1 && calcNumberOfWeek(selectedDate) > calcNumberOfWeek(moment(selectedDate).add(1, 'weeks'))) {
+        date = moment(date).subtract(1, 'days');
       }
+
       return (
         date.year() === selectedDate.year() &&
-        selectedWeekNumber === currentId
+        selectedWeekNumber === id
       )
     }
 
     return (
       <CalendarRow
         activeDate={activeDate}
-        id={currentId}
+        id={id}
         isActive={isActive()}
         isLastWeek={i === weeksWithDays().length - 1}
         isNotCurrentMonth={
@@ -82,8 +82,8 @@ const CalendarBody = ({
           (nextMonthDays.length !== 0 && i === weeksWithDays().length - 1)
         }
         key={i}
-        next={nextMonthDays}
-        prev={prevMonthDays}
+        nextMonthDays={nextMonthDays}
+        prevMonthDays={prevMonthDays}
         updateSelectedDate={updateSelectedDate}
         week={week}
       />

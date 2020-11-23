@@ -1,14 +1,15 @@
 # Viktoria Balazs - Front-end Developer
 ## Code Examples
 Welcome to my GitHub account where you can see some examples of my HTML, CSS and JavaScript codes.
+
 ### Projects
 
 **Calendar week picker:**<br/>
 HTML5 / CSS3 / SASS / React / Redux / JavaScript (ES6) / Jest<br/>
 https://viktoriasgraphics.com/content/calendar/index.html
 
-**Random examples:**<br/>
-HTML5 / CSS3 / SASS / Foundation<br/>
+**Front-end tools:**<br/>
+Webpack / Gulp<br/>
 
 **Janos Krettinger's Website:**<br/>
 HTML5 / CSS3 / SASS / jQuery<br/>

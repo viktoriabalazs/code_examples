@@ -10,6 +10,11 @@ https://viktoriasgraphics.com/content/calendar/index.html
 
 **Front-end tools:**<br/>
 Webpack / Gulp<br/>
+Configuration examples
+
+**Online Calculator:**<br/>
+HTML5 / CSS3 / SASS / JavaScript<br/>
+https://viktoriasgraphics.com/content/calculator/index.html
 
 **Janos Krettinger's Website:**<br/>
 HTML5 / CSS3 / SASS / jQuery<br/>
@@ -22,10 +27,6 @@ http://gazdachem.viktoriasgraphics.com/
 **HTML e-mail - Gazda-Chem:**<br/>
 HTML5 / CSS3<br/>
 http://gazdachem.viktoriasgraphics.com/newsletter/index.html
-
-**Online Calculator:**<br/>
-HTML5 / CSS3 / SASS / JavaScript<br/>
-https://viktoriasgraphics.com/content/calculator/index.html
 
 **CSS3 Transforms:**<br/>
 HTML5 / CSS3<br/>

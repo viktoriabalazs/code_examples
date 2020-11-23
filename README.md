@@ -4,7 +4,7 @@ Welcome to my GitHub account where you can see some examples of my HTML, CSS and
 ### Projects
 
 **Calendar week picker:**<br/>
-HTML5 / CSS3 / SASS / React / JavaScript (ES6)<br/>
+HTML5 / CSS3 / SASS / React / Redux / JavaScript (ES6) / Jest<br/>
 https://viktoriasgraphics.com/content/calendar/index.html
 
 **Random examples:**<br/>

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CalendarRow from './CalendarRow';
+import CalendarRowContainer from './CalendarRowContainer';
 import moment from 'moment';
+import { calcNumberOfWeek } from '../utils/utils';
 
 const DayNames = ({ weekArray }) =>
   <div className="calendar__days">
@@ -11,12 +12,10 @@ const DayNames = ({ weekArray }) =>
   </div>
 
 const CalendarBody = ({
-  activeDate = moment(),
-  calcNumberOfWeek = f => f,
-  selectedDate = moment(),
-  selectedWeekNumber = 1,
-  updateSelectedDate = f => f
+  date = moment(),
+  selectedWeek
 }) => {
+  const { selectedDate, selectedWeekNumber } = selectedWeek;
   const getStartDayOfMonth = (date) => {
     const day = date.startOf('month').day();
     return day === 0 ? 7 : day;
@@ -39,23 +38,23 @@ const CalendarBody = ({
     return weeks;
   };
 
-  const currentMonthStartDay = getStartDayOfMonth(activeDate);
-  const nextMonthStartDay = getStartDayOfMonth(moment(activeDate).add(1, 'months'));
-  const currentMonthNumberOfDays = activeDate.daysInMonth();
-  const prevMonthNumberOfDays = moment(activeDate).subtract(1, 'months').daysInMonth();
+  const currentMonthStartDay = getStartDayOfMonth(date);
+  const nextMonthStartDay = getStartDayOfMonth(moment(date).add(1, 'months'));
+  const currentMonthNumberOfDays = date.daysInMonth();
+  const prevMonthNumberOfDays = moment(date).subtract(1, 'months').daysInMonth();
   const prevMonthDays = getDaysInMonth(currentMonthStartDay - 1, prevMonthNumberOfDays - currentMonthStartDay + 1)
-    .map(day => moment(activeDate).subtract(1, 'months').set('date', day));
+    .map(day => moment(date).subtract(1, 'months').set('date', day));
   const currentMonthDays = getDaysInMonth(currentMonthNumberOfDays)
-    .map(day => moment(activeDate).set('date', day));
+    .map(day => moment(date).set('date', day));
   const nextMonthDays = nextMonthStartDay !== 1
     ? getDaysInMonth(7 - nextMonthStartDay + 1)
-      .map(day => moment(activeDate).add(1, 'months').set('date', day))
+      .map(day => moment(date).add(1, 'months').set('date', day))
     : [];
 
   const days = [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
 
   const calendarRows = weeksWithDays().map((week, i) => {
-    const currentMonthStartDate = moment(activeDate).startOf('month');
+    const currentMonthStartDate = moment(date).startOf('month');
     const id = calcNumberOfWeek(moment(currentMonthStartDate).add(i, 'weeks'));
     
     const isActive = () => {
@@ -72,8 +71,7 @@ const CalendarBody = ({
     }
 
     return (
-      <CalendarRow
-        activeDate={activeDate}
+      <CalendarRowContainer
         id={id}
         isActive={isActive()}
         isLastWeek={i === weeksWithDays().length - 1}
@@ -84,7 +82,6 @@ const CalendarBody = ({
         key={i}
         nextMonthDays={nextMonthDays}
         prevMonthDays={prevMonthDays}
-        updateSelectedDate={updateSelectedDate}
         week={week}
       />
     )
@@ -105,11 +102,8 @@ const CalendarBody = ({
 }
 
 CalendarBody.propTypes = {
-  activeDate: PropTypes.object.isRequired,
-  calcNumberOfWeek: PropTypes.func.isRequired,
-  selectedDate: PropTypes.object.isRequired,
-  selectedWeekNumber: PropTypes.number.isRequired,
-  updateSelectedDate: PropTypes.func.isRequired
+  date: PropTypes.object.isRequired,
+  selectedWeek: PropTypes.object.isRequired
 }
 
 export default CalendarBody;

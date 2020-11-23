@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-const CalendarFooter = ({ handleClick = f => f, updateDate = f => f }) => 
+const CalendarFooter = ({
+  handleClick = f => f,
+  onUpdateDate = f => f
+}) => 
   <div className="calendar__footer">
-    <button type="button" className="button button--primary" onClick={() => updateDate(moment())}>
+    <button type="button" className="button button--primary" onClick={() => onUpdateDate(moment())}>
       Today
     </button>
     <button type="button" className="button" onClick={handleClick}>
@@ -14,7 +17,7 @@ const CalendarFooter = ({ handleClick = f => f, updateDate = f => f }) =>
 
 CalendarFooter.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  updateDate: PropTypes.func.isRequired
+  onUpdateDate: PropTypes.func.isRequired
 }
 
 export default CalendarFooter;

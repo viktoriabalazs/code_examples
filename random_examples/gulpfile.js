@@ -2,24 +2,50 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
+var babel = require('gulp-babel');
+var plumber = require('gulp-plumber');
+var minify = require('gulp-minify');
 
-gulp.task('styles', function() {
-    gulp.src('./static/scss/external_pages/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({
-            includePaths: ['node_modules/foundation-sites/scss','node_modules/foundation-sites/scss/util','static/scss/external_pages','node_modules/@fortawesome/fontawesome-free/scss'],
-            outputStyle: 'compressed'
-        }))
-        .on('error', sass.logError)
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie >= 9', 'android >= 4.4', 'ios >= 7'],
-            cascade: false
-        }))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./static/compiled_css/'));
+sass.compiler = require('node-sass');
+
+gulp.task('scss', (cb) => {
+  gulp.src('./src/scss/**/*.scss')
+  .pipe(sourcemaps.init())
+  .pipe(sass({
+    outputStyle: 'compressed'
+  }))
+  .on('error', sass.logError)
+  .pipe(autoprefixer({
+    cascade: false
+  }))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest('./dist'));
+  cb();
 });
 
-//Watch task
-gulp.task('default',function() {
-    gulp.watch('./static/scss/external_pages/**/*.scss',['styles']);
+gulp.task('js', (cb) => {
+  gulp.src('./src/js/**/*.js')
+  .pipe(plumber())
+  .pipe(babel({
+    presets: [
+      ['@babel/env', {
+        modules: false
+      }]
+    ]
+  }))
+  .pipe(minify({
+    ext:{
+        min:'.js'
+    },
+    noSource: true
+  }))
+  .pipe(gulp.dest('./dist'));
+  cb();
 });
+
+gulp.task('watch:scss', (cb) => {
+  gulp.watch('./src/scss/**/*.scss', gulp.series('scss'));
+  cb();
+});
+
+gulp.task('default', gulp.series('scss', 'js'));

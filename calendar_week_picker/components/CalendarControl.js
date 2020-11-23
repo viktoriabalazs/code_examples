@@ -1,24 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { calcNumberOfWeek } from '../utils/utils';
 
 const CalendarControl = ({
-  activeDate = moment(),
   collapsed = false,
+  date = moment(),
   expandCollapse = f => f,
-  selectedDate = moment(),
-  selectedWeekNumber = 0,
-  updateDate = f => f,
-  updateSelectedDate = f => f
+  onUpdateDate = f => f,
+  onUpdateSelectedDate = f => f,
+  selectedWeek
 }) => {
+  const { selectedDate, selectedWeekNumber } = selectedWeek;
   const endDateOfWeek = moment(selectedDate).endOf('isoWeek');
   const prevWeek = moment(selectedDate).subtract(1, 'weeks');
   const nextWeek = moment(selectedDate).add(1, 'weeks');
 
   const updateWeek = (week) => {
-    updateSelectedDate(week)
-    if(moment(activeDate).startOf('month') !== moment(week).startOf('month')) {
-      updateDate(moment(week).startOf('month'));
+    onUpdateSelectedDate(week, calcNumberOfWeek(week));
+    if(moment(date).startOf('month') !== moment(week).startOf('month')) {
+      onUpdateDate(moment(week).startOf('month'));
     }
   }
 
@@ -37,7 +38,7 @@ const CalendarControl = ({
         className={`button button--center ${!collapsed ? " active" : ""}`}
         onClick={expandCollapse}
       >
-        {`W${selectedWeekNumber}: ${selectedDate.format('MMM')} ${selectedDate.date()} - ${endDateOfWeek.format('MMM')} ${endDateOfWeek.date()}`}
+        {`W${selectedWeekNumber}: ${moment(selectedDate).format('MMM')} ${moment(selectedDate).date()} - ${endDateOfWeek.format('MMM')} ${endDateOfWeek.date()}`}
       </button>
       <button
         type="button"
@@ -52,13 +53,12 @@ const CalendarControl = ({
 }
 
 CalendarControl.propTypes = {
-  activeDate: PropTypes.object.isRequired,
   collapsed: PropTypes.bool.isRequired,
+  date: PropTypes.object.isRequired,
   expandCollapse: PropTypes.func.isRequired,
-  selectedDate: PropTypes.object.isRequired,
-  selectedWeekNumber: PropTypes.number.isRequired,
-  updateDate: PropTypes.func.isRequired,
-  updateSelectedDate: PropTypes.func.isRequired
+  onUpdateDate: PropTypes.func.isRequired,
+  onUpdateSelectedDate: PropTypes.func.isRequired,
+  selectedWeek: PropTypes.object.isRequired
 }
 
 export default CalendarControl;

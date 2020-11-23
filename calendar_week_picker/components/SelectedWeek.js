@@ -13,7 +13,7 @@ const SelectedWeek = ({ selectedDate = moment() }) => {
 }
 
 SelectedWeek.propTypes = {
-  selectedDate: PropTypes.object.isRequired
+  selectedDate: PropTypes.object.isRequired,
 }
 
 export default SelectedWeek;

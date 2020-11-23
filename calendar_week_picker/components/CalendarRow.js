@@ -1,37 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CalendarDay from './CalendarDay';
-import moment from 'moment';
+import CalendarDayContainer from './CalendarDayContainer';
+import { calcNumberOfWeek } from '../utils/utils';
 
 class CalendarRow extends React.Component {
 
   shouldComponentUpdate(nextProps) {
-    const { activeDate, isActive } = this.props;
-    return isActive !== nextProps.isActive || activeDate !== nextProps.activeDate
+    const { date, isActive } = this.props;
+    return isActive !== nextProps.isActive || date !== nextProps.date
   }
 
   render() {
     const {
-      activeDate = moment(), 
       id = 1,
       isActive = false,
       isLastWeek = false,
       isNotCurrentMonth = false,
       nextMonthDays = [],
       prevMonthDays = [],
-      updateSelectedDate = f => f,
+      onUpdateSelectedDate = f => f,
       week = []
     } = this.props;
+
+    const updateSelectedDate = () => {
+      onUpdateSelectedDate(week[0], calcNumberOfWeek(week[0]));
+    };
 
     return (
       <div
         id={id}
         className={`calendar__body-row ${isActive ? "active" : ""}`}
-        onClick={() => updateSelectedDate(week[0])}
+        onClick={() => updateSelectedDate()}
       >
         {week.map((day, i) =>
-          <CalendarDay
-            activeDate={activeDate}
+          <CalendarDayContainer
             day={day.date()}
             isNextMonth={
               isNotCurrentMonth &&
@@ -49,15 +51,14 @@ class CalendarRow extends React.Component {
   }
 }
 
-CalendarRow.propTypes ={
-  activeDate: PropTypes.object.isRequired,
+CalendarRow.propTypes = {
   id: PropTypes.number.isRequired,
   isActive: PropTypes.bool.isRequired,
   isLastWeek: PropTypes.bool.isRequired,
   isNotCurrentMonth: PropTypes.bool.isRequired,
   nextMonthDays: PropTypes.array.isRequired,
   prevMonthDays: PropTypes.array.isRequired,
-  updateSelectedDate: PropTypes.func.isRequired,
+  onUpdateSelectedDate: PropTypes.func.isRequired,
   week: PropTypes.array.isRequired
 }
 

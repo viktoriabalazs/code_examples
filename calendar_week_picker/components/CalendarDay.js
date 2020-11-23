@@ -4,7 +4,7 @@ import * as classNames from 'classnames';
 import moment from 'moment';
 
 const CalendarDay = ({
-  activeDate = moment(),
+  date = moment(),
   day = 1,
   isNextMonth = false,
   isPrevMonth = false
@@ -14,8 +14,8 @@ const CalendarDay = ({
 
   const isToday =
     currentMonth &&
-    today.year() === activeDate.year() &&
-    today.month() === activeDate.month() &&
+    today.year() === date.year() &&
+    today.month() === date.month() &&
     today.date() === day;
 
   const classNameDay = classNames(
@@ -43,7 +43,7 @@ const CalendarDay = ({
 }
 
 CalendarDay.propTypes = {
-  activeDate: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
   day: PropTypes.number.isRequired,
   isNextMonth: PropTypes.bool.isRequired,
   isPrevMonth: PropTypes.bool.isRequired

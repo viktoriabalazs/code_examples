@@ -22,10 +22,6 @@ http://gazdachem.viktoriasgraphics.com/
 HTML5 / CSS3<br/>
 http://gazdachem.viktoriasgraphics.com/newsletter/index.html
 
-**HTML e-mail - Novochem:**<br/>
-HTML5 / CSS3<br/>
-https://viktoriasgraphics.com/content/html_email/novochem_christmas_letter.html
-
 **Online Calculator:**<br/>
 HTML5 / CSS3 / SASS / JavaScript<br/>
 https://viktoriasgraphics.com/content/calculator/index.html

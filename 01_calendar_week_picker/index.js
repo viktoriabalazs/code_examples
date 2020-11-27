@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import configureStore from './store/store';
-import './index.scss';
-import Calendar from './components/Calendar';
-import * as serviceWorker from './serviceWorker';
+import './scss/main.scss';
+import CalendarContainer from './components/Calendar/CalendarContainer';
 
 const ref = React.createRef();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore()}>
-      <Calendar ref={ref} />
+      <CalendarContainer ref={ref} />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-serviceWorker.unregister();

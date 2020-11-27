@@ -1,0 +1,149 @@
+/* Calendar */
+
+$column-number: 7;
+
+// General styling for calendar items
+%calendar-item {
+  display: inline-block;
+  width: 100% / $column-number;
+  text-align: center;
+  padding: 8px 0;
+  position: relative;
+
+  &.today {
+    margin: 0;
+    color: $blue;
+    border-radius: $global-radius;
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 4px;
+      display: inline-block;
+      border-radius: $global-radius;
+      height: 32px;
+      width: 32px;
+      border: 1px solid $blue;
+    }
+
+    .active & {
+      background: $blue;
+      color: $white;
+
+      span {
+        border: 1px solid $white;
+      }
+    }
+  }
+}
+
+// Calendar styling
+.calendar {
+  font-size: $font-size;
+  width: 304px;
+  color: $main-text;
+  position: relative;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  @media screen and (min-width: 768px) {
+    top: 30px;
+  }
+  &__control {
+    text-align: center;
+    margin: 4px 0;
+  }
+  &__header {
+    background: $extra-light-grey;
+    position: relative;
+    padding: 18px 15px;
+    border: {
+      bottom: 1px solid $medium-grey;
+      radius: 8px 8px 0 0;
+    }
+    div {
+      font: {
+        weight: $bold-font;
+        size: $large-font-size;
+      }
+      text-align: center;
+    }
+    .button--control {
+      position: absolute;
+      &:first-child {
+        top: 8px;
+        left: 11px;
+        img {
+          @include img-correction(left);
+        }
+      }
+      &:last-child {
+        top: 8px;
+        right: 11px;
+        img {
+          @include img-correction(right);
+        }
+      }
+    }
+  }
+  &__selected-week {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  &__dropdown {
+    border-radius: 8px;
+    border: 1px solid $medium-grey;
+    background: $white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    &.show {
+      display: block;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+  &__days {
+    padding: 7px 12px 2px;
+    &-item {
+      @extend %calendar-item;
+      font-size: $small-font-size;
+      color: $extra-dark-grey;
+    }
+  }
+  &__body {
+    padding: 0 11px;
+    &-row {
+      margin: 7px 0;
+      border-radius: $global-radius;
+      cursor: pointer;
+      &:last-child {
+        margin-bottom: 6px;
+      }
+      &:hover {
+        background: $grey;
+      }
+      &.active {
+        background: $blue;
+        color: $white;
+      }
+    }
+    &-item {
+      @extend %calendar-item;
+      &--prev, &--curr, &--next {
+        @extend %calendar-item;
+      }
+      &--prev, &--next {
+        color: $light-grey;
+      }
+    }
+  }
+  &__footer {
+    background: $extra-light-grey;
+    padding: 7px 10px;
+    border: {
+      top: 1px solid $medium-grey;
+      radius: 0 0 8px 8px;
+    }
+  }
+}

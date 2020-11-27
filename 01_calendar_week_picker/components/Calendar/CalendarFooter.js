@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import Button from '../Button/Button';
 
 const CalendarFooter = ({
   handleClick = f => f,
   onUpdateDate = f => f
 }) => 
   <div className="calendar__footer">
-    <button type="button" className="button button--primary" onClick={() => onUpdateDate(moment())}>
+    <Button
+      onClick={() => onUpdateDate(moment())}
+    >
       Today
-    </button>
-    <button type="button" className="button" onClick={handleClick}>
+    </Button>
+    <Button
+      appearance="secondary"
+      onClick={handleClick}
+    >
       Close
-    </button>
+    </Button>
   </div>
 
 CalendarFooter.propTypes = {

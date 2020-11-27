@@ -1,0 +1,124 @@
+/* Buttons */
+
+@mixin img-correction($side) {
+  position: relative;
+  top: -1px;
+  @if $side == right {
+    right: -1px;
+  } @else {
+    left: -1px;
+  }
+}
+
+.button-group {
+  height: 32px;
+  white-space: nowrap;
+  overflow: visible;
+
+  &::after {
+      clear: both;
+      content: "";
+      display: block;
+  }
+
+  & > div {
+    display: inline-block;
+    height: 100%;
+  }
+  
+  .button {
+    position: relative;
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
+    display: block;
+    float: left;
+    z-index: 1;
+
+    &:first-child {
+      border-radius: $global-radius 0 0 $global-radius;
+      position: relative;
+      left: 1px;
+    }
+    &:last-child {
+      border-radius: 0 $global-radius $global-radius 0;
+      position: relative;
+      right: 1px;
+    }
+
+    &--center {
+      position: relative;
+      z-index: 2;
+      font: {
+        size: $font-size;
+        weight: $bold-font;
+      }
+      min-width: 185px;
+      padding: 7px 12px;
+    }
+  }
+}
+
+.button {
+  border-radius: $global-radius;
+  background: $white;
+  padding: 6.5px 15px 7px;
+  font-weight: $bold-font;
+  margin: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &.active {
+    color: $dark-blue;
+    background: $extra-light-blue;
+    border: 1px solid $medium-blue;
+
+    &:hover {
+      background: $extra-light-blue;
+      border: 1px solid $medium-blue;
+    }
+  }
+
+  // APPEARANCE
+  &--primary {
+    color: $blue;
+    border: 1px solid $blue;
+
+    &:hover {
+      background: $extra-light-blue;
+      border: 1px solid $dark-blue;
+    }
+  }
+  &--secondary {
+    border: 1px solid $light-grey;
+
+    &:hover {
+      background: $extra-light-grey;
+      border: 1px solid $dark-grey;
+    }
+  }
+  &--control {
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background: $extra-light-grey;
+
+      img {
+        opacity: 0.5;
+      }
+    }
+  }
+  &--icon {
+    height: 32px;
+
+    img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CalendarRowContainer from './CalendarRowContainer';
+import CalendarRow from './CalendarRow';
 import moment from 'moment';
-import { calcNumberOfWeek } from '../utils/utils';
+import { calcNumberOfWeek } from '../../utils/utils';
+import { stateData } from '../../data/initialState';
 
 const DayNames = ({ weekArray }) =>
   <div className="calendar__days">
@@ -12,10 +13,11 @@ const DayNames = ({ weekArray }) =>
   </div>
 
 const CalendarBody = ({
-  date = moment(),
-  selectedWeek
+  onUpdateSelectedDate = f => f,
+  store = stateData
 }) => {
-  const { selectedDate, selectedWeekNumber } = selectedWeek;
+  const { selectedDate, selectedWeekNumber } = store.selectedWeek;
+  const { date } = store;
   const getStartDayOfMonth = (date) => {
     const day = date.startOf('month').day();
     return day === 0 ? 7 : day;
@@ -71,7 +73,8 @@ const CalendarBody = ({
     }
 
     return (
-      <CalendarRowContainer
+      <CalendarRow
+        date={date}
         id={id}
         isActive={isActive()}
         isLastWeek={i === weeksWithDays().length - 1}
@@ -81,6 +84,7 @@ const CalendarBody = ({
         }
         key={i}
         nextMonthDays={nextMonthDays}
+        onUpdateSelectedDate={onUpdateSelectedDate}
         prevMonthDays={prevMonthDays}
         week={week}
       />
@@ -102,8 +106,14 @@ const CalendarBody = ({
 }
 
 CalendarBody.propTypes = {
-  date: PropTypes.object.isRequired,
-  selectedWeek: PropTypes.object.isRequired
+  onUpdateSelectedDate: PropTypes.func.isRequired,
+  store: PropTypes.shape({
+    date: PropTypes.object.isRequired,
+    selectedWeek: PropTypes.shape({
+      selectedDate: PropTypes.object.isRequired,
+      selectedWeekNumber: PropTypes.number.isRequired,
+    })
+  })
 }
 
 export default CalendarBody;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import Button from '../Button/Button';
 
 const CalendarHeader = ({
     date = moment(),
@@ -19,23 +20,25 @@ const CalendarHeader = ({
     
     return (
       <div className="calendar__header">
-        <button
-          type="button"
-          className="button button--control button--icon"
+        <Button
+          appearance="secondary"
+          control={true}
+          icon={true}
           onClick={() => getPrevMonth(date)}
         >
           <img src="images/icon_arrow_left.png" alt="Prev" height="14" width="8" />
-        </button>
+        </Button>
         <div>
           {date.format('MMMM')} {date.year()}
         </div>
-        <button
-          type="button"
-          className="button button--control button--icon"
+        <Button
+          appearance="secondary"
+          control={true}
+          icon={true}
           onClick={() => getNextMonth(date)}
         >
           <img src="images/icon_arrow_right.png" alt="Next" height="14" width="8" />
-        </button>
+        </Button>
       </div>
     )
   }
